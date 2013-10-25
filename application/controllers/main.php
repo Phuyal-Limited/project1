@@ -57,5 +57,8 @@ class Main extends CI_Controller {
 
 		$this->index();
 	}
+	public function sudip(){
+		$this->load->view('sudip');
+	}	
 	
 }
