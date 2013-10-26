@@ -45,22 +45,22 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                   </div>
@@ -69,22 +69,22 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/imagges/Book.png');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                   </div>
@@ -93,22 +93,22 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                   </div>
@@ -117,22 +117,22 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                       <a href="#" class="thumbnail">
-                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                        <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                       </a>
                     </div>
                   </div>
@@ -142,7 +142,7 @@
             <div class="row">&nbsp;</div>
             <div class="row">
               <div class="col-md-5">
-                <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>" width="100%" height="200">
+                <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>" width="100%" height="200">
               </div>
               <div class="col-md-7">
                 <div class="col-md-7">
@@ -156,7 +156,7 @@
                   </ul>
                 </div>
                 <div class="col-md-5">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>" width="100%" height="170">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>" width="100%" height="170">
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
             <div class="row">
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -188,7 +188,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -196,7 +196,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -204,7 +204,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -215,7 +215,7 @@
                         <div class="row">
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -223,7 +223,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -231,7 +231,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>
@@ -239,7 +239,7 @@
               </div>
               <div class="col-sm-6 col-md-3">
                 <a href="#" class="thumbnail">
-                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/img/Book.png');?>">
+                  <img alt="Generic placeholder thumbnail" src="<?php echo base_url('assets/images/1.jpg');?>">
                 </a>
                 <p>Book Title</p>
                 <p>Auther Name</p>

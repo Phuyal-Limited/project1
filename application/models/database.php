@@ -12,6 +12,11 @@ class Database extends CI_Model{
 		$output = $this->db->query("SELECT * FROM `category`");
 		return $output->result();	
 	}
+	
+	public function search_book($isbn){
+		$output = $this->db->query("SELECT * FROM `books` WHERE isbn10='$isbn' OR isbn13='$isbn'");
+		return $output->result();
+	}
 }
 
 ?>
