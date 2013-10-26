@@ -14,7 +14,7 @@
     #Submitted by: Fabdrol
     #Rename 'application' to your applications folder name.
     RewriteCond %{REQUEST_URI} ^application.*
-    RewriteRule ^(.*)$ /$1 [L]
+    RewriteRule ^(.*)$ /index.php?/$1 [L]
 
     #Checks to see if the user is attempting to access a valid file,
     #such as an image or css document, if this isn't true it sends the
