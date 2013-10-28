@@ -1,85 +1,357 @@
-#header{
-	background-image: url(../images/header-bg-front.png);
-	background-repeat: repeat-x;
-	height:138px;
-	}
-#logo{
-	/*font-family:"Sports World";
-	font-size: 37px;
-	text-transform: uppercase;
-	background-color: #3c757d;*/
-	width:300px;
-	margin-top: 25px;
-	padding-bottom:8px; 
-	padding-left: 6px;
-	}
-	#reads{
-		color:#282828;
-	}
-#top-nav{
-	color:#dddcdb;
-	font-family:arial;
-	font-size:13px;
-	float:right;
-	}
-	#top-nav ul{
-		float:right;
-		margin-top: 10px;
-	}
-	#top-nav ul li{
-		display:inline;
-		margin-left: 15px;
-		margin-right:-5px;
-	}
-	#top-nav ul li a{
-		color:#dddcdb;
-	}
-#main-nav{
-	color:#dddcdb;
-	font-family: arial;
-	font-size: 13px;
-	/*text-transform: uppercase;*/
-	margin-top:5px;
-	}
-	#main-nav ul{
-		float: left;
-	}
-	#main-nav ul li{
-		display:inline;
-		margin-right:65px;
-		margin-left: -33px;
-	}
-	#main-nav a{
-		text-decoration: none;
-		color:#dddcdb;
-		letter-spacing:1px;
-		font-weight: bold;
-	}
-	#main-nav a:hover{
-		color:#fff;
-	}
-#search{
-	float:right;
-	margin-top:-10px;
-	}
-	#search-box{
-		padding:5px;
-		width:400px;
-		background-color:#f5f5f5;
-		border:none;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
-	}
-	#search-button{
-		padding:5px;
-		background-color:#f5f5f5;
-		border:none;
-		width:70px;
-		font-size:13px;
-		text-transform: uppercase;
-		font-weight: bold;
-		-webkit-border-radius: 3px;
-		-moz-border-radius: 3px;
-		border-radius: 3px;
-	}
+/* Start : Override Bootstrap navigation */
+.navbar-inner, footer {
+  border: none;
+  padding: 15px 0;
+  background: url('../images/header-footer.png');
+}
+.navbar .brand-nepalreads {
+	font-size: 30px;
+	cursor: pointer;
+	text-shadow: none;
+	color: white;
+  font-weight: bold;
+}
+.navbar .nav li.dropdown > .dropdown-toggle .caret {
+	border-top-color: white;
+	border-bottom-color: white;
+}
+.navbar .nav > li > a {
+	text-shadow: none;
+	color: white;
+	font-size: 17px;
+  font-weight: bold;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+         border-radius: 3px;
+}
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+	color: white !important;
+	background: #2E3436 !important;
+}
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+	background: #2E3436;
+}
+/* End : Override Bootstrap navigation */
+
+/* Start : Override Bootstrap hero unit */
+.hero-unit {
+	background: none;
+	padding: 0 60px 0 60px;
+	margin: 0;
+}
+.hero-unit h1 {
+  margin: 10px 0 10px 0;
+}
+/* End : Override Bootstrap hero unit */
+
+/* Start : Override Bootstrap carousel */
+.carousel-control {
+  border: none;
+}
+.left {
+  left: 0;
+}
+.right {
+  right: 0 !important;
+}
+/* End : Override Bootstrap carousel */
+
+/* Start: Override Bootstrap Accordian */
+
+.accordion-group,
+.accordion-inner {
+  border: none;
+}
+
+/* End: Override Bootstrap Accordian */
+
+.caption{
+  line-height: 10px;
+}
+.caption h3{
+  line-height:20px;
+}
+.details{
+  padding:50px;
+  padding-top: 0px;
+}
+
+.bold{
+  color:#262422;
+  font-weight: bold;
+}
+
+.fade{
+  color:black;
+}
+
+.date{
+  padding-bottom:5px;
+  color:#696867;
+}
+
+.review{
+  /*background-color:#f8f6f3;*/
+  padding:10px;
+  margin: 5px;
+  border:1px solid #e6e6e5;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+
+/*hr.carved {
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: 2px;
+  margin: 1.4em 0;
+  border: none; 
+  background: #ddd;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0.5, rgb(221,221,221)),
+      color-stop(0.5, rgb(255,255,255))
+  );
+  background-image: -moz-linear-gradient(
+      center top,
+      rgb(221,221,221) 50%,
+      rgb(255,255,255) 50%
+  );
+}*/
+/* Start:Nepal Reads specific CSS */
+.content {
+  padding: 30px 0;
+  background: url('../images/content.png');
+}
+.thumbnail img {
+  width: 100%;
+}
+.active-link {
+  background-color: #2E3436;
+}
+.page-header {
+  margin: 0 0 30px;
+  border-bottom: 1px solid #ddd;
+}
+.slider {
+	border-bottom:  1px solid #ddd;
+}
+.widget-header {
+  border: 1px solid #DDD;
+  padding: 20px 5px;
+  text-align: center;
+  margin: 0;
+  border-bottom: 0;
+  background-color: #EEEEEC;
+  -webkit-border-radius: 5px 5px 0 0;
+     -moz-border-radius: 5px 5px 0 0;
+          border-radius: 5px 5px 0 0;
+}
+.widget-body {
+  font-size: 16px;
+  padding: 30px 0 20px 0;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 0 0 5px 5px;
+     -moz-border-radius: 0 0 5px 5px;
+          border-radius: 0 0 5px 5px;
+}
+.widget-footer {
+  padding: 6%;
+  background-color: #EEEEEC;
+  border-top: 1px solid #DDD;
+}
+.widget-footer p {
+  margin: 0;
+}
+.features {
+  margin-top: 10px;
+  list-style: none;
+}
+.features > li {
+  line-height: 30px;
+}
+.features > li > i {
+  margin-right: 10px;
+  font-size: 20px;
+}
+.center-align {
+  text-align: center;
+}
+.product-snap {
+  display: inline;
+}
+.article {
+  font-size: 15px;
+  line-height: 22px;
+}
+.team-member-description {
+  padding-top: 60px;
+}
+.bottom-space {
+  margin-bottom: 30px;
+}
+.bottom-space-less {
+  margin-bottom: 10px;
+}
+.post-row {
+  padding-bottom: 10px;
+  border-bottom:  1px solid #eee;
+}
+.sidebar {
+  padding: 20px 0;
+}
+.circle {
+  width: 75px;
+  height: 75px;
+  background-color: #2E3436;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+         border-radius: 75px;
+}
+.event-date {
+  padding-top: 13px;
+  display: block;
+  line-height: 25px;
+}
+.counter {
+  display: block;  
+  padding-top: 25px;
+}
+.signin-with-list {
+  list-style: none;
+}
+.signin-with-list > li {
+  margin-top: 20px;
+}
+.signin-with-list > li > a {
+  color: white;
+  padding: 8px;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-facebook {
+  background: #3679EA;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+         border-radius: 3px;
+}
+.btn-twitter {
+  background: #53cbe9;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+         border-radius: 3px;
+}
+.btn-google {
+  background: #7288de;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+         border-radius: 3px;
+}
+.btn-github {
+  background: #2E3436;
+  -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+         border-radius: 3px;
+}
+.btn-facebook:hover, .btn-twitter:hover,
+.btn-google:hover, .btn-github:hover {
+  text-decoration: none;
+}
+.form-signin-signup input[type="text"],
+.form-signin-signup input[type="password"] {
+  width: 70%;
+  height: 30px;
+}
+.form-signin-signup input {
+  margin-bottom: 15px;
+}
+.remember-me {
+  margin: 0 auto;
+  width: 70%;
+}
+.remember-me a {
+  font-size: 15px;
+}
+.contact-mail,
+.contact-mail:hover {
+  color: black;
+  text-decoration: none;
+}
+.form-contact-us input[type="text"],
+.form-contact-us textarea {
+  margin-bottom: 20px;
+  width: 70%;
+}
+.form-contact-us input[type="text"] {
+  height: 25px;
+}
+.form-contact-us textarea {
+  height: 100px;
+}
+footer {
+  color: white;
+  padding-top: 20px;
+}
+.quick-links {
+  list-style: none;
+}
+.quick-links > li {
+  line-height: 30px;
+}
+.quick-links > li > a {
+  color: white;
+}
+.social-icons-row {
+  margin-top: 50px;
+}
+.social-icons-row > a {
+  color: white;
+  font-size: 30px;
+  margin-left: 25px;
+}
+.social-icons-row > a:hover,
+.social-icons-row > a:focus {
+  color: orange;
+  text-decoration: none;
+}
+.phone-number {
+  margin-left: 25px;
+}
+.footer-divider {
+  border-top: 0;  
+  border-bottom: 1px solid #333;
+}
+.price{
+  color:#eb2f2f;
+}
+/* End: BootNepalReads specific CSS */
+
+/* Start: Responsive CSS section */
+@media (max-width: 979px) {
+  .nav-collapse .dropdown-menu a {
+    color: white;
+  }
+  .nav-collapse .dropdown-menu a:hover {
+    background-color: #2E3436;
+  }
+  .nav-collapse .nav-header,
+  .nav-collapse .dropdown-submenu > a {
+    display: none;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    padding-top: 70px;
+  }
+}
+/* End : Responsive CSS section */
