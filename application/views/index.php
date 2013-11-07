@@ -1,27 +1,41 @@
+
+
 <html>
 <head>
-	<title>VBS | Welcome</title>
+	<title>Welcome | Nepal Reads</title>
+	<!-- Bootstrap -->
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
+    <!-- Bootstrap responsive -->
+    <link href="<?php echo base_url('assets/css/bootstrap-responsive.min.css');?>" rel="stylesheet">
+    <!-- custom css -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/landing.css');?>">
 </head>
 <body>
-	<div id="logo-div">
-		<!-- <p id="logo"> <span> nepal</span> Reads</p> -->
-		<a href=""><img src="<?php echo base_url('assets/images/logo.png');?>"></a>
-	</div>
-	<div id="wrapper">
-		<div id="contents">
-			<!-- <p id="buttons"> <a href="">Login</a> <span><a href=""> Explore</a> </span></p> -->
-			<p id="head">Virtual Book Store</p>
-			<p id="quote">Buying Books Made Easier!! <br /></p>
-			<div id="butts">
-				<a href="#" id="login">Login</a>
-				<a href="home">Explore</a>
+
+	<div class="container">
+		<div class="row-fluid">
+			<div id="logo-div">
+				<!-- <p id="logo"> <span> nepal</span> Reads</p> -->
+				<a href=""><img src="<?php echo base_url('assets/images/logo.png');?>"></a>
 			</div>
-			<!-- <input type="button" value="Login" class="button">
-			<input type="button" value="Explore" class="button"> -->
+		</div>
+		<div class="row-fluid contents" >
+			<div class="row-fluid vbs">
+				<p>Virtual book Store</p>
+			</div>
+			<div class="row-fluid made-easier">
+				<p>Buying Books made Easier</p>
+			</div>
+			<div class="row-fluid butts">
+				<div class="span3"></div>
+				<div class="span3 butt"><a href="" id="login">login</a></div>
+				<div class="span3 butt"><a href="home">Explore</a></div>
+				<div class="span3"></div>
+			</div>
+			
+
 		</div>
 	</div>
-
 
 </body>
 </html>

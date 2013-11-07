@@ -41,15 +41,29 @@ class Main extends CI_Controller {
 			$data['category'] = $this->database->category();
 			$data['book_details'] = $this->database->book_particular($book_id);
 			$data['shop_details'] = $this->database->shop_details($book_id);
-			$data['title'] = 'Book | '.$data['book_details'][0][0]->book_name;
+			$data['title'] = 'Book | '.$data['book_details'][0]['book_name'];
 			//print_r(sizeof($data['shop_details']));exit(); 
 			//echo $data['book_details'][1][1][0]->path;exit();
-			//print_r(($data['book_details']));exit();
+			//print_r(($data['shop_details']));exit();
 			$this->load->view('product', $data);
 	
 		}
 		
 		
+	}
+	
+	public function search(){
+		if($this->input->post('search')==false){
+			$this->home();
+		}else{
+			$srch_txt = $this->input->post('search_text');
+			$category = $this->input->post('category');
+			$data['title'] = 'Search | Nepal Reads';
+			$data['category'] = $this->database->category();
+			$data['search_result'] = $this->database->search($srch_txt, $category);
+			//print_r($data['search_result']);exit();
+			$this->load->view('search', $data);
+		}
 	}
 
 	

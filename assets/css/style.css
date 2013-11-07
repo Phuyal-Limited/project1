@@ -1,8 +1,9 @@
 /* Start : Override Bootstrap navigation */
 .navbar-inner, footer {
   border: none;
-  padding: 15px 0;
+  /*padding: 15px 0;*/
   background: url('../images/header-footer.png');
+  /*background-color:white;*/
 }
 .navbar .brand-nepalreads {
 	font-size: 30px;
@@ -103,6 +104,51 @@
     -moz-border-radius: 5px;
 }
 
+.main-search{
+  padding:10px;
+}
+.main-search select{
+  outline:none;
+  width:200px;
+
+}
+.sortby{
+  padding-top:30px;
+}
+
+.index-thumb{
+  font-size:13px;
+  padding-bottom:20px;
+}
+.section1 ul{
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  font-size: 15px;
+  /*text-transform: uppercase;*/
+  font-weight: bold;
+  line-height: 30px;
+}
+.section1 ul li{
+  padding:6px;
+  border-bottom:1px solid #ddd;
+  list-style-type: none;
+}
+
+.section1 ul li a{
+  color:#575757;
+}
+
+.kale{
+  border:1px solid;
+}
+
+.section2.advanced-box{
+  padding: 40px;
+  border:1px solid #B6B2B2;
+  border-radius: 5px;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+
 
 /*hr.carved {
   clear: both; 
@@ -128,7 +174,8 @@
 /* Start:Nepal Reads specific CSS */
 .content {
   padding: 30px 0;
-  background: url('../images/content.png');
+  /*background: url('../images/content.png');*/
+  background-color: #f1efef;
 }
 .thumbnail img {
   width: 100%;
@@ -163,12 +210,20 @@
           border-radius: 0 0 5px 5px;
 }
 .widget-footer {
-  padding: 6%;
+  padding: 15px;
   background-color: #EEEEEC;
   border-top: 1px solid #DDD;
 }
 .widget-footer p {
   margin: 0;
+}
+.widget-footer a{
+  cursor: pointer;
+  text-decoration: none;
+  border:1px solid #b8b9b9;
+  border-radius: 3px;
+  padding:5px;
+  margin:5px;
 }
 .features {
   margin-top: 10px;

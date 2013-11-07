@@ -72,7 +72,21 @@
       </div>
     </footer>
     <!-- End: FOOTER -->
-    
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/boot-business.js');?>"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+                    
+					$('#myTab a').click(function (e) {
+                    
+						e.preventDefault();
+                    	$(this).tab('show');
+                  	})
+
+                  $('#myTab a[href="#profile"]').tab('show'); // Select tab by name
+                  $('#myTab a:first').tab('show'); // Select first tab
+                  // $('#myTab a:last').tab('show'); // Select last tab
+                  // $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
+                  </script>
+  </body>
+</html>
