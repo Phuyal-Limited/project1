@@ -1,4 +1,3 @@
-
 html, div, map, dt, isindex, form, header, aside, section, section, article, footer {  
     display: block;  
 } 
@@ -6,93 +5,24 @@ html, div, map, dt, isindex, form, header, aside, section, section, article, foo
 html, body {
 height: 100%;
 margin: 0;
-padding: 0;
+padding-top:0px !important;
 font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
 background: #F8F8F8;
 font-size: 12px;
 }
 
-.clear {
-clear: both;
+.logo img{
+	display:block;
+	margin-right: auto;
+	margin-left: auto;
 }
-
-.spacer {
-height: 20px;
-}
-
-a:link, a:visited {
-color: #77BACE;
-text-decoration: none;
-}
-
-a:hover {
-text-decoration: underline;
-}
-
-
-/* Header */
-
-header#header {
-height: 55px;
-width: 100%;
-background: url(../images/header_bg.png) repeat-x;
-}
-
-header#header h1.site_title, header#header h2.section_title {
-float: left;
-margin: 0;
-font-size: 22px;
-display: block;
-width: 23%;
-height: 55px;
-font-weight: normal;
-text-align: left;
-text-indent: 1.8%;
-line-height: 55px;
-color: #fff;
-/*text-shadow: 0 -1px 0 #000;*/
-}
-#dashboard-title{
-/*font-family:"Sports World";*/
-font-size: 37px;
-text-transform: uppercase;
-margin-left: 40px !important;
-margin-right:-40px !important;
-margin-top:-5px !important;
-}
-
-#logo-back{
-font-family:"Sports World";
-font-size:30px !important;
-text-transform: uppercase;
-}
-#logo-back a{
-color:#fff;
-}
-#logo-back a:hover{
-text-decoration: none;
-}
-
-#logo-back span{
-color:#444135;
-}
-
-
-header#header h1.site_title a {
-color: #fff;
-text-decoration: none;
-}
-
-header#header h2.section_title {
-text-align: center;
-text-indent: 4.5%;
-width: 68%;
-background: url(../images/header_shadow.png) no-repeat left top;
+.dash-head h3{
+	text-align:center;
+	}
 }
 
 .btn_view_site {
-float: left;
-width: 9%;
+float: right;
 font-size:13px;
 }
 
@@ -112,16 +42,8 @@ text-shadow: 0 -1px 0 #000;}
 background-position: 0 -27px;
 }
 
-
-section#secondary_bar {
-height: 38px;
-width: 100%;
-background: #F1F1F4 url(../images/secondary_bar.png) repeat-x;
-}
-
-section#secondary_bar .user {
-float: left;
-width: 23%;
+.user {
+/*float: left;*/
 height: 38px;
 }
 
@@ -132,7 +54,6 @@ color: #666666;
 font-weight: bold;
 display: block;
 float: left;
-width: 85%;
 height: 35px;
 line-height: 35px;
 text-indent: 25px;
@@ -150,7 +71,8 @@ color: #77BACE;
 }
 
 .user a.logout_user {
-float: left;
+float: right;
+position:relative;
 display: block;
 width: 16px;
 height: 35px;
@@ -158,16 +80,14 @@ text-indent: -5000px;
 background: url(../images/icn_logout.png) center no-repeat;
 }
 
-/* This is a copied code for breadcrums */
-
-section#secondary_bar .breadcrumbs_container {
+.breadcrumbs_container {
 float: left;
 width: 77%;
-background: url(../images/secondary_bar_shadow.png) no-repeat left top;
+/*background: url(../images/secondary_bar_shadow.png) no-repeat left top;*/
 height: 38px;
 }
 
-article.breadcrumbs {
+.breadcrumbs {
 float: left;
 padding: 0 10px;
 border: 1px solid #ccc;
@@ -214,9 +134,8 @@ float: left;
 margin: 0 5px;
 }
 
-
 aside#sidebar {
-width: 23%;
+width: 100%;
 background: #E0E0E3 url(../images/sidebar.png) repeat;
 float: left;
 min-height: 500px;
@@ -333,14 +252,10 @@ text-decoration: underline;
 margin-top: 20%;
 }
 
-
-/* Main Content */
-
-
 section#main {
-width: 77%;
+/*width: 77%;*/
 min-height: 500px;
-background: url(../images/sidebar_shadow.png) repeat-y left top;
+/*background: url(../images/sidebar_shadow.png) repeat-y left top;*/
 float: left;
 margin-top: -2px;
 }
@@ -368,7 +283,6 @@ background: #ffffff;
 #main .module header h3 {
 display: block;
 width: 90%;
-float: left;
 }
 
 .module header {
@@ -384,7 +298,7 @@ border-top-left-radius: 5px; border-top-right-radius: 5px;
 height: 32px;
 width: 100%;
 border-top: 1px solid #9CA1B0;
-background: #F1F1F4 url(../images/module_footer_bg.png) repeat-x;
+background: #F1F1F4;
 -webkit-border-bottom-left-radius: 5px; -webkit-border-bottom-right-radius: 5px;
 -moz-border-radius-bottomleft: 5px; -moz-border-radius-bottomright: 5px;
 -webkit-border-bottom-left-radius: 5px; -webkit-border-bottom-right-radius: 5px;
@@ -431,8 +345,7 @@ margin: 10px 0;
 
 fieldset label {
 display: block;
-float: left;
-width: 200px;
+font-size:12px !important;
 height: 25px;
 line-height: 25px;
 text-shadow: 0 1px 0 #fff;
@@ -473,7 +386,6 @@ fieldset select {
 width: 96%;
 margin: 0 10px;
 border: 1px solid #bbb;
-height: 20px;
 color: #666666;
 }
 
@@ -512,7 +424,6 @@ padding: 5px 0;
 .submit_link select {
 width: 150px;
 border: 1px solid #bbb;
-height: 20px;
 color: #666666;
 }
 
@@ -552,4 +463,45 @@ margin: 8px 0px;
 line-height: 150%;
 }
 
+#delete-filter ul{
+	padding-left: 0px;
+}
+#delete-filter ul li{
+	display:inline !important;
+	/*list-style-type: none;*/
+}
+#delete-filter select{
+	width:90%;
+}
+#bla-bla ul li{
+	display:inline;
+}
 
+.books ul li{
+	display: inline;
+}
+
+.content-dash{
+	padding:4px 0;
+}
+
+.dash-head a{
+	color:#e6e6e6;
+	text-decoration:none;
+}
+
+.thumb-btn{
+	padding:5px;
+}
+
+.content-border{
+	padding:20px;
+	border:1px solid #b8b9b9;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.message{
+	border-bottom:1px solid #b8b9b9;
+	padding:10px;
+}

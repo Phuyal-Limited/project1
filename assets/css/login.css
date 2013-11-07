@@ -1,0 +1,89 @@
+html,body{
+	background-image:url(../images/login-bg.jpg);
+	background-repeat:no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	/*background-color:#252525;*/
+	/*height:100%;*/
+}
+label{
+	color:#6b6b6b;
+	font: 13px "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+	line-height: 25px;
+}
+a {
+	font:13px "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+	text-decoration: none;
+	color:#1E86E3;
+}
+.login-main{
+	width:440px;
+	/*border:1px solid black;*/
+	margin-left:auto;
+	margin-right: auto;
+	margin-top: 100px;
+	display:block;
+	background-color: white;
+	border-radius:10px;
+	padding:40px;
+}
+#logo img{
+	/*font-family:"Sports World";
+	font-size: 37px;
+	text-transform: uppercase;*/
+	display:block;
+	margin-left:auto;
+	margin-right: auto;
+	padding-bottom: 40px;
+	padding-bottom: -20px;
+}
+input#username, input#Password{
+	background: #fafafa;
+	border: 1px solid #eee;
+	font-size: 13px;
+	line-height: 20px;
+	margin: 0;
+	padding: 3px;
+	width: 440px;
+}
+input:focus, input:active{
+	outline:none;
+	border:1px solid #b9b9b9 !important;
+    -moz-appearance:none;
+    background-color: white;
+}
+/*input#username:focus, input#Password:focus{
+	border:1px solid;
+}*/
+#forget{
+	float: right;
+}
+/*  Copied (and edited) code for submit button*/
+#submit-button{
+	-moz-box-shadow: 0px 1px 3px 0px #dedede;
+	-webkit-box-shadow: 0px 1px 3px 0px #dedede;
+	box-shadow: 0px 1px 3px 0px #dedede;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f0f0f0) );
+	background: -moz-linear-gradient( center top, #ffffff 5%, #f0f0f0 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f0f0f0');
+	background-color: #ffffff;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	border: 1px solid #d1d1d1;
+	display: inline-block;
+	color: #666666 !important;
+	font-family: arial;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px 20px;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #ffffff;
+	margin-top: 10px;
+	cursor:pointer;
+}
+#submit-button:active{
+	
+}
