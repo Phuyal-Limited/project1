@@ -146,13 +146,15 @@ margin-bottom: 9px;
   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
   font-size: 15px;
   /*text-transform: uppercase;*/
-  font-weight: bold;
+  /*font-weight: bold;*/
   line-height: 30px;
 }
 .section1 ul li{
-  padding:6px;
+  padding:10px;
   border-bottom:1px solid #ddd;
   list-style-type: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .section1 ul li a{
@@ -214,6 +216,34 @@ margin-top:-30px;
 .toggleLink:hover {
 color: #77BACE;
 text-decoration: none;
+}
+
+.showcase-tabs{
+  padding:0;
+  margin:0;
+  margin-left:-0.016px;
+}
+.showcase{
+  background-color: rgb(54, 96, 102);
+  padding: 25px;
+}
+
+.showcase-tabs>.active>a{
+  background-color: rgb(54, 96, 102);
+  color:#fff;
+}
+
+.showcase-tabs>.active>a:hover{
+  background-color: rgb(54, 96, 102);
+  color:#fff;
+}
+
+.showcase-tabs li a{
+  color:rgb(54, 96, 102);;
+}
+.showcase-tabs li a:hover{
+  background-color: rgb(54, 96, 102);
+  color:white;
 }
 
 

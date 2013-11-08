@@ -33,16 +33,16 @@
                   </form>
                 </div>
 
-                <div class="row-floid">
+                <div class="row-fluid showcases">
                   
-                  <ul class="nav nav-tabs" id="myTab">
+                  <ul class="nav nav-tabs showcase-tabs" id="myTab">
                     <li class="active"><a href="#home" data-toggle="tab">Newest</a></li>
                     <li><a href="#profile" data-toggle="tab">Featured</a></li>
                     <li><a href="#messages" data-toggle="tab">Best-selling</a></li>
                     <li><a href="#settings" data-toggle="tab">Trending</a></li>
                   </ul>
                    
-                  <div class="tab-content">
+                  <div class="tab-content showcase">
                     <div class="tab-pane active" id="home">
                         <div class="row-fluid ">
                     <div class="thumbnails index-thumb">
