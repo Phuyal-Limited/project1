@@ -30,7 +30,7 @@
             </div>
           </div>
             <div class="page-header">
-              <p>Search Result for: <span>Siris Ko Fool</span></p>
+              <p>Search Result for: <span><?php echo $srch_txt;?></span></p>
             </div>
 
           <div class="row-fluid filter-sort">
@@ -185,158 +185,86 @@
 
             </div> <!-- end s section1 -->
             <div class="span10 section2"> <!-- section2 starts -->
-              <div class="row-fluid">
-                  <ul class="thumbnails">
-                        <li class="span3">
-                          <div class="thumbnail">
-                            <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker">
-                            <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="product.php" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+              <?php
+                	$sz = sizeof($search_result[0]);
+					if($sz==0){
+					
+					}else{
+						$sz = $sz-1;
+					}
+					$row = $sz/4;
+					$counter = 0;
+					$i = 0;
+					for($x=0;$x<=$row;$x++){
+						
+				?>
                 <div class="row-fluid">
+                  <!-- <div class="span3" style="border:2px solid red;">
+
+                  </div>
+                  <div class="span3" style="border:2px solid red;">
+
+                  </div>
+                  <div class="span3" style="border:2px solid red;">
+
+                  </div>
+                  <div class="span3" style="border:2px solid red;">
+
+                  </div> -->
                       <ul class="thumbnails">
+                      <?php 
+				 		 $size = sizeof($search_result[0]);
+				  			
+				  		if($search_result[0] == array()){
+							 echo 'No Books Available.';
+						}else{
+				  			while($i<$size){
+								
+								$counter++;
+								$img = $search_result[1][$i]['path'];
+								//echo $img;exit();
+								$alt = $search_result[1][$i]['alt'];
+				  		?>
+                      
                         <li class="span3">
                           <div class="thumbnail">
-                            <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
+                            <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
+                              <h3><?php echo $search_result[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
+                              <p>By: <a href=""><?php echo $search_result[0][$i]['author'];?></a> <br /></p>
+                              <!--<p>Fourth Edition</p>
+                              <span class="rating">
+                                  <span class="star"></span>
+                                  <span class="star"></span>
+                                  <span class="star"></span>
+                                  <span class="star"></span>
+                                  <span class="star"></span>
+                                </span>
                               <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
+                              <p class="price">$10.23</p>-->
                             </div>
                             <div class="widget-footer">
                           <p>
-                            <a href="product.php" class="btn">Read more</a>
+                             <a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>" class="btn">Read more</a>
                           </p>
                         </div>
                       </div>
                     </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="span3">
-                      <div class="thumbnail">
-                        <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Kara Walker">
-                        <div class="caption">
-                              <h3>Kara Walker <small>Pictures from another time</small></h3>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p>Fourth Edition</p>
-                              <p>rating ****</p>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>
-                            </div>
-                        <div class="widget-footer">
-                          <p>
-                            <a href="product.html" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
+                   <?php
+				   $i++; 
+				   if($counter==4){
+					  break;
+					}
+					
+				   }
+				}
+					?>
                   </ul>
                 </div>
+                <?php
+					}
+				?>
+                <!--
                 <div class="pagination pagination-centered">
                 <ul>
                   <li class="disabled">
@@ -364,7 +292,7 @@
                     <a href="#">&raquo;</a>
                   </li>
                 </ul>
-                </div>
+                </div>-->
             </div> <!-- section2 ends -->
 
           </div> <!-- end:roww -->

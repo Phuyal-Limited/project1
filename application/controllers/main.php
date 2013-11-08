@@ -58,11 +58,12 @@ class Main extends CI_Controller {
 		}else{
 			$srch_txt = $this->input->post('search_text');
 			$category = $this->input->post('category');
+			$data['srch_txt'] = $srch_txt;
 			$data['title'] = 'Search | Nepal Reads';
 			$data['category'] = $this->database->category();
 			$data['search_result'] = $this->database->search($srch_txt, $category);
 			//print_r($data['search_result']);exit();
-			$this->load->view('search', $data);
+			$this->load->view('results', $data);
 		}
 	}
 	
@@ -75,13 +76,7 @@ class Main extends CI_Controller {
 		$this->load->view('advanced', $data);
 	}
 	
-	public function result(){
-		$data['title'] = 'Search Results | Nepal Reads';
-		$data['category'] = $this->database->category();
-		//$data['details'] = $this->database->author();
-		//print_r($data['details']);exit();
-		$this->load->view('results', $data);
-	}
+	
 
 	
 }
