@@ -5,9 +5,9 @@ var hideText='Hide';
 
 var is_visible = false;
 
-$('.toggle').prev().append(' <a href="#" class="toggleLink">'+hideText+'</a>');
+$('.toggle').prev().append(' <a href="#" class="toggleLink">'+showText+'</a>');
 
-$('.toggle').show();
+$('.toggle').hide();
 
 $('a.toggleLink').click(function() {
 
