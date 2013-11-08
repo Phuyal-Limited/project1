@@ -29,7 +29,7 @@
                 			?>
                       </select>
                       <input type="submit" name="search" value="Search" clsss=" btn" />
-                      <a href="">Advanced</a>
+                      <a href="advance_search">Advanced</a>
                   </form>
                 </div>
 

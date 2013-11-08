@@ -13,6 +13,31 @@ class Database extends CI_Model{
 		return $output->result();	
 	}
 	
+	public function author(){
+		$output = $this->db->query("SELECT * FROM `books`");
+		$output1 = $this->db->query("SELECT * FROM `bookshop`");
+		$output = $output->result();
+		$output1 = $output1->result();
+		
+		$books = array();
+		$bookshop = array();
+		$arr_author = array();
+		for($i=0;$i<sizeof($output);$i++){
+			$books[$i] = get_object_vars($output[$i]);
+			/*$author = $books[$i]['author'];
+			$author_array = explode(', ', $author);
+			for($j=0;$j<sizeof($author_array);$j++){
+				array_push($arr_author, $author_array[$j]);
+			}*/
+		}
+		for($i=0;$i<sizeof($output1);$i++){
+			$bookshop[$i] = get_object_vars($output1[$i]);
+		}
+		
+		$result = array($books, $bookshop);
+		return 	$result;
+	}
+	
 	public function search_book($isbn){
 		$output = $this->db->query("SELECT * FROM `books` WHERE isbn10='$isbn' OR isbn13='$isbn'");
 		return $output->result();

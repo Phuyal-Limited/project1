@@ -65,6 +65,23 @@ class Main extends CI_Controller {
 			$this->load->view('search', $data);
 		}
 	}
+	
+	
+	public function advance_search(){
+		$data['title'] = 'Advance Search | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$data['details'] = $this->database->author();
+		//print_r($data['details']);exit();
+		$this->load->view('advanced', $data);
+	}
+	
+	public function result(){
+		$data['title'] = 'Search Results | Nepal Reads';
+		$data['category'] = $this->database->category();
+		//$data['details'] = $this->database->author();
+		//print_r($data['details']);exit();
+		$this->load->view('results', $data);
+	}
 
 	
 }

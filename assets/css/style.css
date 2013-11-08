@@ -112,6 +112,25 @@
   width:200px;
 
 }
+
+.search-btn{
+padding: 6px 13px;
+font-size: 16px;
+line-height: 18px;
+margin-bottom: 9px;
+}
+
+.search-area a{
+  color:#000;
+  opacity:0.7;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+.search-area a:hover{
+  opacity:1;
+}
 .sortby{
   padding-top:30px;
 }
@@ -119,6 +138,9 @@
 .index-thumb{
   font-size:13px;
   padding-bottom:20px;
+}
+.section1,.section2{
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
 }
 .section1 ul{
   font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
@@ -149,6 +171,48 @@
   -webkit-border-radius:5px;
 }
 
+.page-header p{
+  font-size: 18px;
+}
+
+.filter-sort{
+  padding-bottom:20px;
+}
+
+.filter-sort span{
+  opacity:0.6;
+}
+
+.filter-option .title{
+  font-size:12px;
+  padding: 10px 0 10px 10px;
+  text-transform: uppercase;
+}
+
+.filter-option .values{
+  padding-left: 25px;
+  
+}
+.filter-option label{
+  font-size: 13px;
+}
+
+.toggleLink {
+color: #999999;
+font-size: 12px;
+text-decoration: none;
+display: block;
+float: right;
+/*margin-right: 2%;*/
+margin-top:-30px;
+}
+
+.toggleLink:hover {
+color: #77BACE;
+text-decoration: none;
+}
+
+
 
 /*hr.carved {
   clear: both; 
@@ -175,7 +239,8 @@
 .content {
   padding: 30px 0;
   /*background: url('../images/content.png');*/
-  background-color: #f1efef;
+  background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif !important;
 }
 .thumbnail img {
   width: 100%;
