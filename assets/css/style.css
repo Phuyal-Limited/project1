@@ -224,25 +224,25 @@ text-decoration: none;
   margin-left:-0.016px;
 }
 .showcase{
-  background-color: rgb(54, 96, 102);
+  background-color: #3c757d;
   padding: 25px;
 }
 
 .showcase-tabs>.active>a{
-  background-color: rgb(54, 96, 102);
+  background-color: #3c757d;
   color:#fff;
 }
 
 .showcase-tabs>.active>a:hover{
-  background-color: rgb(54, 96, 102);
+  background-color: #3c757d;
   color:#fff;
 }
 
 .showcase-tabs li a{
-  color:rgb(54, 96, 102);;
+  color:#3c757d;
 }
 .showcase-tabs li a:hover{
-  background-color: rgb(54, 96, 102);
+  background-color: #3c757d;
   color:white;
 }
 
