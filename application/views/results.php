@@ -261,6 +261,18 @@
 					?>
                   </ul>
                 </div>
+                <div class="row-fluid product-info">
+                  <div class="module-container">
+                    <div class="close-button">x</div>
+                    <div class="pprev"><</div>
+                    <div class="nnext">></div>
+                    <div class="product-info-title">
+                      <h3 class="title">
+                        <a href="">This is a title for the book.And this may be long. this section is not complete hai mahesh!!</a>
+                      </h3>
+                    </div>
+                  </div> <!-- end: module container -->
+                </div>
                 <?php
 					}
 				?>
