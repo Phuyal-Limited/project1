@@ -62,27 +62,64 @@ class Database extends CI_Model{
 	}
 	
 	public function book_details($cat_id){
-		$output = $this->db->query("SELECT * FROM `books` ORDER BY `book_id` ASC");
-		$output = $output->result();
+		$output = array();
+		$books = array();
+		$bookid_list = array();
+		$list_book = array();
+		//check if the book is on the stock or not
+		$stock_result = $this->db->query("SELECT * FROM `shopstock`");
+		$stock_result = $stock_result->result();
+
+		for($i=0;$i<sizeof($stock_result);$i++){
+
+			$book_id = $stock_result[$i]->book_id;
+			$book_result = $this->db->query("SELECT * FROM `books` WHERE book_id='$book_id' ORDER BY `book_id` ASC");
+			$book_result = $book_result->result();
+			
+			array_push($books, get_object_vars($book_result[0]));
+			array_push($bookid_list, $books[$i]['book_id']);
+		}
+		$bookid_list = array_unique($bookid_list);
+		foreach($bookid_list as $key => $value){
+   			array_push($list_book, $value);
+		}
+		for($j=0;$j<sizeof($list_book);$j++){
+			$count=0;
+			for($k=0;$k<sizeof($books);$k++){
+				if(($list_book[$j]==$books[$k]['book_id']) && $count==0){
+					array_push($output, $books[$k]);
+					$count=1;
+				}
+			}
+
+		}
+
+		
 		$book_details = array();
 		$image_details = array();
 		$x=0;
-		for($i=0;$i<sizeof($output);$i++){
-			$category_id = $output[$i]->category_id;
-			$category_id = explode(", ", $category_id);
-			for($j=0;$j<sizeof($category_id);$j++){
-				if($cat_id == $category_id[$j]){
-					$book_details[$x] = $output[$i];
-					$img_id = $output[$i]->image_id;
-					
-					$image_info = $this->db->query("SELECT * FROM `images` WHERE `image_id` = '$img_id'");
-					$image_info = $image_info->result();
-					$image_details[$x] = $image_info;
-					$x++;
+		if($output==array()){
+			$all_info = array('0'=>array(), '1'=>array());
+		}else{
+			for($i=0;$i<sizeof($output);$i++){
+				$category_id = $output[$i]['category_id'];
+				$category_id = explode(", ", $category_id);
+				for($j=0;$j<sizeof($category_id);$j++){
+					if($cat_id == $category_id[$j]){
+						$book_details[$x] = $output[$i];
+						$img_id = $output[$i]['image_id'];
+						
+						$image_info = $this->db->query("SELECT * FROM `images` WHERE `image_id` = '$img_id'");
+						$image_info = $image_info->result();
+						$image_details[$x] = get_object_vars($image_info[0]);
+						$x++;
+					}
 				}
 			}
+			
+			$all_info = array($book_details, $image_details);
+			
 		}
-		$all_info = array($book_details, $image_details);
 		return $all_info;
 	}
 	
@@ -118,7 +155,7 @@ class Database extends CI_Model{
 	}
 	
 	public function shop_details($book_id){
-		$output = $this->db->query("SELECT * FROM `shopstock` WHERE `book_id` = '$book_id'");
+		$output = $this->db->query("SELECT * FROM `shopstock` WHERE `book_id` = '$book_id' ORDER BY book_id ASC");
 		$stock_details = $output->result();
 		$stock_all = array();
 		$abt_shop = array();
@@ -139,9 +176,21 @@ class Database extends CI_Model{
 	
 	public function search($srch_txt, $category){
 		$images = array();
+		$stock_result = $this->db->query("SELECT DISTINCT `book_id` FROM `shopstock`");
+		$stock_result = $stock_result->result();
+		$output = array();
 		if($category=='All Category'){
-			$output = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%'");
-			$output = $output->result();
+			$x=0;
+			for($i=0;$i<sizeof($stock_result);$i++){
+				$id = $stock_result[$i]->book_id;
+				$book_details = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%' && book_id='$id'");
+				$book_details = $book_details->result();
+				if($book_details==array()){
+					continue;
+				}
+				$output[$x] = $book_details[0];
+				$x++;
+			}
 			$all = array();
 			//$categories = array();
 			$x=0;
@@ -176,8 +225,18 @@ class Database extends CI_Model{
 			
 			return $result;
 		}else{
-			$output = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%' && category_id='$category'");
-			$output = $output->result();
+			$x=0;
+			for($i=0;$i<sizeof($stock_result);$i++){
+				$book_id = $stock_result[$i]->book_id;
+				$book_details = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%' && category_id='$category' && book_id='$book_id'");
+				$book_details = $book_details->result();
+				if($book_details==array()){
+					continue;
+				}
+				$output[$x] = $book_details[0];
+				$x++;
+				
+			}
 			$all = array();
 			//$categories = array();
 			$x=0;
@@ -207,8 +266,142 @@ class Database extends CI_Model{
 			$result = array($all, $images);
 			return $result;
 		}
+	}
+	
+	public function adv_search($srch_txt, $category, $price, $author, $store_name){
+		
+		if($store_name==''){
+			$store = $this->db->query("SELECT * FROM `bookshop` WHERE name LIKE '%$store_name%'");
+			$store = $store->result();
+		}else{
+			$store = $this->db->query("SELECT * FROM `bookshop` WHERE name='$store_name'");
+			$store = $store->result();
+		}
 		
 		
+		if($price==''){
+			$max = $this->db->query("SELECT `price` FROM `shopstock` ORDER BY `price` DESC LIMIT 1");
+			$max = $max->result();
+			if($max==array()){
+				$price = '';
+			}else{
+				$price = $max[0]->price;
+			}
+		}
+		$bookid_list = array();
+		for($i=0;$i<sizeof($store);$i++){
+			$store_id = $store[$i]->shop_id;
+			$stock_details = $this->db->query("SELECT DISTINCT `book_id` FROM `shopstock` WHERE store='$store_id' && price<='$price'");
+			$stock_details = $stock_details->result();
+
+			if($stock_details==array()){
+				continue;
+			}
+			for($j=0;$j<sizeof($stock_details);$j++){
+				$id = $stock_details[$j]->book_id;
+				array_push($bookid_list, $id);
+			}
+			
+		}
+		
+		$bookid_list = array_unique($bookid_list);
+		$id_list = array();
+		foreach($bookid_list as $key => $value){
+   			array_push($id_list, $value);
+		}
+		$images = array();
+		$details = array();
+
+
+		if($category=='All Category'){
+			for($i=0;$i<sizeof($id_list);$i++){
+				$book_id = $id_list[$i];
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
+				$output = $output->result();
+				
+				if($output==array()){
+					continue;
+				}
+				array_push($details, get_object_vars($output[0]));
+			}
+			
+			
+			
+			$all = array();
+			//$categories = array();
+			$x=0;
+			for($i=0;$i<sizeof($details);$i++){
+				$all[$i] = $details[$i];
+				
+				
+				$image_id = $all[$i]['image_id'];
+				$image = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
+				$image = $image->result();
+				$image = get_object_vars($image[0]);
+				$images[$i] = $image;
+				
+				/*$category_id = $all[$i]['category_id'];
+				$category_id = explode(", ", $category_id);
+				$cat = array();
+				
+				for($j=0;$j<sizeof($category_id);$j++){
+					
+					$cat_id = $category_id[$j];
+					
+					$category = $this->db->query("SELECT * FROM `category` WHERE category_id='$cat_id'");
+					$category = $category->result();
+					
+					$category = get_object_vars($category[0]);
+					$cat[$j] = $category['name'];
+					
+				}
+				$categories[$i] = $cat;*/
+			}
+			$result = array($all, $images);
+			
+			return $result;
+		}else{
+			for($i=0;$i<sizeof($id_list);$i++){
+				$book_id = $id_list[$i];
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
+				$output = $output->result();
+				
+				if($output==array()){
+					continue;
+				}
+				array_push($details, get_object_vars($output[0]));
+			}
+
+			
+			$all = array();
+			//$categories = array();
+			$x=0;
+			
+			for($i=0;$i<sizeof($details);$i++){
+				$all[$i] = ($details[$i]);
+				
+				
+				$image_id = $all[$i]['image_id'];
+				$image = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
+				$image = $image->result();
+				$image = get_object_vars($image[0]);
+				$images[$i] = $image;
+				
+				/*$category_id = $all[$i]['category_id'];
+				$category_id = explode(", ", $category_id);
+				$cat = array();
+				for($j=0;$j<sizeof($category_id);$j++){
+					$cat_id = $category_id[$j];
+					$category = $this->db->query("SELECT * FROM `category` WHERE category_id='$cat_id'");
+					$category = $category->result();
+					$category = get_object_vars($category[0]);
+					$cat[$j] = $category['name'];
+				}
+				$categories[$i] = $cat;*/
+			}
+			$result = array($all, $images);
+			return $result;
+		}
 	}
 	
 }

@@ -64,88 +64,68 @@
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Business
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Children
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> adults
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Science and fiction
-                                    </label>
-                                </div>
+                                <?php 
+                  					for($i=0;$i<sizeof($category);$i++){
+                				?>
+                                	<div class="value">
+                                    	<label class="checkbox">
+                                      		<input type="checkbox" value="<?php echo $category[$i]->category_id;?>"> <?php echo $category[$i]->name;?>
+                                    	</label>
+                                	</div>
+                                    
+                             	<?php   
+                  					}
+                				?>
+                                
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
 
                       <div class="filter-option"> <!-- starts:filter option -->
                         <div class="title">
-                        Merchant
+                        Author
                         </div>
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Business
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Children
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> adults
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Science and fiction
-                                    </label>
-                                </div>
+                               <?php 
+                  					for($i=0;$i<sizeof($details[0]);$i++){
+                				?>
+                                	<div class="value">
+                                    	<label class="checkbox">
+                                      		<input type="checkbox" value="<?php echo $details[0][$i];?>"> <?php echo $details[0][$i];?>
+                                    	</label>
+                                	</div>
+                                   
+                             	<?php   
+                  					}
+                				?>
+                                
+                                
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
 
                       <div class="filter-option"> <!-- starts:filter option -->
                         <div class="title">
-                        Type
+                        Store
                         </div>
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Business
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Children
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> adults
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Science and fiction
-                                    </label>
-                                </div>
+                                <?php 
+                  					for($i=0;$i<sizeof($details[1]);$i++){
+                				?>
+                                	<div class="value">
+                                    	<label class="checkbox">
+                                      		<input type="checkbox" value="<?php echo $details[1][$i];?>"> <?php echo $details[1][$i];?>
+                                    	</label>
+                                	</div>
+                                    
+                            	<?php   
+                  					}
+                				?>
+                                
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
@@ -157,26 +137,19 @@
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
+                                 <?php
+								 	$x=0;
+                                	for($j=0;$j<10;$j++){
+										$x=$x+10;
+								?>
                                 <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Business
+                                    <label class="radio">
+                                      <input type="radio" name="price" value="<?php echo $x;?>"> Up to $<?php echo $x;?>
                                     </label>
                                 </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Children
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> adults
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="checkbox">
-                                      <input type="checkbox"> Science and fiction
-                                    </label>
-                                </div>
+                                <?php
+									}
+								?>
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
@@ -264,8 +237,8 @@
                 <div class="row-fluid product-info">
                   <div class="module-container">
                     <div class="close-button">x</div>
-                    <div class="pprev"><</div>
-                    <div class="nnext">></div>
+                    <div class="pprev"><<<</div>
+                    <div class="nnext">>>></div>
                     <div class="product-info-title">
                       <h3 class="title">
                         <a href="">This is a title for the book.And this may be long. this section is not complete hai mahesh!!</a>

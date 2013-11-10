@@ -4,28 +4,7 @@
     ?>
     <!-- End: HEADER -->
    <script>
-  		function check(){
-			var author = $("#author").attr('disabled');
-			
-			if(author=='disabled'){
-				$("#author").attr('disabled', false);
-			}else{
-				$("#author").attr('disabled', true);
-			}
-			
-		}
-		
-		function store(){
-			var store = $("#store_name").attr('disabled');
-			
-			if(store=='disabled'){
-				$("#store_name").attr('disabled', false);
-			}else{
-				$("#store_name").attr('disabled', true);
-			}
-		}
-		
-		function get_value(){
+  		function get_value(){
 			var srch_txt = $("#search_txt").val();
 			var category = $("#category").val();
 			
@@ -61,10 +40,10 @@
                     <!--<label class="checkbox">
                       <input type="checkbox"> Check me out
                     </label>-->
-                    <input type="submit" name="search" value="Search" class="btn btn-small search-btn" />
+                    <!--<input type="submit" name="search" value="Search" class="btn btn-small search-btn" />-->
                   </form> <!-- first form ends -->
 
-                  <form action="search" method="post" onSubmit="get_value();"><!-- Second form starts -->
+                  <form action="search_adv" method="post" onSubmit="get_value();"><!-- Second form starts -->
                     <legend>Other Search Options</legend>
                     
                     
@@ -74,7 +53,19 @@
                     <!--<label class="checkbox">
                       <input type="checkbox"> Price starting from 
                     </label>-->
-                    $<input type="text" class="input-small"> to $<input type="text" class="input-small">
+                    Price<br/>
+                    Up to $ <select name="price">
+                    	<option value="Please Choose...">Please Choose...</option>
+                        <?php
+						$x=0;
+                        for($i=0;$i<10;$i++){
+							$x = $x+10;
+						?>
+                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
+                        <?php
+						}
+						?>
+                    </select>
                     <!--<label class="checkbox">
                       <input type="checkbox"> Only Items from 
                     </label>
@@ -86,10 +77,9 @@
                       <option>4</option>
                       <option>5</option>
                     </select>--><br />
-                    <label class="checkbox">
-                      <input type="checkbox" id="check_author" onClick="check();" > Only from Authur
-                    </label>
-                    <select name="author" id="author" disabled="disabled">
+                   
+                   	Select Authur<br />
+                    <select name="author" id="author" >
                        <option value="All Author">All Author</option>
                 			<?php 
                   				for($i=0;$i<sizeof($details[0]);$i++){
@@ -99,10 +89,8 @@
                   				}
                 			?>
                     </select> <br />
-                    <label class="checkbox">
-                      <input type="checkbox" id="check_store" onClick="store();"> Only from Store
-                    </label>
-                    <select name="store_name" id="store_name" disabled="disabled">
+                    Select Store<br />
+                    <select name="store_name" id="store_name" >
                       <option value="All Store">All Store</option>
                 			<?php 
                   				for($i=0;$i<sizeof($details[1]);$i++){

@@ -58,9 +58,11 @@ class Main extends CI_Controller {
 		}else{
 			$srch_txt = $this->input->post('search_text');
 			$category = $this->input->post('category');
+			
 			$data['srch_txt'] = $srch_txt;
 			$data['title'] = 'Search | Nepal Reads';
 			$data['category'] = $this->database->category();
+			$data['details'] = $this->database->author();
 			$data['search_result'] = $this->database->search($srch_txt, $category);
 			//print_r($data['search_result']);exit();
 			$this->load->view('results', $data);
@@ -69,11 +71,47 @@ class Main extends CI_Controller {
 	
 	
 	public function advance_search(){
+		
 		$data['title'] = 'Advance Search | Nepal Reads';
 		$data['category'] = $this->database->category();
 		$data['details'] = $this->database->author();
 		//print_r($data['details']);exit();
 		$this->load->view('advanced', $data);
+	}
+	
+	public function search_adv(){
+		if($this->input->post('search')==false){
+			$this->home();
+		}else{	
+			$srch_txt = $this->input->post('search_text');
+			$category = $this->input->post('category');
+			$price = $this->input->post('post');
+			$author = $this->input->post('author');
+			$store = $this->input->post('store_name');
+			if($price=='Please Choose...'){
+				$price='';
+			}
+			if(!isset($author)){
+				$author='';
+			}
+			if($author=='All Author'){
+				$author='';
+			}
+			if(!isset($store)){
+				$store='';
+			}
+			if($store=='All Store'){
+				$store='';
+			}
+			
+			$data['srch_txt'] = $srch_txt;
+			$data['title'] = 'Search | Nepal Reads';
+			$data['category'] = $this->database->category();
+			$data['details'] = $this->database->author();
+			$data['search_result'] = $this->database->adv_search($srch_txt, $category, $price, $author, $store);
+			//print_r($data['details']);exit();
+			$this->load->view('results', $data);
+		}
 	}
 	
 	

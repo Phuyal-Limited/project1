@@ -38,17 +38,17 @@
 					 echo 'No Books Available.';
 					}else{
 				  	for($i=0;$i<$size;$i++){
-						$img = $book_details[1][$i][0]->path;
+						$img = $book_details[1][$i]['path'];
 						//echo $img;exit();
-						$alt = $book_details[1][$i][0]->alt;
+						$alt = $book_details[1][$i]['alt'];
 				  ?>
                       
                         <li class="span3">
                           <div class="thumbnail">
                             <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="caption">
-                              <h3><?php echo $book_details[0][$i]->book_name;?><!--<small>Pictures from another time</small>--></h3>
-                              <p>By:<a href=""><?php echo $book_details[0][$i]->author;?></a> <br /></p>
+                              <h3><?php echo $book_details[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
+                              <p>By:<a href=""><?php echo $book_details[0][$i]['author'];?></a> <br /></p>
                               <!--<p>Fourth Edition</p>
                               <span class="rating">
                                   <span class="star"></span>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="widget-footer">
                           <p>
-                            <a href="product?book_id=<?php echo $book_details[0][$i]->book_id;?>" class="btn">Read more</a>
+                            <a href="product?book_id=<?php echo $book_details[0][$i]['book_id'];?>" class="btn">Read more</a>
                           </p>
                         </div>
                       </div>

@@ -54,7 +54,15 @@
                       <?php 
 					  	for($i=0;$i<sizeof($shop_details[0]);$i++){
 					?>	
-                      <p> <span class="bold">Book Store: </span><br/>Name: <?php echo $shop_details[1][$i]['name'];?><br/>
+                      <p> <span class="bold">Book Store: </span><br/>Name: <?php echo $shop_details[1][$i]['name'];?>
+                      <p style="margin-left:90%;">
+                      	<form action="" method="post">
+                        	Quantity: <input type="text" name="qty" id="qty"/>
+                        	<input type="hidden" name="book_id" value="<?php echo $shop_details[0][$i]['stock_id']?>"/>
+                      		<input type="submit" name="Cart" value="Add to Cart" id="add_to_cart" class="btn btn-small search-btn" />
+                      	</form>
+                      </p>
+                      <br/>
 					  Price: <?php echo $shop_details[0][$i]['price'];?><br/>
                       Delivery cost within city: <?php echo $shop_details[0][$i]['delivery_cost_within_city'];?><br/>
                       Delivery cost outof city: <?php echo $shop_details[0][$i]['delivery_cost_outof_city'];?>
