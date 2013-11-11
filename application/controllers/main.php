@@ -40,6 +40,10 @@ class Main extends CI_Controller {
 	}
 	
 	public function product(){
+		if(isset($_POST['Cart'])){
+			$stock_ID=$this->input->post('book_id');
+			$qty=$this->input->post('qty');
+		}
 		if(!isset($_GET['book_id'])){
 		
 		}else{
@@ -55,8 +59,6 @@ class Main extends CI_Controller {
 			$this->load->view('product', $data);
 	
 		}
-		
-		
 	}
 	
 	public function search(){

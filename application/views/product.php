@@ -56,8 +56,14 @@
 					?>	
                       <p> <span class="bold">Book Store: </span><br/>Name: <?php echo $shop_details[1][$i]['name'];?>
                       <p style="margin-left:90%;">
-                      	<form action="" method="post">
-                        	Quantity: <input type="text" name="qty" id="qty"/>
+                      	<form action="#" method="post">
+                        	Quantity: <select name="qty" id="qty">
+                                      <?php
+                                        for($count=1;$count<=5;$count++){
+                                          echo "<option value='$count'>$count</option>";
+                                        }
+                                      ?>
+                                    </select>
                         	<input type="hidden" name="book_id" value="<?php echo $shop_details[0][$i]['stock_id']?>"/>
                       		<input type="submit" name="Cart" value="Add to Cart" id="add_to_cart" class="btn btn-small search-btn" />
                       	</form>
