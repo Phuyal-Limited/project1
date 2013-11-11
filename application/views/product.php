@@ -69,7 +69,7 @@
                       	</form>
                       </p>
                       <br/><pre>
-                        print_r($this->session->all_userdata());
+                        <?php print_r($this->session->all_userdata()); ?>
                       </pre>
                       <br/>
 					  Price: <?php echo $shop_details[0][$i]['price'];?><br/>
