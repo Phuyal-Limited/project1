@@ -344,10 +344,10 @@ padding: 30px;
   font-size: 20px;
 }
 
-
 .your-cart{
-  padding: 50px;
+  padding-bottom: 50px;
 }
+
 
 .cart-content{
   border:2px solid #3c757d;
@@ -361,9 +361,10 @@ padding: 30px;
 }
 
 .table-titles{
-  padding-bottom: 10px;
-  font-size: 13px;
-text-transform: uppercase;
+  padding-bottom: 0px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(128, 127, 127);
 
 
 }
@@ -386,17 +387,54 @@ font-weight: bold;
 }
 
 .product-cart-price{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .cart-row{
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .check-out-button{
   padding-left: 50px;
 }
 
+.qty input{
+  width: 40px;
+}
+
+.cart-total{
+  border-top:1px solid rgb(128, 127, 127);
+}
+.cart-total span{
+  font-weight: bold;
+}
+
+.cart-total p{
+  text-align: right;
+}
+
+.cart-buttons a{
+  background-color: #3c757d;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.cart-buttons a:hover{
+  opacity:0.8;
+  text-decoration: none;
+}
+
+.cart-buttons p{
+  float:right;
+}
+
+.continue-shopping{
+  padding-left: 53px;
+}
 
 /*hr.carved {
   clear: both; 
