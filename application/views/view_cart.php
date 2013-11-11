@@ -87,10 +87,11 @@
                           </div>
                           <div class="widget-body">
                             <div class="center-align">
-                              <form class="form-horizontal form-signin-signup">
+                              <div class="form-horizontal form-signin-signup">
                                 <input type="text" name="name" placeholder="name">
                                 <input type="text" name="address" placeholder="Address">
                                 <input type="text" name="address" placeholder="You Can Add Another">
+                              </div>
                                  
                               
                             </div>
