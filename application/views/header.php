@@ -39,7 +39,7 @@
                         <li><a href="">product</a></li>
                         <li><a href="">Dashboard</a></li>
                         <li><a href="">login</a></li>
-                        <li><a href="">landing</a></li>
+                        <li><a href="">Cart (0)</a></li>
                         <li><a href="">Sign up</a></li>
                         <li><a href="">Sign in</a></li>
                       </ul>
