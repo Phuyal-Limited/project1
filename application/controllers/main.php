@@ -71,7 +71,10 @@ class Main extends CI_Controller {
 			}
 			else
 			{
-				array_push($this->session->userdata('cart'), $cartItem);
+				$cart = $this->session->userdata('cart');
+				array_push($cart, $cartItem);
+				$this->session->unset_userdata('cart');
+				$this->session->set_userdata('cart',$cart);
 			}
 		}
 		if(!isset($_GET['book_id'])){
