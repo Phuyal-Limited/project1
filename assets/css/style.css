@@ -345,6 +345,59 @@ padding: 30px;
 }
 
 
+.your-cart{
+  padding: 50px;
+}
+
+.cart-content{
+  border:2px solid #3c757d;
+}
+
+.cart-head{
+  padding: 10px;
+  background-color: #3c757d;
+  color:#fff;
+  font-weight:bold;
+}
+
+.table-titles{
+  padding-bottom: 10px;
+  font-size: 13px;
+text-transform: uppercase;
+
+
+}
+
+.cart-details{
+  padding:10px;
+}
+
+.product-cart-info{
+  background: #e6e6e6;
+  padding:10px;
+}
+
+.product-cart-info>.title{
+  font-size: 20px;
+}
+.product-cart-info label{
+  font-size: 12px;
+font-weight: bold;
+}
+
+.product-cart-price{
+  font-size: 20px;
+}
+
+.cart-row{
+  padding-top: 20px;
+}
+
+.check-out-button{
+  padding-left: 50px;
+}
+
+
 /*hr.carved {
   clear: both; 
   float: none; 

@@ -14,6 +14,13 @@ class Main extends CI_Controller {
 		$this->load->view('home', $data);
 	
 	}
+
+	public function view_cart(){
+		$data['title'] = 'Shopping Cart | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$this->load->view('view_cart', $data);
+	
+	}
 	
 	public function cat_product(){
 		if(!isset($_GET['cat_id'])){
