@@ -64,6 +64,15 @@ class Main extends CI_Controller {
 		if(isset($_POST['Cart'])){
 			$stock_ID=$this->input->post('book_id');
 			$qty=$this->input->post('qty');
+			$cartItem= array('stockID' => $stock_ID, 'qty' => $qty);
+			if(!($this->session->userdata('cart'))){
+				$cart = array($cartItem);
+				$this->session->set_userdata('cart',$cart);
+			}
+			else
+			{
+				array_push($this->session->userdata('cart'), $cartItem);
+			}
 		}
 		if(!isset($_GET['book_id'])){
 		

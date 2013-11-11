@@ -68,6 +68,9 @@
                       		<input type="submit" name="Cart" value="Add to Cart" id="add_to_cart" class="btn btn-small search-btn" />
                       	</form>
                       </p>
+                      <br/><pre>
+                        print_r($this->session->all_userdata());
+                      </pre>
                       <br/>
 					  Price: <?php echo $shop_details[0][$i]['price'];?><br/>
                       Delivery cost within city: <?php echo $shop_details[0][$i]['delivery_cost_within_city'];?><br/>
