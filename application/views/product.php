@@ -56,6 +56,22 @@
 					?>	
                       <p> <span class="bold">Book Store: </span><br/>Name: <?php echo $shop_details[1][$i]['name'];?>
                       <p style="margin-left:90%;">
+                        <?php
+                          //See if the stock is already in the cart
+                          $present=false;
+                          if(($this->session->userdata('cart'))){
+                            $cart = $this->session->userdata('cart');
+                            $stk_ID=$shop_details[0][$i]['stock_id'];
+                            foreach ($cart as $cartItem) {
+                              if($cartItem['stockID'] == $stk_ID)
+                              {
+                                $present=true;
+                                break;
+                              }
+                            }
+                          }
+                          if(! $present){
+                        ?>
                       	<form action="#" method="post">
                         	Quantity: <select name="qty" id="qty">
                                       <?php
@@ -67,6 +83,13 @@
                         	<input type="hidden" name="book_id" value="<?php echo $shop_details[0][$i]['stock_id']?>"/>
                       		<input type="submit" name="Cart" value="Add to Cart" id="add_to_cart" class="btn btn-small search-btn" />
                       	</form>
+                        <?php
+                          }
+                          else{
+                            $urlCart=base_url('view_cart');
+                            echo "<p>This item is in your <a href='$urlCart'>Cart.</a></p>";
+                          }
+                        ?>
                       </p>
                       <br/>
 					  Price: <?php echo $shop_details[0][$i]['price'];?><br/>
