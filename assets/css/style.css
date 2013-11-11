@@ -344,32 +344,69 @@ padding: 30px;
   font-size: 20px;
 }
 
-
 .your-cart{
-  padding: 50px;
+  padding-bottom: 50px;
+}
+.thank-you,.error-payment{
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
-.cart-content{
+
+.error-payment-content,.thank-you-content,.cart-content{
   border:2px solid #3c757d;
 }
 
-.cart-head{
+.thank-you-head,.error-payment-head,.cart-head{
   padding: 10px;
   background-color: #3c757d;
   color:#fff;
   font-weight:bold;
 }
 
+.thank-you-head,.error-payment{
+  font-size:20px;
+}
+
 .table-titles{
-  padding-bottom: 10px;
-  font-size: 13px;
-text-transform: uppercase;
+  padding-bottom: 0px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgb(128, 127, 127);
 
 
 }
 
-.cart-details{
+.thank-you-details,.cart-details{
   padding:10px;
+}
+
+.thank-you-details,.error-payment-details{
+  padding: 30px;
+}
+
+.thank-you-details span{
+  font-size: 18px;
+  color:#3c757d;
+}
+
+.thank-you-details p{
+  font-size: 17px;
+}
+.error-payment-details p{
+  font-size: 15px;
+}
+.error-cart-buttons p{
+  font-size: 15px;
+}
+.error-para{
+  border: 1px solid rgb(141, 38, 38);
+  color: rgb(141, 38, 38);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 20px;
+  background-color: rgb(240, 225, 225);
 }
 
 .product-cart-info{
@@ -386,16 +423,70 @@ font-weight: bold;
 }
 
 .product-cart-price{
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .cart-row{
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .check-out-button{
   padding-left: 50px;
 }
+
+.qty input{
+  width: 40px;
+}
+
+.cart-total{
+  border-top:1px solid rgb(128, 127, 127);
+}
+.cart-total span{
+  font-weight: bold;
+}
+
+.cart-total p{
+  text-align: right;
+}
+
+.cart-buttons a{
+  background-color: #3c757d;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.cart-buttons a:hover{
+  opacity:0.8;
+  text-decoration: none;
+}
+
+.cart-buttons p{
+  float:right;
+}
+
+.continue-shopping{
+  padding-left: 53px;
+}
+
+
+.user-details{
+  padding-left: 50px;
+}
+
+
+.user-details p{
+  text-transform: uppercase;
+font-size: 15px;
+}
+
+.user-details span{
+  font-weight: bold;
+}
+
 
 
 /*hr.carved {

@@ -15,10 +15,31 @@ class Main extends CI_Controller {
 	
 	}
 
+	public function error(){
+		$data['title'] = 'Error | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$this->load->view('error', $data);
+	
+	}
+
+	public function thank_you(){
+		$data['title'] = 'thank_you | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$this->load->view('thank_you', $data);
+	
+	}
+
 	public function view_cart(){
 		$data['title'] = 'Shopping Cart | Nepal Reads';
 		$data['category'] = $this->database->category();
 		$this->load->view('view_cart', $data);
+	
+	}
+
+	public function check_out(){
+		$data['title'] = 'Check Out | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$this->load->view('check_out', $data);
 	
 	}
 	

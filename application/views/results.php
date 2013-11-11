@@ -226,6 +226,7 @@
                    <?php
 				   $i++; 
 				   if($counter==4){
+            $counter=0;
 					  break;
 					}
 					

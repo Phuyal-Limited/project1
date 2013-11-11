@@ -50,7 +50,7 @@
                               </div>
                             </div>
                             <div class="row-fluid cart-row">
-                                  <div class="span1 "><input type="checkbox"></div>
+                                  <div class="span1 serial"><p>1.</p></div>
                                   <div class="span2 ">
                                      <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
                                   </div>
@@ -59,7 +59,7 @@
                                       <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
                                   </div>
                                   <div class="span1 qty">
-                                    <input type="text" placeholder="Qty">
+                                    <p>3</p>
                                   </div>
                                   <div class="span2 ">
                                     <div class="span2 product-cart-price">
@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="row-fluid cart-row">
-                                  <div class="span1 "><input type="checkbox"></div>
+                                  <div class="span1 "><p>2.</p></div>
                                   <div class="span2 ">
                                      <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
                                   </div>
@@ -81,7 +81,7 @@
                                       <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
                                   </div>
                                   <div class="span1 qty">
-                                    <input type="text" placeholder="Qty">
+                                    <p>5</p>
                                   </div>
                                   <div class="span2 ">
                                     <div class="span2 product-cart-price">
@@ -109,13 +109,25 @@
                           Your Details
                           </div>
                           <div class="widget-body">
-                            <div class="center-align">
-                              <div class="form-horizontal form-signin-signup">
-                                <input type="text" name="name" placeholder="name">
-                                <input type="text" name="address" placeholder="Address">
-                                <input type="text" name="address" placeholder="You Can Add Another">
-                              </div>   
+                            <div class="user-details">
+                              <div class="row-fluid">
+                                <div class="span3"><label>Name:</label></div>
+                                <div class="span9"><p>Bibek KC</p></div>
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span3"><label>Address:</label></div>
+                                <div class="span9"><p>Lamachaur-2, Pokhara</p></div>
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span3"><label>Lorem:</label></div>
+                                <div class="span9"><p>Lorem Ipsum</p></div>
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span3"><label>Lorem Ipsum:</label></div>
+                                <div class="span9"><p>Lorem Ipsum</p></div>
+                              </div>
                               
+                                
                             </div>
                           </div>
                            
@@ -123,9 +135,7 @@
                   </div>
                 </div> <!-- buyer:details ends -->
                 <div class="row-fluid cart-buttons">
-                  <div class="span4"><a href="">Update</a></div>
-                  <div class="span4 continue-shopping"><a href="">Continue shopping</a></div>
-                  <div class="span4"><p><a href="">Check Out</a></div>
+                  <div><p><a href="">Proceed to Check Out</a></div>
                 </div>
             
           </div><!-- end:section2 -->
