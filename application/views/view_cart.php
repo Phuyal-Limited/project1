@@ -101,7 +101,7 @@
                   </div>
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
-                  <div class="span6"><a href="">Update</a></div>
+                  <div class="span6"><input type="submit" name-"update" value="Update" class="update-btn"></div>
                   <div class="span6"><p><a href="">Continue shopping</a></p></div>
                 </div>
                 <pre>

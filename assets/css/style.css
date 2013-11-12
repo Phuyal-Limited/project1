@@ -493,6 +493,22 @@ font-weight: bold;
   text-decoration: none;
 }
 
+.cart-buttons>.span6 input{
+  background-color: #3c757d;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  margin-top: -8px;
+
+}
+
+.cart-buttons>.span6 input:hover{
+  opacity:0.8;
+  text-decoration: none;
+}
+
 .cart-buttons p{
   float:right;
 }
