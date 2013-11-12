@@ -56,15 +56,29 @@
                                   </div>
                                   <div class="span4 product-cart-info">
                                       <p class="title">Kara Walker</p>
-                                      <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
+                                      <div class="desc">
+                                          <p>By:<span>Bidur Subedi</span> </p>
+                                          <p>Store:<span>Lorem Ipsum</span> </p>
+                                      </div>
                                   </div>
                                   <div class="span1 qty">
-                                    <input type="text" placeholder="Qty">
+                                    <select>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                      <option>6</option>
+                                      <option>7</option>
+                                      <option>8</option>
+                                      <option>9</option>
+                                      <option>10</option>
+                                    </select>
                                   </div>
                                   <div class="span2 ">
                                     <div class="span2 product-cart-price">
-                                <p>$45.23</p>
-                              </div>
+                                      <p><span>3x</span>45.23</p>
+                                    </div>
                                   </div>
                                   <div class="span2 product-cart-price">
                                     <p>$342.3</p>
@@ -78,15 +92,29 @@
                                   </div>
                                   <div class="span4 product-cart-info">
                                       <p class="title">Kara Walker</p>
-                                      <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
+                                      <div class="desc">
+                                          <p>By:<span>Bidur Subedi</span> </p>
+                                          <p>Store:<span>Lorem Ipsum</span> </p>
+                                      </div>
                                   </div>
                                   <div class="span1 qty">
-                                    <input type="text" placeholder="Qty">
+                                    <select>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                      <option>6</option>
+                                      <option>7</option>
+                                      <option>8</option>
+                                      <option>9</option>
+                                      <option>10</option>
+                                    </select>
                                   </div>
                                   <div class="span2 ">
                                     <div class="span2 product-cart-price">
-                                <p>$45.23</p>
-                              </div>
+                                      <p><span>3x</span>45.23</p>
+                                    </div>
                                   </div>
                                   <div class="span2 product-cart-price">
                                     <p>$342.3</p>
@@ -101,6 +129,10 @@
                       </div>
                   </div>
                 </div> <!-- cart:details ends -->
+                <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
+                  <div class="span6"><a href="">Update</a></div>
+                  <div class="span6"><p><a href="">Continue shopping</a></p></div>
+                </div>
 
                 <div class="row-fluid"> <!-- buyer:details starts -->
                   <div class="your-cart ">
@@ -109,12 +141,25 @@
                           Your Details
                           </div>
                           <div class="widget-body">
-                            <div class="center-align">
-                              <div class="form-horizontal form-signin-signup">
-                                <input type="text" name="name" placeholder="name">
-                                <input type="text" name="address" placeholder="Address">
-                                <input type="text" name="address" placeholder="You Can Add Another">
-                              </div>   
+                            <div class="detail-form">
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Name:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <input type="text" name="name" placeholder="name">
+                                  </div>
+                              </div>
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Address:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <input type="text" name="name" placeholder="Address">
+                                  </div>
+                              </div>
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Anything:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <input type="text" name="name" placeholder="Anything">
+                                  </div>
+                              </div>
                               
                             </div>
                           </div>
@@ -123,9 +168,7 @@
                   </div>
                 </div> <!-- buyer:details ends -->
                 <div class="row-fluid cart-buttons">
-                  <div class="span4"><a href="">Update</a></div>
-                  <div class="span4 continue-shopping"><a href="">Continue shopping</a></div>
-                  <div class="span4"><p><a href="">Check Out</a></div>
+                  <div class="span12"><p><a href="">Check Out</a></p></div>
                 </div>
             
           </div><!-- end:section2 -->
