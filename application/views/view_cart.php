@@ -48,14 +48,13 @@
                                   <div class="span2 ">Total</div>
                               </div>
                             </div>
-                            
+                            <form name='update_cart' method='POST' action='#'>
                             <?php
                             $tot=0;
                             foreach ($Cart as $CartItem) {
-                            
                             ?>
                               <div class="row-fluid cart-row">
-                                    <div class="span1 "><input type="checkbox"></div>
+                                    <div class="span1 "><input type="checkbox" name='remove[<?php echo $CartItem['stock']['stock_id']; ?>]' value='1'></div>
                                     <div class="span2 ">
                                        <img src="<?php echo $CartItem['book'][1]['path'];?>"> 
                                     </div>
@@ -68,7 +67,7 @@
                                         </div>
                                     </div>
                                     <div class="span1 qty">
-                                      <select>
+                                      <select name='qtt[<?php echo $CartItem['stock']['stock_id']; ?>]'>
                                         <?php
                                         for($count=1;$count<=5;$count++){
                                           if($count == $CartItem['qty'])
@@ -101,13 +100,18 @@
                   </div>
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
-                  <div class="span6"><a href="">Update</a></div>
-                  <div class="span6"><p><a href="">Continue shopping</a></p></div>
+                  <div class="span6"><input type='submit' name='Update' value='update'></div>
+                  <div class="span6"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
                 </div>
+                </form>
                 <pre>
                     <?php
                       $cart = $this->session->userdata('cart');
-                      print_r($Cart);
+                      echo "Post Info:";
+                      print_r($_POST);
+                      echo "<br />Cart Info:";
+                      print_r($this->session->userdata('cart'));
+
                     ?>
                 </pre>
                 <div class="row-fluid"> <!-- buyer:details starts -->
