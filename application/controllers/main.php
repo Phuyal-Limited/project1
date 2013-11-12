@@ -36,6 +36,7 @@ class Main extends CI_Controller {
 	public function view_cart(){
 		$data['title'] = 'Shopping Cart | Nepal Reads';
 		$data['category'] = $this->database->category();
+		$data['Cart'] = $this->database->get_cart_details();
 		$this->load->view('view_cart', $data);
 	
 	}

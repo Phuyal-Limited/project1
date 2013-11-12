@@ -123,6 +123,30 @@ class Database extends CI_Model{
 		return $all_info;
 	}
 	
+	public function get_cart_details()
+	{
+		if(($this->session->userdata('cart'))){
+	        $output = array();
+	        $cart = $this->session->userdata('cart');
+	        foreach ($cart as $cartItem) {
+	        	$cartItemDet=array();
+	        	$stockID=$cartItem['stockID'];
+	        	$stock_res=$this->db->query("SELECT * FROM `shopstock` WHERE `stock_id` = '$stockID'");
+	        	$stock = $stock_res -> result();
+	        	$stock = get_object_vars($stock[0]);
+	        	$cartItemDet['stock'] = $stock;
+	        	$cartItemDet['book'] = $this->book_particular($stock['book_id']);
+	        	$cartItemDet['qty'] = $cartItem['qty'];
+	        	$shop_res=$this->db->query("SELECT `name` FROM `bookshop` WHERE `shop_id` = $stock[store]");
+	        	$shop = $shop_res -> result();
+	        	$shop = get_object_vars($shop[0]);
+	        	$cartItemDet['shop'] = $shop['name'];
+	        	array_push($output, $cartItemDet);
+	        }
+	      }
+	    return $output;
+	}
+
 	public function book_particular($book_id){
 		$output = $this->db->query("SELECT * FROM `books` WHERE `book_id` = '$book_id'");
 		$book_details = $output->result();

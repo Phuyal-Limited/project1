@@ -39,7 +39,6 @@
                           </div>
                           <div class="cart-details">
                             <div class="table-titles">
-                              
                               <div class="row-fluid">
                                   <div class="span1 ">Remove</div>
                                   <div class="span2 ">Picture</div>
@@ -49,83 +48,55 @@
                                   <div class="span2 ">Total</div>
                               </div>
                             </div>
-                            <div class="row-fluid cart-row">
-                                  <div class="span1 "><input type="checkbox"></div>
-                                  <div class="span2 ">
-                                     <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
-                                  </div>
-                                  <div class="span4 product-cart-info">
-                                      <p class="title">Kara Walker</p>
-                                      <div class="desc">
-                                          <p>By:<span>Bidur Subedi</span> </p>
-                                          <p>Store:<span>Lorem Ipsum</span> </p>
-                                      </div>
-                                  </div>
-                                  <div class="span1 qty">
-                                    <select>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                      <option>6</option>
-                                      <option>7</option>
-                                      <option>8</option>
-                                      <option>9</option>
-                                      <option>10</option>
-                                    </select>
-                                  </div>
-                                  <div class="span2 ">
-                                    <div class="span2 product-cart-price">
-                                      <p><span>3x</span>45.23</p>
+                            
+                            <?php
+                            $tot=0;
+                            foreach ($Cart as $CartItem) {
+                            
+                            ?>
+                              <div class="row-fluid cart-row">
+                                    <div class="span1 "><input type="checkbox"></div>
+                                    <div class="span2 ">
+                                       <img src="http://admin.nepalreads.com/assets/images/book_image/<?php echo $CartItem['book'][1]['path'];?>"> 
                                     </div>
-                                  </div>
-                                  <div class="span2 product-cart-price">
-                                    <p>$342.3</p>
-                                  </div>
-                            </div>
-
-                            <div class="row-fluid cart-row">
-                                  <div class="span1 "><input type="checkbox"></div>
-                                  <div class="span2 ">
-                                     <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
-                                  </div>
-                                  <div class="span4 product-cart-info">
-                                      <p class="title">Kara Walker</p>
-                                      <div class="desc">
-                                          <p>By:<span>Bidur Subedi</span> </p>
-                                          <p>Store:<span>Lorem Ipsum</span> </p>
-                                      </div>
-                                  </div>
-                                  <div class="span1 qty">
-                                    <select>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                      <option>6</option>
-                                      <option>7</option>
-                                      <option>8</option>
-                                      <option>9</option>
-                                      <option>10</option>
-                                    </select>
-                                  </div>
-                                  <div class="span2 ">
-                                    <div class="span2 product-cart-price">
-                                      <p><span>3x</span>45.23</p>
+                                    <div class="span4 product-cart-info">
+                                        <p class="title"><?php echo $CartItem['book'][0]['book_name'];?></p>
+                                        <div class="desc">
+                                            <p>By:<span><?php echo $CartItem['book'][0]['author'];?></span> </p>
+                                            <p>Publisher:<span><?php echo $CartItem['book'][0]['publisher'];?></span> </p>
+                                            <p>Store:<span><?php echo $CartItem['shop'];?></span> </p>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <div class="span2 product-cart-price">
-                                    <p>$342.3</p>
-                                  </div>
-                            </div>
+                                    <div class="span1 qty">
+                                      <select>
+                                        <?php
+                                        for($count=1;$count<=5;$count++){
+                                          if($count == $CartItem['qty'])
+                                            echo "<option value='$count' selected='selected'>$count</option>";
+                                          else
+                                            echo "<option value='$count'>$count</option>";
+                                        }
+                                      ?>
+                                      </select>
+                                    </div>
+                                    <div class="span2 ">
+                                      <div class="span2 product-cart-price">
+                                      </div>
+                                        <p><span><?php echo $CartItem['qty'];?>x</span><?php echo $CartItem['stock']['price'];?></p>
+                                    </div>
+                                    <div class="span2 product-cart-price">
+                                      <p><?php echo $CartItem['qty']*$CartItem['stock']['price'];$tot += $CartItem['qty']*$CartItem['stock']['price'];?></p>
+                                    </div>
+                              </div>
+                              
+                            <?php
+                            }
+                            ?>
                             <div class="row-fluid cart-total">
-                              <p> Sub-Total: <span>Rs 13223.23</span></p>
-                              <p> Total: <span>Rs 13223.23</span></p>
+                                <p> Sub-Total: <span>Rs. <?php echo $tot;?></span></p>
+                                <p> Total: <span>Rs. <?php echo $tot;?></span></p>
+                              </div>
                             </div>
-
-                          </div>
                       </div>
                   </div>
                 </div> <!-- cart:details ends -->
@@ -133,7 +104,12 @@
                   <div class="span6"><a href="">Update</a></div>
                   <div class="span6"><p><a href="">Continue shopping</a></p></div>
                 </div>
-
+                <pre>
+                    <?php
+                      $cart = $this->session->userdata('cart');
+                      print_r($Cart);
+                    ?>
+                </pre>
                 <div class="row-fluid"> <!-- buyer:details starts -->
                   <div class="your-cart ">
                       <div class="cart-content">
