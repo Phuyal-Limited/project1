@@ -201,8 +201,8 @@ class Database extends CI_Model{
 				$image_id = $all[$i]['image_id'];
 				$image = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
 				$image = $image->result();
-				print_r($image);exit();
-				$image = get_object_vars($image[0]);
+				
+				$image = get_object_vars($image[0]);print_r($image);exit();
 				$images[$i] = $image;
 				
 				/*$category_id = $all[$i]['category_id'];
