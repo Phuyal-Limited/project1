@@ -100,21 +100,12 @@
                   </div>
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
-                  <div class="span6"><input type='submit' name='Update' value='update'></div>
+                  <?php if(count($Cart)>0){ ?><div class="span6"><input type='submit' name='Update' value='update'></div><?php } ?>
                   <div class="span6"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
 
                 </div>
                 </form>
-                <pre>
-                    <?php
-                      $cart = $this->session->userdata('cart');
-                      echo "Post Info:";
-                      print_r($_POST);
-                      echo "<br />Cart Info:";
-                      print_r($this->session->userdata('cart'));
-
-                    ?>
-                </pre>
+                <?php if(count($Cart)>0){ ?>
                 <div class="row-fluid"> <!-- buyer:details starts -->
                   <div class="your-cart ">
                       <div class="cart-content">
@@ -151,7 +142,7 @@
                 <div class="row-fluid cart-buttons">
                   <div class="span12"><p><a href="">Check Out</a></p></div>
                 </div>
-            
+            <?php } ?>
           </div><!-- end:section2 -->
         </div><!-- End: container -->
     </div><!-- End: MAIN CONTENT -->

@@ -125,8 +125,8 @@ class Database extends CI_Model{
 	
 	public function get_cart_details()
 	{
+		$output = array();
 		if(($this->session->userdata('cart'))){
-	        $output = array();
 	        $cart = $this->session->userdata('cart');
 	        foreach ($cart as $cartItem) {
 	        	$cartItemDet=array();

@@ -41,12 +41,13 @@
                         <li><a href="">login</a></li>
                         <?php 
                           //To show the count of items in the cart
+                          $count=0;
+                          $urlCart=base_url('view_cart');
                           if($this->session->userdata('cart')){
                             $cart = $this->session->userdata('cart');
                             $count= count($cart);
-                            $urlCart=base_url('view_cart');
-                            echo "<li><a href='$urlCart'>Cart ($count)</a></li>";
                           }
+                          echo "<li><a href='$urlCart'>Cart ($count)</a></li>";
                         ?>
                         <li><a href="">Sign up</a></li>
                         <li><a href="">Sign in</a></li>

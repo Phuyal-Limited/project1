@@ -34,8 +34,8 @@ class Main extends CI_Controller {
 	}
 
 	public function view_cart(){
-		if(isset($_POST['update'])){
-			
+		if(isset($_POST['Update'])){
+			$this->_update_cart();
 		}
 		$data['title'] = 'Shopping Cart | Nepal Reads';
 		$data['category'] = $this->database->category();
@@ -45,7 +45,26 @@ class Main extends CI_Controller {
 	}
 
 	public function _update_cart(){
+		//Updating the quantity and Removing the products
+		if(isset($_POST['remove'])){
 
+			$remove_stock=array_keys($_POST['remove']);
+		}
+		else
+		{
+			$remove_stock=array();
+		}
+		$cart = $this->session->userdata('cart');
+		$newCart=array();
+		foreach ($cart as $cartItem) {
+			$newCartItem=$cartItem;
+			if(!(in_array($cartItem['stockID'], $remove_stock))){
+				$newCartItem['qty'] = $_POST['qtt'][$cartItem['stockID']];
+				array_push($newCart, $newCartItem);
+			}
+		}
+		$this->session->unset_userdata('cart');
+		$this->session->set_userdata('cart',$newCart);
 	}
 
 	public function check_out(){
