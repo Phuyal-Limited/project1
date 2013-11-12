@@ -72,6 +72,74 @@
 					?>
                     </ul>
                 </div>
+
+                <!-- details -->
+
+                <div class="row-fluid ">
+                  <div class="close-button">x</div>
+                  <div class="product-info">
+                      <div class="module-container">
+                    
+                        <!-- <div class="pprev"><</div>
+                        <div class="nnext">></div> -->
+                        <div class="product-info-title">
+                          <p class="title">
+                            <a href="">Kara Walker: Pictures from another world</a>
+                          </p>
+                        </div>
+                        <div class="row-fluid product-info-row">
+                          <div class="span4 ">
+                            <div class="product-info-gallary">
+                              <div class="main-gallary">
+                                <img src="">
+                              </div>
+                            </div>  
+                          </div>
+                          <div class="span8 ">
+                            
+                            <div class="product-info-details">
+                              <div class="row-fluid product-info-bla"> <!-- tabs-->
+                  
+                              <ul class="nav nav-tabs product-info-tabs" id="myTab">
+                                <li class="active"><a href="#home" data-toggle="tab">Price comparison</a></li>
+                                <li><a href="#profile" data-toggle="tab">Information</a></li>
+                              </ul>
+                               
+                              <div class="tab-content product-info-detail">
+                                <div class="tab-pane active" id="home">
+                                    <div class="row-fluid price-head">
+                                                  <div class="span3 "> Seller</div>
+                                                  <div class="span3 "> Price</div>
+                                                  <div class="span3 "> Price with delivery</div>
+                                                  <div class="span3 "></div>
+                                                </div><!-- end:price-head -->
+                                              <div class="row-fluid price-detail">
+                                                  <div class="span3 product-seller"> Amazon</div>
+                                                  <div class="span3 product-price"> $20.12</div>
+                                                  <div class="span3 product-delivery"> $23.22</div>
+                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                              </div><!-- end:price-detail -->
+                                              <div class="row-fluid price-detail">
+                                                  <div class="span3 product-seller"> Amazon</div>
+                                                  <div class="span3 product-price"> $20.12</div>
+                                                  <div class="span3 product-delivery"> Free Delivery</div>
+                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                              </div><!-- end:price-detail -->
+                                </div>
+                                <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
+                               
+                              </div>
+                            </div> <!-- tabs -->
+                            </div>
+                          </div>
+                        </div>
+                      </div> <!-- end: module container -->
+                    </div> <!-- ends:product-info -->
+                  </div>
+                  <br />
+
+                <!-- details -->
+
             </div>
             <!-- END:SECTION2 -->
           </div>
