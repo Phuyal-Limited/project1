@@ -4,7 +4,11 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('index');
+		//$this->load->view('index');
+		$data['title'] = 'Home';
+		$data['category'] = $this->database->category();
+		$this->load->view('home', $data);
+	
 	}
 	
 	
