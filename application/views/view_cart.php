@@ -57,7 +57,7 @@
                               <div class="row-fluid cart-row">
                                     <div class="span1 "><input type="checkbox"></div>
                                     <div class="span2 ">
-                                       <img src="http://admin.nepalreads.com/assets/images/book_image/<?php echo $CartItem['book'][1]['path'];?>"> 
+                                       <img src="<?php echo $CartItem['book'][1]['path'];?>"> 
                                     </div>
                                     <div class="span4 product-cart-info">
                                         <p class="title"><?php echo $CartItem['book'][0]['book_name'];?></p>
