@@ -100,13 +100,9 @@
                   </div>
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
-<<<<<<< HEAD
                   <div class="span6"><input type='submit' name='Update' value='update'></div>
                   <div class="span6"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
-=======
-                  <div class="span6"><input type="submit" name-"update" value="Update" class="update-btn"></div>
-                  <div class="span6"><p><a href="">Continue shopping</a></p></div>
->>>>>>> e72101828290a1ce9df08aaca5210201acc45d2c
+
                 </div>
                 </form>
                 <pre>
