@@ -256,38 +256,40 @@
                             </div>  
                           </div>
                           <div class="span8 ">
+                            
                             <div class="product-info-details">
-                              <div class="row-fluid product-info-bla">
-                                <ul class="nav nav-tabs product-info-tabs" id="myTab">
-                                  <li ><a href="#information" data-toggle="tab">Information</a></li>
-                                  <li class="active"><a href="#price-comparison" data-toggle="tab">Price Comparision</a></li>
-                                </ul>
-                                <div class="tab-content product-info-detail">
-                                  <div class="tab-pane price-info"  id="information">
-                                      <p>this is a information tab</p>
-                                  </div>
+                              <div class="row-fluid product-info-bla"> <!-- tabs-->
+                  
+                              <ul class="nav nav-tabs product-info-tabs" id="myTab">
+                                <li class="active"><a href="#home" data-toggle="tab">Price comparison</a></li>
+                                <li><a href="#profile" data-toggle="tab">Information</a></li>
+                              </ul>
+                               
+                              <div class="tab-content product-info-detail">
+                                <div class="tab-pane active" id="home">
+                                    <div class="row-fluid price-head">
+                                                  <div class="span3 "> Seller</div>
+                                                  <div class="span3 "> Price</div>
+                                                  <div class="span3 "> Price with delivery</div>
+                                                  <div class="span3 "></div>
+                                                </div><!-- end:price-head -->
+                                              <div class="row-fluid price-detail">
+                                                  <div class="span3 product-seller"> Amazon</div>
+                                                  <div class="span3 product-price"> $20.12</div>
+                                                  <div class="span3 product-delivery"> $23.22</div>
+                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                              </div><!-- end:price-detail -->
+                                              <div class="row-fluid price-detail">
+                                                  <div class="span3 product-seller"> Amazon</div>
+                                                  <div class="span3 product-price"> $20.12</div>
+                                                  <div class="span3 product-delivery"> Free Delivery</div>
+                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                              </div><!-- end:price-detail -->
                                 </div>
-                                <div class="tab-pane active price-info"  id="price-comparison">
-                                   <div class="row-fluid price-head">
-                                      <div class="span3 "> Seller</div>
-                                      <div class="span3 "> Price</div>
-                                      <div class="span3 "> Price with delivery</div>
-                                      <div class="span3 "></div>
-                                    </div><!-- end:price-head -->
-                                  <div class="row-fluid price-detail">
-                                      <div class="span3 product-seller"> Amazon</div>
-                                      <div class="span3 product-price"> $20.12</div>
-                                      <div class="span3 product-delivery"> $23.22</div>
-                                      <div class="span3 product-buy"><a href="">Buy from seller</a></div>
-                                  </div><!-- end:price-detail -->
-                                  <div class="row-fluid price-detail">
-                                      <div class="span3 product-seller"> Amazon</div>
-                                      <div class="span3 product-price"> $20.12</div>
-                                      <div class="span3 product-delivery"> Free Delivery</div>
-                                      <div class="span3 product-buy"><a href="">Buy from seller</a></div>
-                                  </div><!-- end:price-detail -->
-                                </div>
-                              </div> <!-- END: showcases -->
+                                <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
+                               
+                              </div>
+                            </div> <!-- tabs -->
                             </div>
                           </div>
                         </div>
