@@ -107,6 +107,7 @@
                 </form>
                 <?php if(count($Cart)>0){ ?>
                 <div class="row-fluid"> <!-- buyer:details starts -->
+                  <form name='CustInfo' mathod='POST' action='<?php echo base_url("check_out"); ?>'>
                   <div class="your-cart ">
                       <div class="cart-content">
                           <div class="cart-head kale">
@@ -117,22 +118,39 @@
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Name:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="text" name="name" placeholder="name">
+                                    <input type="text" name="name" placeholder="name" required>
                                   </div>
                               </div>
                               <div class="row-fluid">
-                                  <div class="span3 detail-form-label">Address:</div>
+                                  <div class="span3 detail-form-label">E-Mail Address:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="text" name="name" placeholder="Address">
+                                    <input type="email" name="email" placeholder="E-Mail Address" required>
                                   </div>
                               </div>
                               <div class="row-fluid">
-                                  <div class="span3 detail-form-label">Anything:</div>
+                                  <div class="span3 detail-form-label">Phone:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="text" name="name" placeholder="Anything">
+                                    <input type="tel" name="phone" placeholder="Phone Number" required>
                                   </div>
                               </div>
-                              
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Billing Address:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <textarea name="billing" placeholder="Complete Billing address"></textarea>
+                                  </div>
+                              </div>
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Delivery Address:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <textarea name="delivery" placeholder="Leave blank if same as billing address"></textarea>
+                                  </div>
+                              </div>
+                              <div class="row-fluid">
+                                  <div class="span3 detail-form-label">Delivery Note:</div>
+                                  <div class=" span9 form-horizontal form-signin-signup">
+                                    <input type="text" name="note" placeholder="Any message or instruction for delivery person." required>
+                                  </div>
+                              </div>
                             </div>
                           </div>
                            
@@ -140,8 +158,9 @@
                   </div>
                 </div> <!-- buyer:details ends -->
                 <div class="row-fluid cart-buttons">
-                  <div class="span12"><p><a href="">Check Out</a></p></div>
+                  <div class="span6"><input type='submit' name='confirm' Value='Proceed To Payment'></div>
                 </div>
+                </form>
             <?php } ?>
           </div><!-- end:section2 -->
         </div><!-- End: container -->
