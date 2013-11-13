@@ -28,7 +28,7 @@
                   				}
                 			?>
                       </select>
-                      <input type="submit" name="search" value="Search" class="btn btn-small search-btn" />
+                      <input type="submit" name="search" value="Search" class="search-btn" />
                       <a href="advance_search">Advanced</a>
                   </form>
                 </div>

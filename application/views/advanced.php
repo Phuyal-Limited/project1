@@ -102,7 +102,7 @@
                     </select> <br />
                     <input type="hidden" name="search_text" id="srch" />
                     <input type="hidden" name="category" id="cat" />
-                    <input type="submit" name="search" value="Search" class="btn btn-small search-btn" /> <a href=""> Reset</a>
+                    <input type="submit" name="search" value="Search" class="search-btn" /> <a href=""> Reset</a>
                   </form> <!-- Second form ends -->
 
             </div>

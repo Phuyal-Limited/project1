@@ -13,22 +13,28 @@
             ?>
             <div class="section2 sidebar span9">
               <!-- Start:  SECTION2 -->
+              <div class="row-fluid">
+                  <form action="search" method="post">
+                      <input class="span7" type="text" name="search_text" placeholder="Search...">
+                      <select name="category" id="category" class="span3">
+                        
+                      <option value="All Category">All Category</option>
+                      <?php 
+                          for($i=0;$i<sizeof($category);$i++){
+                      ?>
+                                <option value="<?php echo $category[$i]->category_id;?>"><?php echo $category[$i]->name;?></option>
+                             <?php   
+                          }
+                      ?>
+                      </select>
+                      <input type="submit" name="search" value="Search" class="search-btn"/>
+                      <a href="advance_search">Advanced</a>
+                  </form>
+                </div>
                 <div class="page-header">
                   <h2>Our products</h2>
                 </div>
                 <div class="row-fluid">
-                  <!-- <div class="span3" style="border:2px solid red;">
-
-                  </div>
-                  <div class="span3" style="border:2px solid red;">
-
-                  </div>
-                  <div class="span3" style="border:2px solid red;">
-
-                  </div>
-                  <div class="span3" style="border:2px solid red;">
-
-                  </div> -->
                   <ul class="thumbnails">
                   
 				  <?php 
