@@ -199,7 +199,7 @@
 								$alt = $search_result[1][$i]['alt'];
 				  		?>
                       
-                        <li class="span3">
+                        <li class="span3 book-<?php echo $counter; ?>">
                           <div class="thumbnail click-for-info">
                             <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="widget-footer">
@@ -229,7 +229,9 @@
 					?>
                   </ul>
                 </div>
+
                 <div class="row-fluid show-info" style="display:none;">
+                  <div class="show-info-arrow"></div>
                   <div class="close-button">x</div>
                   <div class="product-info">
                       <div class="module-container">
