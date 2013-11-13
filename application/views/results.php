@@ -200,29 +200,23 @@
 				  		?>
                       
                         <li class="span3">
-                          <div class="thumbnail">
+                          <div class="thumbnail click-for-info">
                             <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
-                            <div class="caption">
-                              <h3><?php echo $search_result[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
-                              <p>By: <a href=""><?php echo $search_result[0][$i]['author'];?></a> <br /></p>
-                              <!--<p>Fourth Edition</p>
-                              <span class="rating">
-                                  <span class="star"></span>
-                                  <span class="star"></span>
-                                  <span class="star"></span>
-                                  <span class="star"></span>
-                                  <span class="star"></span>
-                                </span>
-                              <p><a href="">Reviews</a>(123)</p>
-                              <p class="price">$10.23</p>-->
-                            </div>
                             <div class="widget-footer">
-                          <p>
-                             <a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>" class="btn">Read more</a>
-                          </p>
-                        </div>
-                      </div>
-                    </li>
+                              <div class="caption">
+                                <h3><?php echo $search_result[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span6">
+                                  <p class="book-price"><span class="currency">NRs</span>234.43</p>
+                                </div>
+                                <div class="span6 widget-buttons">
+                                  <p><a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>">More</a></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </li>
                    <?php
 				   $i++; 
 				   if($counter==4){
@@ -235,7 +229,7 @@
 					?>
                   </ul>
                 </div>
-                <div class="row-fluid ">
+                <div class="row-fluid show-info" style="display:none;">
                   <div class="close-button">x</div>
                   <div class="product-info">
                       <div class="module-container">
@@ -277,13 +271,13 @@
                                                   <div class="span3 product-seller"> Amazon</div>
                                                   <div class="span3 product-price"> $20.12</div>
                                                   <div class="span3 product-delivery"> $23.22</div>
-                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
                                               </div><!-- end:price-detail -->
                                               <div class="row-fluid price-detail">
                                                   <div class="span3 product-seller"> Amazon</div>
                                                   <div class="span3 product-price"> $20.12</div>
                                                   <div class="span3 product-delivery"> Free Delivery</div>
-                                                  <div class="span3 product-buy"><a href="">Buy from seller</a></div>
+                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
                                               </div><!-- end:price-detail -->
                                 </div>
                                 <div class="tab-pane" id="profile"><p>this is a information tab</p></div>

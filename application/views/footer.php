@@ -78,17 +78,21 @@
     <script type="text/javascript" src="<?php echo base_url('assets/js/hideshow.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js');?>"></script>
     <script type="text/javascript">
+      $('#myTab a').click(function (e) {
                     
-					$('#myTab a').click(function (e) {
-                    
-						e.preventDefault();
-                    	$(this).tab('show');
-                  	})
+            e.preventDefault();
+            $(this).tab('show');
+          });
 
-                  $('#myTab a[href="#profile"]').tab('show'); // Select tab by name
-                  $('#myTab a:first').tab('show'); // Select first tab
-                  // $('#myTab a:last').tab('show'); // Select last tab
-                  // $('#myTab li:eq(2) a').tab('show'); // Select third tab (0-indexed)
-                  </script>
+                 
+
+          $(".click-for-info").click(function() {
+         
+            $( ".show-info" ).show( "slow" );
+          });
+          $( ".close-button" ).click(function() {
+            $( ".show-info" ).hide( 1000 );
+          });
+    </script>
   </body>
 </html>
