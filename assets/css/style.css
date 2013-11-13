@@ -762,12 +762,15 @@ font-size: 15px;
 .btn-google:hover, .btn-github:hover {
   text-decoration: none;
 }
-.form-signin-signup input[type="text"],
-.form-signin-signup input[type="password"] {
+.form-signin-signup input{
   width: 70%;
   height: 30px;
 }
-.form-signin-signup input {
+.form-signin-signup textarea{
+  width: 70%;
+}
+.form-signin-signup input,
+.form-signin-signup textarea {
   margin-bottom: 15px;
 }
 .remember-me {
