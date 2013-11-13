@@ -78,6 +78,10 @@ h3{
 .caption h3{
   line-height:20px;
 }
+
+.widget-footer>.caption{
+  padding:0;
+}
 .details{
   padding:50px;
   padding-top: 0px;
@@ -542,6 +546,46 @@ font-size: 15px;
   font-size: 13px;
   font-weight: bold;
 }
+
+.widget-buttons p{
+  float:right;
+}
+.widget-buttons a{
+  background-color: #3c757d;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+
+}
+
+.widget-buttons a:hover{
+  opacity:0.8;
+  text-decoration: none;
+}
+
+.currency{
+  padding-right: 5px;
+  font-size: 17px;
+}
+
+.book-price{
+  font-size: 20px;
+}
+
+
+.show-info{
+  margin-top: -30px;
+}
+
+.show-info-arrow{
+  border-bottom: 10px solid #e6e6e6;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  height: 0;
+  width: 0;
+}
+
 
 
 
