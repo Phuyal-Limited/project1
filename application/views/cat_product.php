@@ -43,7 +43,7 @@
 						$alt = $book_details[1][$i]['alt'];
 				  ?>
                       
-                        <li class="span3 book-<?php echo $counter; ?>">
+                        <li class="span3">
                           <div class="thumbnail click-for-info">
                             <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
 
