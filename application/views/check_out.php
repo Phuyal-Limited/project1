@@ -35,13 +35,13 @@
                   <div class="your-cart">
                       <div class="cart-content">
                           <div class="cart-head kale">
-                          Your Cart
+                          Order Created with the following Items:
                           </div>
                           <div class="cart-details">
                             <div class="table-titles">
                               
                               <div class="row-fluid">
-                                  <div class="span1 ">Remove</div>
+                                  <div class="span1 ">Sn.</div>
                                   <div class="span2 ">Picture</div>
                                   <div class="span4 ">Book Details</div>
                                   <div class="span1 ">Qty</div>
@@ -49,83 +49,79 @@
                                   <div class="span2 ">Total</div>
                               </div>
                             </div>
-                            <div class="row-fluid cart-row">
-                                  <div class="span1 serial"><p>1.</p></div>
-                                  <div class="span2 ">
-                                     <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
-                                  </div>
-                                  <div class="span4 product-cart-info">
-                                      <p class="title">Kara Walker</p>
-                                      <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
-                                  </div>
-                                  <div class="span1 qty">
-                                    <p>3</p>
-                                  </div>
-                                  <div class="span2 ">
+                            <?php
+                            $count=1;
+                            $tot=0;
+                            foreach ($cart_det as $CartItem) {
+                            ?>
+                              <div class="row-fluid cart-row">
+                                    <div class="span1 serial"><p><?php echo $count++; ?>.</p></div>
+                                    <div class="span2 ">
+                                       <img src="<?php echo $CartItem['book'][1]['path'];?>" alt="<?php echo $CartItem['book'][1]['alt'];?>"> 
+                                    </div>
+                                    <div class="span4 product-cart-info">
+                                        <p class="title"><?php echo $CartItem['book'][0]['book_name'];?></p>
+                                        <div class="desc">
+                                            <p>By:<span><?php echo $CartItem['book'][0]['author'];?></span> </p>
+                                            <p>Publisher:<span><?php echo $CartItem['book'][0]['publisher'];?></span> </p>
+                                            <p>Store:<span><?php echo $CartItem['shop'];?></span> </p>
+                                        </div>
+                                    </div>
+                                    <div class="span1 qty">
+                                      <p><?php echo $CartItem['stock']['stock_id'];?></p>
+                                    </div>
+                                    <div class="span2 ">
+                                      <div class="span2 product-cart-price">
+                                  <p>Rs. <?php echo $CartItem['stock']['price'];?></p>
+                                </div>
+                                    </div>
                                     <div class="span2 product-cart-price">
-                                <p>$45.23</p>
+                                      <p><?php echo $CartItem['qty']*$CartItem['stock']['price'];$tot += $CartItem['qty']*$CartItem['stock']['price'];?></p>
+                                    </div>
                               </div>
-                                  </div>
-                                  <div class="span2 product-cart-price">
-                                    <p>$342.3</p>
-                                  </div>
-                            </div>
-
-                            <div class="row-fluid cart-row">
-                                  <div class="span1 "><p>2.</p></div>
-                                  <div class="span2 ">
-                                     <img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>"> 
-                                  </div>
-                                  <div class="span4 product-cart-info">
-                                      <p class="title">Kara Walker</p>
-                                      <p class="desc">lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.lorem Ipsum Dolor Sit.</p>
-                                  </div>
-                                  <div class="span1 qty">
-                                    <p>5</p>
-                                  </div>
-                                  <div class="span2 ">
-                                    <div class="span2 product-cart-price">
-                                <p>$45.23</p>
-                              </div>
-                                  </div>
-                                  <div class="span2 product-cart-price">
-                                    <p>$342.3</p>
-                                  </div>
-                            </div>
+                            <?php } ?>
                             <div class="row-fluid cart-total">
-                              <p> Sub-Total: <span>Rs 13223.23</span></p>
-                              <p> Total: <span>Rs 13223.23</span></p>
+                              <p> Sub-Total: <span>Rs <?php echo $tot;?></span></p>
+                              <p> Total: <span>Rs <?php echo $tot;?></span></p>
                             </div>
 
                           </div>
                       </div>
                   </div>
                 </div> <!-- cart:details ends -->
-
+                
                 <div class="row-fluid"> <!-- buyer:details starts -->
                   <div class="your-cart ">
                       <div class="cart-content">
                           <div class="cart-head kale">
-                          Your Details
+                          Customer Details
                           </div>
                           <div class="widget-body">
                             <div class="user-details">
                               <div class="row-fluid">
                                 <div class="span3"><label>Name:</label></div>
-                                <div class="span9"><p>Bibek KC</p></div>
+                                <div class="span9"><p><?php echo $order['name'];?></p></div>
                               </div>
                               <div class="row-fluid">
-                                <div class="span3"><label>Address:</label></div>
-                                <div class="span9"><p>Lamachaur-2, Pokhara</p></div>
+                                <div class="span3"><label>Email:</label></div>
+                                <div class="span9"><p><?php echo $order['email'];?></p></div>
                               </div>
                               <div class="row-fluid">
-                                <div class="span3"><label>Lorem:</label></div>
-                                <div class="span9"><p>Lorem Ipsum</p></div>
+                                <div class="span3"><label>Phone:</label></div>
+                                <div class="span9"><p><?php echo $order['phone'];?></p></div>
                               </div>
                               <div class="row-fluid">
-                                <div class="span3"><label>Lorem Ipsum:</label></div>
-                                <div class="span9"><p>Lorem Ipsum</p></div>
+                                <div class="span3"><label>Billing address:</label></div>
+                                <div class="span9"><p><?php echo nl2br($order['billing']);?></p></div>
                               </div>
+                              <div class="row-fluid">
+                                <div class="span3"><label>Delivery address:</label></div>
+                                <div class="span9"><p><?php echo $order['delivery']==""?"Same as billing address":nl2br($order['delivery']);?></p></div>
+                              </div>
+                              <div class="row-fluid">
+                                <div class="span3"><label>Delivery note:</label></div>
+                                <div class="span9"><p><?php echo $order['note'];?></p></div>
+                              </div>                              
                               
                                 
                             </div>
@@ -135,7 +131,7 @@
                   </div>
                 </div> <!-- buyer:details ends -->
                 <div class="row-fluid cart-buttons">
-                  <div><p><a href="">Proceed to Check Out</a></div>
+                  <div><p><a href="">Pay via Paymentsense</a></div>
                 </div>
             
           </div><!-- end:section2 -->

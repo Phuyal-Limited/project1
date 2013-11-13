@@ -40,6 +40,13 @@ class Main extends CI_Controller {
 		$data['title'] = 'Shopping Cart | Nepal Reads';
 		$data['category'] = $this->database->category();
 		$data['Cart'] = $this->database->get_cart_details();
+		if($this->session->userdata('order')){
+			$order=$this->session->userdata('order');
+		}
+		else{
+			$order = array('name' => '', 'email' => '','phone' => '','billing' => '','delivery' => '','note'=>'');
+		}
+		$data['order'] = $order;
 		$this->load->view('view_cart', $data);
 	
 	}
@@ -65,11 +72,44 @@ class Main extends CI_Controller {
 		}
 		$this->session->unset_userdata('cart');
 		$this->session->set_userdata('cart',$newCart);
+		$this->_calculate_cart();
+	}
+
+	public function _calculate_cart(){
+		if(!($this->session->userdata('cart'))){
+			return;
+		}
+		$cart = $this->database->get_cart_details();
+		$tot=0;
+		foreach ($cart as $cartItem) {
+			$tot += $cartItem['qty']*$cartItem['stock']['price'];
+		}
+		$this->session->unset_userdata('cartTot');
+		$this->session->set_userdata('cartTot',$tot);
 	}
 
 	public function check_out(){
+		if(!(isset($_POST['confirm']) || $this->session->userdata('order'))){
+			$data['title'] = 'Home';
+			$data['category'] = $this->database->category();
+			$this->load->view('home', $data);
+			return;
+		}
+		if(isset($_POST['confirm'])){
+			$order=$_POST;
+			unset($order['confirm']);
+			$this->session->set_userdata('order',$order);
+		}
+		else
+		{
+			$order=$this->session->userdata('order');
+		}
 		$data['title'] = 'Check Out | Nepal Reads';
 		$data['category'] = $this->database->category();
+		$data['order'] = $order;
+		$data['cart_det'] = $this->database->get_cart_details();
+		$this->_calculate_cart();
+		$data['cart_total'] = $this->session->userdata('cartTot');
 		$this->load->view('check_out', $data);
 	
 	}

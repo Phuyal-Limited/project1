@@ -105,9 +105,10 @@
 
                 </div>
                 </form>
-                <?php if(count($Cart)>0){ ?>
+                <?php if(count($Cart)>0){ 
+                  ?>
                 <div class="row-fluid"> <!-- buyer:details starts -->
-                  <form name='CustInfo' mathod='POST' action='<?php echo base_url("check_out"); ?>'>
+                  <form name='CustInfo' method='POST' action='<?php echo base_url("check_out"); ?>'>
                   <div class="your-cart ">
                       <div class="cart-content">
                           <div class="cart-head kale">
@@ -118,37 +119,37 @@
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Name:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="text" name="name" placeholder="name" required>
+                                    <input type="text" name="name" placeholder="name" required value='<?php echo $order['name'];?>'>
                                   </div>
                               </div>
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">E-Mail Address:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="email" name="email" placeholder="E-Mail Address" required>
+                                    <input type="email" name="email" placeholder="E-Mail Address" required value='<?php echo $order['email'];?>'>
                                   </div>
                               </div>
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Phone:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                                    <input type="tel" name="phone" placeholder="Phone Number" required value='<?php echo $order['phone'];?>'>
                                   </div>
                               </div>
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Billing Address:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <textarea name="billing" placeholder="Complete Billing address"></textarea>
+                                    <textarea name="billing" placeholder="Complete Billing address" required><?php echo $order['billing'];?></textarea>
                                   </div>
                               </div>
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Delivery Address:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <textarea name="delivery" placeholder="Leave blank if same as billing address"></textarea>
+                                    <textarea name="delivery" placeholder="Leave blank if same as billing address"><?php echo $order['delivery'];?></textarea>
                                   </div>
                               </div>
                               <div class="row-fluid">
                                   <div class="span3 detail-form-label">Delivery Note:</div>
                                   <div class=" span9 form-horizontal form-signin-signup">
-                                    <input type="text" name="note" placeholder="Any message or instruction for delivery person." required>
+                                    <input type="text" name="note" placeholder="Any message or instruction for delivery person." value='<?php echo $order['note'];?>'>
                                   </div>
                               </div>
                             </div>
