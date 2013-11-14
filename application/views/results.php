@@ -268,12 +268,12 @@
                               <div class="tab-content product-info-detail">
                                 <div class="tab-pane active" id="home">
                                     <div class="row-fluid price-head">
-                                                  <div class="span3 "> Seller</div>
-                                                  <div class="span3 "> Price</div>
-                                                  <div class="span3 "> Delivery Cost Within City</div>
-                                                  <div class="span3 "> Delivery Cost Outof City</div>
-                                                  <div class="span3 "> Quantity</div>
-                                                  <div class="span3 "></div>
+                                                  <div class="span2 "> Seller</div>
+                                                  <div class="span2 "> Price</div>
+                                                  <div class="span2 "> Delivery(Within City)</div>
+                                                  <div class="span2 "> Delivery(Outof City)</div>
+                                                  <div class="span2 "> Quantity</div>
+                                                  <div class="span2 "></div>
                                                 </div><!-- end:price-head -->
                                               <div id="display"></div><!-- end:price-detail -->
                                 </div>

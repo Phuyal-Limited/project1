@@ -367,7 +367,16 @@ class Main extends CI_Controller {
 			$book_id = $_POST['book_id'];
 			$book_details = $this->database->book_particular($book_id);
 			$shop_details = $this->database->shop_details($book_id);
-			$all = array($book_details, $shop_details);
+			$stock_id= array();
+			if(($this->session->userdata('cart'))){
+                $cart = $this->session->userdata('cart');
+               for($i=0;$i<sizeof($cart);$i++){
+               		$stock_id[$i] = $cart[$i]['stockID'];
+               }
+            }
+            
+			$all = array($book_details, $shop_details, $stock_id);
+
 			print_r(json_encode($all));exit();
 			
 		}

@@ -89,13 +89,13 @@
                         <div class="nnext">></div> -->
                         <div class="product-info-title">
                           <p class="title">
-                            <a href="">Kara Walker: Pictures from another world</a>
+                            <a id="book_title" href="">Kara Walker: Pictures from another world</a>
                           </p>
                         </div>
                         <div class="row-fluid product-info-row">
                           <div class="span4 ">
                             <div class="product-info-gallary">
-                              <div class="main-gallary">
+                              <div id="img" class="main-gallary">
                                 <img src="">
                               </div>
                             </div>  
@@ -113,10 +113,12 @@
                               <div class="tab-content product-info-detail">
                                 <div class="tab-pane active" id="home">
                                     <div class="row-fluid price-head">
-                                                  <div class="span3 "> Seller</div>
-                                                  <div class="span3 "> Price</div>
-                                                  <div class="span3 "> Price with delivery</div>
-                                                  <div class="span3 "></div>
+                                                  <div class="span2 "> Seller</div>
+                                                  <div class="span2 "> Price</div>
+                                                  <div class="span2 "> Delivery(Within City)</div>
+                                                  <div class="span2 "> Delivery Cost Outof City</div>
+                                                  <div class="span2 "> Quantity</div>
+                                                  <div class="span2 "></div>
                                                 </div><!-- end:price-head -->
                                                <div id="display"></div><!-- end:price-detail -->
                                 </div>
