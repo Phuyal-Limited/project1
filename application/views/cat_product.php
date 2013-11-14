@@ -32,26 +32,52 @@
                   </form>
                 </div>
                 <div class="page-header">
-                  <h2>Our products</h2>
+                  <?php
+                    $category_name = '';
+                    for($i=0;$i<sizeof($category);$i++){
+                      $category_id = $category[$i]->category_id;
+                      if($category_id==$cat_id){
+                        $category_name = $category[$i]->name;
+                      }
+                    }
+                  ?>
+                  <h2><?php echo $category_name?></h2>
                 </div>
+                <?php
+                  $sz = sizeof($book_details[0]);
+                  if($sz==0){
+          
+                  }else{
+                    $sz = $sz-1;
+                  }
+                  $row = $sz/4;
+                  $counter = 0;
+                  $i = 0;
+                  for($x=0;$x<=$row;$x++){
+            
+                  ?>
                 <div class="row-fluid">
                   <ul class="thumbnails">
                   
-				  <?php 
-				  $size = sizeof($book_details[0]);
-				  //echo $size;exit();
-				  if($book_details[0] == array() && $book_details[1] == array()){
-					 echo 'No Books Available.';
-					}else{
-				  	for($i=0;$i<$size;$i++){
-						$img = $book_details[1][$i]['path'];
-						//echo $img;exit();
-						$alt = $book_details[1][$i]['alt'];
-				  ?>
+				          
+                  <?php 
+                    $size = sizeof($book_details[0]);
+                
+                    if($book_details[0] == array()){
+                      echo 'No Books Available.';
+                    }else{
+                      while($i<$size){
+                
+                      $counter++;
+                      $img = $book_details[1][$i]['path'];
+                      //echo $img;exit();
+                      $alt = $book_details[1][$i]['alt'];
+                  ?> 
+				            
                       
                         <li class="span3">
-                          <div class="thumbnail click-for-info">
-                            <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
+                          <div class="thumbnail">
+                            <img style="height:300px;" src="<?php echo $img;?>" alt="<?php echo $alt;?>">
 
                               <div class="widget-footer">
                               <div class="caption">
@@ -64,24 +90,30 @@
                                 <div class="span6 widget-buttons">
                                   <p>
                                     <input type="hidden" id="book_id<?php echo $i;?>" value="<?php echo $book_details[0][$i]['book_id']?>" />
-                                    <a id='more_info' onClick="info(<?php echo $i;?>);" href="javascript:void(0)">More</a>
+                                    <a id='more_info' onClick="info(<?php echo $i;?>, <?php echo $x;?>);" href="javascript:void(0)">More</a>
                                   </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </li>
-                    <?php }
-					}
-					?>
+                    <?php
+                      $i++; 
+                      if($counter==4){
+                        $counter=0;
+                        break;
+                      }
+                  }
+                }
+          ?>
                     </ul>
                 </div>
 
                 <!-- details -->
-
-                <div class="row-fluid show-info" style="display:none;">
-                  <div class="show-info-arrow"></div>
-                  <div class="close-button">x</div>
+              <div id="<?php echo 'info-show'.$x;?>" style="display:none;">
+                <div class="row-fluid" >
+                  <div class="show-info-arrow" id="arrow<?php echo $x;?>"></div>
+                  <div  class="close-button" onClick="close_info(<?php echo $x;?>);">x</div>
                   <div class="product-info">
                       <div class="module-container">
                     
@@ -89,13 +121,13 @@
                         <div class="nnext">></div> -->
                         <div class="product-info-title">
                           <p class="title">
-                            <a id="book_title" href="">Kara Walker: Pictures from another world</a>
+                            <a id="book_title<?php echo $x;?>" href="">Kara Walker: Pictures from another world</a>
                           </p>
                         </div>
                         <div class="row-fluid product-info-row">
                           <div class="span4 ">
                             <div class="product-info-gallary">
-                              <div id="img" class="main-gallary">
+                              <div id="img<?php echo $x;?>" class="main-gallary">
                                 <img src="">
                               </div>
                             </div>  
@@ -120,9 +152,9 @@
                                                   <div class="span2 "> Quantity</div>
                                                   <div class="span2 "></div>
                                                 </div><!-- end:price-head -->
-                                               <div id="display"></div><!-- end:price-detail -->
+                                               <div id="display<?php echo $x;?>"></div><!-- end:price-detail -->
                                 </div>
-                                <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
+                                <div class="tab-pane" id="profile"><p id="info-tab<?php echo $x;?>">this is a information tab</p></div>
                                
                               </div>
                             </div> <!-- tabs -->
@@ -132,8 +164,11 @@
                       </div> <!-- end: module container -->
                     </div> <!-- ends:product-info -->
                   </div>
+                </div>
                   <br />
-
+                  <?php 
+                      }
+                  ?>
                 <!-- details -->
 
             </div>

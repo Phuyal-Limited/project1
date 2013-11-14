@@ -35,7 +35,7 @@
                     <!-- Start: Primary navigation -->
                     <div class="nav-collapse collapse">        
                       <ul class="nav pull-right">
-                        <li><a href="">Products</a></li>
+                        <li><a href="home">Home</a></li>
                         <li><a href="">product</a></li>
                         <li><a href="">Dashboard</a></li>
                         <li><a href="">login</a></li>

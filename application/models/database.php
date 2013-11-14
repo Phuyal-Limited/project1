@@ -103,7 +103,7 @@ class Database extends CI_Model{
 		}else{
 			for($i=0;$i<sizeof($output);$i++){
 				$category_id = $output[$i]['category_id'];
-				$category_id = explode(", ", $category_id);
+				$category_id = explode(",", $category_id);
 				for($j=0;$j<sizeof($category_id);$j++){
 					if($cat_id == $category_id[$j]){
 						$book_details[$x] = $output[$i];
@@ -119,7 +119,7 @@ class Database extends CI_Model{
 			
 			$all_info = array($book_details, $image_details);
 			
-		}
+		}//print_r($all_info);exit();
 		return $all_info;
 	}
 	
@@ -153,7 +153,7 @@ class Database extends CI_Model{
 		$book_details = get_object_vars($book_details[0]);	
 		
 		$category_id = $book_details['category_id'];
-		$category_id = explode(", ", $category_id);
+		$category_id = explode(",", $category_id);
 		$cat = array();
 				
 		for($j=0;$j<sizeof($category_id);$j++){

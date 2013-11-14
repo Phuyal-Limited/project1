@@ -252,8 +252,7 @@ class Main extends CI_Controller {
 			$data['title'] = 'Books';
 			$data['category'] = $this->database->category();
 			$data['book_details'] = $this->database->book_details($cat_id);
-			//echo $data['book_details'][1][1][0]->path;exit();
-			//print_r(($data['book_details']));exit();
+			$data['cat_id'] = $cat_id;
 			$this->load->view('cat_product', $data);
 	
 		}

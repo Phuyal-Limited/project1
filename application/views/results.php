@@ -1,5 +1,5 @@
     <!-- Start: HEADER -->
-    <?php
+    <?php 
       include("header.php");
     ?>
     <!-- End: HEADER -->
@@ -47,7 +47,7 @@
             <div class="span3" style="float:right;"> 
               Sort by
               <select>
-                <option>newest</option>
+                <option value="newest">Newest</option>
                 <option>newest</option>
                 <option>newest</option>
               </select>
@@ -200,8 +200,8 @@
 				  		?>
                       
                         <li class="span3 book-<?php echo $counter; ?>">
-                          <div class="thumbnail click-for-info">
-                            <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
+                          <div class="thumbnail ">
+                            <img style="height:300px;" src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="widget-footer">
                               <div class="caption">
                                 <h3><?php echo $search_result[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
@@ -214,29 +214,28 @@
                                   <p>
                                     <!--<a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>">More</a>-->
                                     <input type="hidden" id="book_id<?php echo $i;?>" value="<?php echo $search_result[0][$i]['book_id']?>" />
-                                    <a id='more_info' onClick="info(<?php echo $i;?>);" href="javascript:void(0)">More</a>
+                                    <a id='more_info' onClick="info(<?php echo $i;?>, <?php echo $x;?>);" href="javascript:void(0)">More</a>
                                   </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </li>
-                   <?php
-				   $i++; 
-				   if($counter==4){
-            $counter=0;
-					  break;
-					}
-					
-				   }
-				}
-					?>
+                     <?php
+  				              $i++; 
+  				              if($counter==4){
+                          $counter=0;
+  					               break;
+  					             }
+  					           }
+  				          }
+  					?>
                   </ul>
                 </div>
-
-                <div class="row-fluid show-info" style="display:none;">
-                  <div class="show-info-arrow"></div>
-                  <div class="close-button">x</div>
+                <div id="<?php echo 'info-show'.$x;?>" style="display:none;">
+                <div class="row-fluid" >
+                  <div class="show-info-arrow" id="arrow<?php echo $x;?>"></div>
+                  <div  class="close-button" onClick="close_info(<?php echo $x;?>);">x</div>
                   <div class="product-info">
                       <div class="module-container">
                     
@@ -244,13 +243,13 @@
                         <div class="nnext">></div> -->
                         <div class="product-info-title">
                           <p class="title">
-                            <a id="book_title" href="">Kara Walker: Pictures from another world</a>
+                            <a id="book_title<?php echo $x;?>" href="">Kara Walker: Pictures from another world</a>
                           </p>
                         </div>
                         <div class="row-fluid product-info-row">
                           <div class="span4 ">
                             <div class="product-info-gallary">
-                              <div id="img" class="main-gallary">
+                              <div id="img<?php echo $x;?>" class="main-gallary">
                                 <img  src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                               </div>
                             </div>  
@@ -269,15 +268,15 @@
                                 <div class="tab-pane active" id="home">
                                     <div class="row-fluid price-head">
                                                   <div class="span2 "> Seller</div>
-                                                  <div class="span2 "> Price</div>
+                                                  <div class="span2 "> Price(NRs.)</div>
                                                   <div class="span2 "> Delivery(Within City)</div>
                                                   <div class="span2 "> Delivery(Outof City)</div>
                                                   <div class="span2 "> Quantity</div>
                                                   <div class="span2 "></div>
                                                 </div><!-- end:price-head -->
-                                              <div id="display"></div><!-- end:price-detail -->
+                                              <div id="display<?php echo $x;?>"></div><!-- end:price-detail -->
                                 </div>
-                                <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
+                                <div class="tab-pane" id="profile"><p id="info-tab<?php echo $x;?>">this is a information tab</p></div>
                                
                               </div>
                             </div> <!-- tabs -->
@@ -287,7 +286,7 @@
                       </div> <!-- end: module container -->
                     </div> <!-- ends:product-info -->
                   </div>
-                
+                </div>
               <br/>
                 <?php
 					}
