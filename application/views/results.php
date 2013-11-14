@@ -1,5 +1,5 @@
     <!-- Start: HEADER -->
-    <?php 
+    <?php
       include("header.php");
     ?>
     <!-- End: HEADER -->
@@ -211,7 +211,11 @@
                                   <p class="book-price"><span class="currency">NRs</span>234.43</p>
                                 </div>
                                 <div class="span6 widget-buttons">
-                                  <p><a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>">More</a></p>
+                                  <p>
+                                    <!--<a href="product?book_id=<?php echo $search_result[0][$i]['book_id'];?>">More</a>-->
+                                    <input type="hidden" id="book_id<?php echo $i;?>" value="<?php echo $search_result[0][$i]['book_id']?>" />
+                                    <a id='more_info' onClick="info(<?php echo $i;?>);" href="javascript:void(0)">More</a>
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -240,14 +244,14 @@
                         <div class="nnext">></div> -->
                         <div class="product-info-title">
                           <p class="title">
-                            <a href="">Kara Walker: Pictures from another world</a>
+                            <a id="book_title" href="">Kara Walker: Pictures from another world</a>
                           </p>
                         </div>
                         <div class="row-fluid product-info-row">
                           <div class="span4 ">
                             <div class="product-info-gallary">
-                              <div class="main-gallary">
-                                <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
+                              <div id="img" class="main-gallary">
+                                <img  src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                               </div>
                             </div>  
                           </div>
@@ -266,21 +270,12 @@
                                     <div class="row-fluid price-head">
                                                   <div class="span3 "> Seller</div>
                                                   <div class="span3 "> Price</div>
-                                                  <div class="span3 "> Price with delivery</div>
+                                                  <div class="span3 "> Delivery Cost Within City</div>
+                                                  <div class="span3 "> Delivery Cost Outof City</div>
+                                                  <div class="span3 "> Quantity</div>
                                                   <div class="span3 "></div>
                                                 </div><!-- end:price-head -->
-                                              <div class="row-fluid price-detail">
-                                                  <div class="span3 product-seller"> Amazon</div>
-                                                  <div class="span3 product-price"> $20.12</div>
-                                                  <div class="span3 product-delivery"> $23.22</div>
-                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
-                                              </div><!-- end:price-detail -->
-                                              <div class="row-fluid price-detail">
-                                                  <div class="span3 product-seller"> Amazon</div>
-                                                  <div class="span3 product-price"> $20.12</div>
-                                                  <div class="span3 product-delivery"> Free Delivery</div>
-                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
-                                              </div><!-- end:price-detail -->
+                                              <div id="display"></div><!-- end:price-detail -->
                                 </div>
                                 <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
                                

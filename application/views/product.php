@@ -80,7 +80,7 @@
                                         }
                                       ?>
                                     </select>
-                        	<input type="hidden" name="book_id" value="<?php echo $shop_details[0][$i]['stock_id']?>"/>
+                        	<input type="hidden" name="stock_id" value="<?php echo $shop_details[0][$i]['stock_id']?>"/>
                       		<input type="submit" name="Cart" value="Add to Cart" id="add_to_cart" class="btn btn-small search-btn" />
                       	</form>
                         <?php

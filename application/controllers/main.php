@@ -263,7 +263,7 @@ class Main extends CI_Controller {
 	
 	public function product(){
 		if(isset($_POST['Cart'])){
-			$stock_ID=$this->input->post('book_id');
+			$stock_ID=$this->input->post('stock_id');
 			$qty=$this->input->post('qty');
 			$cartItem= array('stockID' => $stock_ID, 'qty' => $qty);
 			if(!($this->session->userdata('cart'))){
@@ -277,6 +277,9 @@ class Main extends CI_Controller {
 				$this->session->unset_userdata('cart');
 				$this->session->set_userdata('cart',$cart);
 			}
+			$cart = $this->session->userdata('cart');
+            $count= count($cart);
+            echo $count;exit();
 		}
 		if(!isset($_GET['book_id'])){
 		
@@ -357,7 +360,19 @@ class Main extends CI_Controller {
 		}
 	}
 	
-	
+	public function info(){
+		if(!isset($_POST['book_id'])){
+			$this->index();
+		}else{
+			$book_id = $_POST['book_id'];
+			$book_details = $this->database->book_particular($book_id);
+			$shop_details = $this->database->shop_details($book_id);
+			$all = array($book_details, $shop_details);
+			print_r(json_encode($all));exit();
+			
+		}
+
+	}
 
 	
 }

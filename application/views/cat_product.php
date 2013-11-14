@@ -62,7 +62,10 @@
                                   <p class="book-price"><span class="currency">NRs</span>234.43</p>
                                 </div>
                                 <div class="span6 widget-buttons">
-                                  <p><a href="product?book_id=<?php echo $book_details[0][$i]['book_id'];?>">More</a></p>
+                                  <p>
+                                    <input type="hidden" id="book_id<?php echo $i;?>" value="<?php echo $book_details[0][$i]['book_id']?>" />
+                                    <a id='more_info' onClick="info(<?php echo $i;?>);" href="javascript:void(0)">More</a>
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -115,18 +118,7 @@
                                                   <div class="span3 "> Price with delivery</div>
                                                   <div class="span3 "></div>
                                                 </div><!-- end:price-head -->
-                                              <div class="row-fluid price-detail">
-                                                  <div class="span3 product-seller"> Amazon</div>
-                                                  <div class="span3 product-price"> $20.12</div>
-                                                  <div class="span3 product-delivery"> $23.22</div>
-                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
-                                              </div><!-- end:price-detail -->
-                                              <div class="row-fluid price-detail">
-                                                  <div class="span3 product-seller"> Amazon</div>
-                                                  <div class="span3 product-price"> $20.12</div>
-                                                  <div class="span3 product-delivery"> Free Delivery</div>
-                                                  <div class="span3 product-buy"><a href="">Buy</a></div>
-                                              </div><!-- end:price-detail -->
+                                               <div id="display"></div><!-- end:price-detail -->
                                 </div>
                                 <div class="tab-pane" id="profile"><p>this is a information tab</p></div>
                                
