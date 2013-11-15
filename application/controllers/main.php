@@ -27,11 +27,31 @@ class Main extends CI_Controller {
 	}
 
 	public function thank_you(){
-		$data['title'] = 'thank_you | Nepal Reads';
-		$data['category'] = $this->database->category();
-		$this->load->view('thank_you', $data);
-	
-	}
+  		if(isset($_POST['StatusCode'])){
+			$data['title'] = 'thank_you | Nepal Reads';
+  			$data['category'] = $this->database->category();
+  			$status = $_POST['StatusCode'];
+			if($status == 0){
+				$confirm_code = $_POST['Message'];
+				$confirm_code = explode(': ', $confirm_code);
+				$data['message'] = $confirm_code[1];
+   				$order=$this->session->userdata('order');
+   				$cart=$this->session->userdata('cart');
+				
+				$this->database->cart($order, $cart, $confirm_code[1]);
+   				
+				$this->session->unset_userdata('cart');
+   				$this->load->view('thank_you', $data); 
+  			}
+  			else{
+   				redirect('error');;
+  			}
+		}else{
+   			redirect('error');;
+  		}
+		
+ 
+ 	}
 
 	public function view_cart(){
 		if(isset($_POST['Update'])){
@@ -264,6 +284,7 @@ class Main extends CI_Controller {
 		if(isset($_POST['Cart'])){
 			$stock_ID=$this->input->post('stock_id');
 			$qty=$this->input->post('qty');
+			
 			$cartItem= array('stockID' => $stock_ID, 'qty' => $qty);
 			if(!($this->session->userdata('cart'))){
 				$cart = array($cartItem);

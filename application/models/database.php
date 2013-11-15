@@ -97,16 +97,29 @@ class Database extends CI_Model{
 		
 		$book_details = array();
 		$image_details = array();
+		$price_all = array();
 		$x=0;
 		if($output==array()){
 			$all_info = array('0'=>array(), '1'=>array());
 		}else{
 			for($i=0;$i<sizeof($output);$i++){
+				
+				
+
 				$category_id = $output[$i]['category_id'];
 				$category_id = explode(",", $category_id);
 				for($j=0;$j<sizeof($category_id);$j++){
 					if($cat_id == $category_id[$j]){
 						$book_details[$x] = $output[$i];
+						
+						$id = $output[$i]['book_id'];
+
+						//get the cheepest price of the book
+						$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$id' ORDER BY `price` ASC LIMIT 1");
+						$price = $price->result();
+						$price = $price[0]->price;
+						array_push($price_all, $price);
+
 						$img_id = $output[$i]['image_id'];
 						
 						$image_info = $this->db->query("SELECT * FROM `images` WHERE `image_id` = '$img_id'");
@@ -117,7 +130,7 @@ class Database extends CI_Model{
 				}
 			}
 			
-			$all_info = array($book_details, $image_details);
+			$all_info = array($book_details, $image_details, $price_all);
 			
 		}//print_r($all_info);exit();
 		return $all_info;
@@ -207,7 +220,12 @@ class Database extends CI_Model{
 			$x=0;
 			for($i=0;$i<sizeof($stock_result);$i++){
 				$id = $stock_result[$i]->book_id;
-				$book_details = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%' && book_id='$id'");
+				//get the cheepest book from stock
+				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$id' ORDER BY `price` ASC LIMIT 1");
+				$price = $price->result();
+				$price = $price[0]->price;
+				
+				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.book_id='$id' && shopstock.book_id='$id' && shopstock.price='$price'");
 				$book_details = $book_details->result();
 				if($book_details==array()){
 					continue;
@@ -253,7 +271,13 @@ class Database extends CI_Model{
 			$x=0;
 			for($i=0;$i<sizeof($stock_result);$i++){
 				$book_id = $stock_result[$i]->book_id;
-				$book_details = $this->db->query("SELECT * FROM `books` WHERE book_name LIKE '%$srch_txt%' && category_id='$category' && book_id='$book_id'");
+				
+				//get the cheepest price of the book
+				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$book_id' ORDER BY `price` ASC LIMIT 1");
+				$price = $price->result();
+				$price = $price[0]->price;
+				
+				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
 				$book_details = $book_details->result();
 				if($book_details==array()){
 					continue;
@@ -341,7 +365,12 @@ class Database extends CI_Model{
 		if($category=='All Category'){
 			for($i=0;$i<sizeof($id_list);$i++){
 				$book_id = $id_list[$i];
-				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
+				//get the cheepest price of the book
+				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$book_id' ORDER BY `price` ASC LIMIT 1");
+				$price = $price->result();
+				$price = $price[0]->price;
+				
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
 				$output = $output->result();
 				
 				if($output==array()){
@@ -388,7 +417,12 @@ class Database extends CI_Model{
 		}else{
 			for($i=0;$i<sizeof($id_list);$i++){
 				$book_id = $id_list[$i];
-				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
+				//get the cheepest price of the book
+				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$id' ORDER BY `price` ASC LIMIT 1");
+				$price = $price->result();
+				$price = $price[0]->price;
+				
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
 				$output = $output->result();
 				
 				if($output==array()){
@@ -427,6 +461,38 @@ class Database extends CI_Model{
 			$result = array($all, $images);
 			return $result;
 		}
+	}
+	
+	
+	public function cart($order, $cart, $confirm_code){
+		$name = $order['name'];
+		$email = $order['email'];
+		$phone = $order['phone'];
+		$billing_add = $order['billing'];
+		$delivery_add = $order['delivery'];
+		$delivery_note = $order['note'];
+		
+		//add the guest customer details
+		$this->db->query("INSERT INTO `guest_customer` VALUES ('', '$name', '$billing_add', '$phone', '$email')");
+		//get the current guest id
+		$customer = $this->db->query("SELECT * FROM `guest_customer` ORDER BY `customer_id` DESC LIMIT 1");
+		$customer = $customer->result();
+		$customer_id = $customer[0]->customer_id;
+		//add to saved cart
+		$this->db->query("INSERT INTO `saved_cart` VALUES ('', '$customer_id', '0', 'Purchase', now())");
+		$cart_details = $this->db->query("SELECT * FROM `saved_cart` ORDER BY `cart_id` DESC LIMIT 1");
+		$cart_details = $cart_details->result();
+		$cart_id = $cart_details[0]->cart_id;
+		
+		//add to the cart_books
+		for($i=0;$i<sizeof($cart);$i++){
+			$stock_id = $cart[$i]['stockID'];
+			$qty = $cart[$i]['qty'];
+			$this->db->query("INSERT INTO `cart_books` VALUES ('$cart_id', '$stock_id', '$qty')");
+		}
+		//add to order
+		$this->db->query("INSERT INTO `order` VALUES ('', '$customer_id', '0', '$cart_id', '$confirm_code', '$delivery_add', '$delivery_note')");
+		
 	}
 	
 }

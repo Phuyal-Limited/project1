@@ -14,10 +14,8 @@
                   </div>
                   <div class="thank-you-details">
                     <p><span>Congratulation! Your payment was sent.</span> You have sucessfully paid for this transaction.</p>
-                    <p>Order details have been sent to you@gmail.com. Your <span>confirmation</span> code is 87sdf87sdf.</p>
-                  </div>
-                  
-                   
+                    <p>Order details have been sent to you@gmail.com. Your <span>confirmation</span> code is <?php echo $message;?>.</p>
+                  </div>                   
               </div>
           </div>
         </div> <!-- buyer:details ends -->

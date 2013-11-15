@@ -208,7 +208,7 @@
                               </div>
                               <div class="row-fluid">
                                 <div class="span6">
-                                  <p class="book-price"><span class="currency">NRs</span>234.43</p>
+                                  <p class="book-price"><span class="currency">NRs</span><?php echo $search_result[0][$i]['price'];?></p>
                                 </div>
                                 <div class="span6 widget-buttons">
                                   <p>

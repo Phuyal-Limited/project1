@@ -1,4 +1,5 @@
 <!-- Start: HEADER -->
+  
     <?php 
       include("header.php");
     ?>
@@ -85,7 +86,7 @@
                               </div>
                               <div class="row-fluid">
                                 <div class="span6">
-                                  <p class="book-price"><span class="currency">NRs</span>234.43</p>
+                                  <p class="book-price"><span class="currency">NRs</span><?php echo $book_details[2][$i];?></p>
                                 </div>
                                 <div class="span6 widget-buttons">
                                   <p>

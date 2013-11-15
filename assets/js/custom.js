@@ -7,10 +7,15 @@ $(document).ready(function(){
 //get info of the books
 function info(y, x){
 	var prev_show = $("#info-showed").val();
+	
 	if(prev_show==''){
 		//nothing
 	}else{
-		$("#info-show"+prev_show).hide(1000);
+		if(prev_show==x){
+			//do nothing
+		}else{
+			$("#info-show"+prev_show).hide(1000);
+		}
 	}
 	var book_id = $("#book_id"+y).val();
 	$.ajax({
@@ -58,6 +63,7 @@ function info(y, x){
 			$("#info-tab"+x).append('Published_date: <br />'+response[0][0].published_date+'<hr />');
 			$("#info-tab"+x).append('Description: <br />'+response[0][0].description);
 			var price_list = '';
+			
 			for(var i=0;i<response[1][0].length;i++){
 				var counter = 0;
 				price_list = price_list + '<div class="row-fluid price-detail">'+
