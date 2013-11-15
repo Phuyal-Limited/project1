@@ -53,13 +53,13 @@
                     <!--<label class="checkbox">
                       <input type="checkbox"> Price starting from 
                     </label>-->
-                    Price<br/>
-                    Up to $ <select name="price">
+                    Price
+                    Up to<br /> NRs. <select name="price">
                     	<option value="Please Choose...">Please Choose...</option>
                         <?php
 						$x=0;
                         for($i=0;$i<10;$i++){
-							$x = $x+10;
+							$x = $x+100;
 						?>
                         <option value="<?php echo $x;?>"><?php echo $x;?></option>
                         <?php

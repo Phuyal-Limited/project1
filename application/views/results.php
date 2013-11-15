@@ -24,7 +24,7 @@
                 			?>
                       </select>
                       <input type="submit" name="search" value="Search" class="search-btn" />
-                      <!--<a href="advance_search">Advanced</a>-->
+                      <a href="advance_search">Advanced</a>
                   </form>
                 </div>
             </div>
@@ -140,11 +140,11 @@
                                  <?php
 								 	$x=0;
                                 	for($j=0;$j<10;$j++){
-										$x=$x+10;
+										$x=$x+100;
 								?>
                                 <div class="value">
                                     <label class="radio">
-                                      <input type="radio" name="price" value="<?php echo $x;?>"> Up to $<?php echo $x;?>
+                                      <input type="radio" name="price" value="<?php echo $x;?>"> Up to NRs.<?php echo $x;?>
                                     </label>
                                 </div>
                                 <?php
@@ -232,6 +232,7 @@
   					?>
                   </ul>
                 </div>
+
                 <div id="<?php echo 'info-show'.$x;?>" style="display:none;">
                 <div class="row-fluid" style="margin-top:-30px;">
                   <div class="show-info-arrow" id="arrow<?php echo $x;?>"></div>
@@ -291,6 +292,7 @@
                 <?php
 					}
 				?>
+        <input type="hidden" id="info-showed">
                 <!--
                 <div class="pagination pagination-centered">
                 <ul>

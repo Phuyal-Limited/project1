@@ -6,6 +6,12 @@ $(document).ready(function(){
 
 //get info of the books
 function info(y, x){
+	var prev_show = $("#info-showed").val();
+	if(prev_show==''){
+		//nothing
+	}else{
+		$("#info-show"+prev_show).hide(1000);
+	}
 	var book_id = $("#book_id"+y).val();
 	$.ajax({
 		url: 'info',
@@ -19,19 +25,19 @@ function info(y, x){
 			var a = Number(y%4);
 			if(a==0){
 				$("#arrow"+x).css({
-					"margin-left":"0%"
+					"margin-left":"10%"
 				});
 			}else if(a==1){
 				$("#arrow"+x).css({
-					"margin-left":"25%"
+					"margin-left":"35%"
 				});
 			}else if(a==2){
 				$("#arrow"+x).css({
-					"margin-left":"51%"
+					"margin-left":"65%"
 				});
 			}else if(a==3){
 				$("#arrow"+x).css({
-					"margin-left":"77%"
+					"margin-left":"85%"
 				});
 			}else{
 				//
@@ -53,32 +59,33 @@ function info(y, x){
 			$("#info-tab"+x).append('Description: <br />'+response[0][0].description);
 			var price_list = '';
 			for(var i=0;i<response[1][0].length;i++){
-				var count = 0;
+				var counter = 0;
 				price_list = price_list + '<div class="row-fluid price-detail">'+
 									'<div class="span2 product-seller"> '+response[1][1][i].name+'</div>'+
                 					'<div class="span2 product-price"> '+response[1][0][i].price+'</div>'+
                 					'<div class="span2 product-delivery"> '+response[1][0][i].delivery_cost_within_city+'</div>'+
                 					'<div class="span2 product-delivery"> '+response[1][0][i].delivery_cost_outof_city+'</div>'+
-                					'<div class="span4 product-delivery" id="added_msg'+i+'" style="display:none;"></div>';
+                					'<div class="span4 product-delivery cart-buttons" id="added_msg'+i+'" style="display:none;"></div>';
                 					for(var j=0;j<response[2].length;j++){
                 						if(response[2][j]==response[1][0][i].stock_id){
-                							count++;
-                							price_list = price_list + '<div class="span4 product-delivery"> This Book is already in your <a href="view_cart">Cart</a></div>';
+                							counter++;
+                							price_list = price_list + '<div class="span4 product-delivery cart-buttons"> This Book is in your <a style="padding:3px;" href="view_cart">Cart</a></div>';
                 							
                 						}
                 					}
-                					if(count==0){
+                					if(counter==0){
                 						price_list = price_list + '<div id="show'+i+'" class="span2 product-delivery"> <select style="width:50px;" name="qty" id="qty">';
                                        									for(var count=1;count<=5;count++){
                                        										price_list = price_list + '<option value="'+count+'">'+count+'</option>';
                                        									}
                                                                        	price_list = price_list + '</select></div>'+
-                					'<div id="show'+i+'" class="span2 product-buy"><a id="buy" onClick="buy('+response[1][0][i].stock_id+', '+i+', '+x+');" href="javascript:void(0)">Buy</a></div>';
+                					'<div id="show'+i+'" class="span2 product-buy cart-buttons"><a style="padding:3px;" id="buy" onClick="buy('+response[1][0][i].stock_id+', '+i+', '+x+');" href="javascript:void(0)">Add to Cart</a></div>';
                 						}
                 					
                 					price_list = price_list + '</div>';
                 					
 			}
+			$("#info-showed").val(x);
 			$("#display"+x).html(price_list);
 			$("#info-show"+x).show(1000);
 		}
@@ -101,7 +108,7 @@ function buy(stock_id, i, x){
 			
 			$("#cart_count").html('<a href="view_cart">Cart ('+response+')</a>');
 			$("#display"+x+" #show"+i).hide();
-			$("#display"+x+" #added_msg"+i).html(' This Book is already in your <a href="view_cart">Cart</a>');
+			$("#display"+x+" #added_msg"+i).html(' This Book is added to your <a style="padding:3px;" href="view_cart">Cart</a>');
 			$("#display"+x+" #added_msg"+i).show();
 		}
 	});
