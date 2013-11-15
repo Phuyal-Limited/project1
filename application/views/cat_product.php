@@ -111,7 +111,7 @@
 
                 <!-- details -->
               <div id="<?php echo 'info-show'.$x;?>" style="display:none;">
-                <div class="row-fluid" >
+                <div class="row-fluid" style="margin-top:-30px;" >
                   <div class="show-info-arrow" id="arrow<?php echo $x;?>"></div>
                   <div  class="close-button" onClick="close_info(<?php echo $x;?>);">x</div>
                   <div class="product-info">
