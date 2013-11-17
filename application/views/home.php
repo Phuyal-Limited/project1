@@ -46,46 +46,24 @@
                     <div class="tab-pane active" id="home">
                         <div class="row-fluid ">
                     <div class="thumbnails index-thumb">
-                        
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                           
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
+                    <?php
+                      $size = sizeof($newest[0]);
+                      if($size>6){
+                        $size==6;
+                      }
+                      for($i=0;$i<$size;$i++){
 
+                    ?>
+                      <div class="span2">
+                          <div class="thumbnail">
+                            <a href="product?book_id=<?php echo $newest[0][0]['book_id'];?>"><img src="<?php echo $newest[1][$i]['path'];?>" alt="<?php echo $newest[1][$i]['alt'];?>"></a>
+                            
+                          </div> <!-- end-thumbnail -->
+                      </div> <!-- end span -->
 
+                    <?php
+                      }
+                    ?>
 
                     
                 </div> <!-- end thumbnails -->

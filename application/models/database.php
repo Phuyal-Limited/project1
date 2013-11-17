@@ -8,6 +8,22 @@ class Database extends CI_Model{
 		return $output->result();
 	}
 	
+	public function newest(){
+		$output = $this->db->query("SELECT * FROM `books` ORDER BY `published_date` DESC");
+		$output = $output->result();	
+		$newest = array();
+		$image_array = array();
+		for($i=0;$i<sizeof($output);$i++){
+			array_push($newest, get_object_vars($output[$i]));
+			$image_id = $output[$i]->image_id;
+			$image_details = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
+			$image_details = $image_details->result();
+			array_push($image_array, get_object_vars($image_details[0]));
+		}
+		$all = array($newest, $image_array);
+		return $all;
+	}
+
 	public function category(){
 		$output = $this->db->query("SELECT * FROM `category`");
 		return $output->result();	
