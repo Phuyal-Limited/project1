@@ -1,5 +1,5 @@
 <?php
-die("This is working");
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
