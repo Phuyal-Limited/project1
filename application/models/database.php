@@ -8,12 +8,6 @@ class Database extends CI_Model{
 		return $output->result();
 	}
 	
-	public function getbook_id($id){
-		
-		$output = $this->db->query("SELECT * FROM `shopstock` WHERE `stock_id`='$id'");
-		return $output->result();
-	}
-
 	public function newest(){
 		$stock = $this->db->query("SELECT DISTINCT `book_id` FROM `shopstock`");
 		$stock = $stock->result();
