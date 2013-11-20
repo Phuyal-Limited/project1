@@ -8,6 +8,12 @@ class Database extends CI_Model{
 		return $output->result();
 	}
 	
+	public function getbook_id($id){
+		
+		$output = $this->db->query("SELECT * FROM `shopstock` WHERE `stock_id`='$id'");
+		return $output->result();
+	}
+
 	public function newest(){
 		$stock = $this->db->query("SELECT DISTINCT `book_id` FROM `shopstock`");
 		$stock = $stock->result();
@@ -43,7 +49,7 @@ class Database extends CI_Model{
 		     $newest[$i] = $newest[$j];
 		     $newest[$j] = $temp;
 
-		     $temp_img $image_array[$i];
+		     $temp_img = $image_array[$i];
 		     $image_array[$i] = $image_array[$j];
 		     $image_array[$j] = $temp_img;
 		    }
