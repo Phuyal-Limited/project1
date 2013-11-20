@@ -103,7 +103,7 @@ function buy(stock_id, i, x){
 	var qty = $("#qty").val();
 	var Cart = true;
 	$.ajax({
-		url: 'product',
+		url: 'books',
 		type: 'post',
 		data: {
 			Cart: Cart,

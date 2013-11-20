@@ -282,7 +282,7 @@ class Main extends CI_Controller {
 		
 	}
 	
-	public function product(){
+	public function books(){
 		if(isset($_POST['Cart'])){
 			$stock_ID=$this->input->post('stock_id');
 			$qty=$this->input->post('qty');
@@ -301,7 +301,13 @@ class Main extends CI_Controller {
 			}
 			$cart = $this->session->userdata('cart');
             $count= count($cart);
-            echo $count;exit();
+
+            //if from books page redirect to cart page
+            if(isset($_POST['books_page']) && $_POST['books_page']=='1'){
+            	redirect('view_cart');
+            }else{
+            	echo $count;exit();
+            }
 		}
 		if(!isset($_GET['book_id'])){
 		
