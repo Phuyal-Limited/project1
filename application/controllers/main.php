@@ -301,7 +301,19 @@ class Main extends CI_Controller {
 			}
 			$cart = $this->session->userdata('cart');
             $count= count($cart);
-            echo $count;exit();
+            if(isset($_POST['product'] && $_POST['product']=='1'){
+            	$data['category'] = $this->database->category();
+            	$id = $this->database->getbook_id($stock_ID);
+            	$book_id = $id[0]->book_id;
+				$data['book_details'] = $this->database->book_particular($book_id);
+				$data['shop_details'] = $this->database->shop_details($book_id);
+				$data['title'] = 'Book | '.$data['book_details'][0]['book_name'];
+				
+				$this->load->view('product', $data);
+            }else{
+            	echo $count;exit();
+            }
+           
 		}
 		if(!isset($_GET['book_id'])){
 		
