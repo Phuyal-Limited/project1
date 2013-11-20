@@ -33,6 +33,7 @@ class Database extends CI_Model{
 			}
 		}
 		$temp = array();
+		$temp_img = array();
 		  for($i=0;$i<sizeof($newest);$i++){
 		   for($j=$i+1;$j<sizeof($newest);$j++){
 		    if($newest[$i]['published_date']>$newest[$j]['published_date']){
@@ -41,6 +42,10 @@ class Database extends CI_Model{
 		     $temp = $newest[$i];
 		     $newest[$i] = $newest[$j];
 		     $newest[$j] = $temp;
+
+		     $temp_img $image_array[$i];
+		     $image_array[$i] = $image_array[$j];
+		     $image_array[$j] = $temp_img;
 		    }
 		    
 		   }

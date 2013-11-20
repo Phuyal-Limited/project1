@@ -81,7 +81,7 @@
                             <img style="height:300px;" src="<?php echo $img;?>" alt="<?php echo $alt;?>">
 
                               <div class="widget-footer">
-                              <div class="caption">
+                              <div class="caption" style="height:65px;">
                                 <h3><?php echo $book_details[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
                               </div>
                               <div class="row-fluid">
