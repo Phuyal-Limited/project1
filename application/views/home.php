@@ -49,14 +49,14 @@
                     <?php
                       $size = sizeof($newest[0]);
                       if($size>6){
-                        $size==6;
+                        $size=6;
                       }
                       for($i=0;$i<$size;$i++){
 
                     ?>
                       <div class="span2">
                           <div class="thumbnail">
-                            <a href="product?book_id=<?php echo $newest[0][0]['book_id'];?>"><img src="<?php echo $newest[1][$i]['path'];?>" alt="<?php echo $newest[1][$i]['alt'];?>"></a>
+                            <a href="product?book_id=<?php echo $newest[0][$i]['book_id'];?>"><img style="height:145px;" src="<?php echo $newest[1][$i]['path'];?>" alt="<?php echo $newest[1][$i]['alt'];?>"></a>
                             
                           </div> <!-- end-thumbnail -->
                       </div> <!-- end span -->

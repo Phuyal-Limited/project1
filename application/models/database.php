@@ -9,19 +9,45 @@ class Database extends CI_Model{
 	}
 	
 	public function newest(){
-		$output = $this->db->query("SELECT * FROM `books` ORDER BY `published_date` DESC");
-		$output = $output->result();	
+		$stock = $this->db->query("SELECT DISTINCT `book_id` FROM `shopstock`");
+		$stock = $stock->result();
 		$newest = array();
 		$image_array = array();
-		for($i=0;$i<sizeof($output);$i++){
-			array_push($newest, get_object_vars($output[$i]));
-			$image_id = $output[$i]->image_id;
-			$image_details = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
-			$image_details = $image_details->result();
-			array_push($image_array, get_object_vars($image_details[0]));
+		for($i=0;$i<sizeof($stock);$i++){
+			$book_id = $stock[$i]->book_id;
+			$output = $this->db->query("SELECT * FROM `books`");
+			$output = $output->result();	
+			
+			for($j=0;$j<sizeof($output);$j++){
+				$id = $output[$j]->book_id;
+				
+				if($id==$book_id){
+					
+						array_push($newest, get_object_vars($output[$j]));
+						$image_id = $output[$j]->image_id;
+						$image_details = $this->db->query("SELECT * FROM `images` WHERE image_id='$image_id'");
+						$image_details = $image_details->result();
+						array_push($image_array, get_object_vars($image_details[0]));
+					
+				}
+			}
 		}
-		$all = array($newest, $image_array);
-		return $all;
+		$temp = array();
+		  for($i=0;$i<sizeof($newest);$i++){
+		   for($j=$i+1;$j<sizeof($newest);$j++){
+		    if($newest[$i]['published_date']>$newest[$j]['published_date']){
+		     //nothing
+		    }else{
+		     $temp = $newest[$i];
+		     $newest[$i] = $newest[$j];
+		     $newest[$j] = $temp;
+		    }
+		    
+		   }
+		  }
+		  
+		  $all = array($newest, $image_array);
+		  return $all;
 	}
 
 	public function category(){
