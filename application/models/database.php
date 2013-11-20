@@ -49,7 +49,7 @@ class Database extends CI_Model{
 		     $newest[$i] = $newest[$j];
 		     $newest[$j] = $temp;
 
-		     $temp_img $image_array[$i];
+		     $temp_img = $image_array[$i];
 		     $image_array[$i] = $image_array[$j];
 		     $image_array[$j] = $temp_img;
 		    }
