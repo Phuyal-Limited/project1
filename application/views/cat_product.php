@@ -82,6 +82,7 @@
 
                               <div class="widget-footer">
                               <div class="caption" style="height:65px;">
+                                <span style="display:none;" id="<?php echo 'goto-info'.$x;?>"><span>
                                 <h3><?php echo $book_details[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
                               </div>
                               <div class="row-fluid">
@@ -92,6 +93,7 @@
                                   <p>
                                     <input type="hidden" id="book_id<?php echo $i;?>" value="<?php echo $book_details[0][$i]['book_id']?>" />
                                     <a id='more_info' onClick="info(<?php echo $i;?>, <?php echo $x;?>);" href="javascript:void(0)">More</a>
+                                    
                                   </p>
                                 </div>
                               </div>

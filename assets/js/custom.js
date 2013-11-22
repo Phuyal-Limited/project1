@@ -15,6 +15,7 @@ function info(y, x){
 			//do nothing
 		}else{
 			$("#info-show"+prev_show).hide(1000);
+			$("#goto-info"+prev_show).hide();
 		}
 	}
 	var book_id = $("#book_id"+y).val();
@@ -91,9 +92,18 @@ function info(y, x){
                 					price_list = price_list + '</div>';
                 					
 			}
+			
+
 			$("#info-showed").val(x);
 			$("#display"+x).html(price_list);
 			$("#info-show"+x).show(1000);
+			
+			//goto the info div with href #id
+			$("#goto-info"+x).show();
+			var scrollpage = 'goto-info'+x;
+			scrollTo(scrollpage);
+
+			
 		}
 	});
 }
@@ -122,4 +132,8 @@ function buy(stock_id, i, x){
 
 function close_info(x){
 	$("#info-show"+x).hide(1000);
+}
+
+function scrollTo(hash) {
+    location.hash = "#" + hash;
 }

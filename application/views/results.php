@@ -204,6 +204,7 @@
                             <img style="height:300px;" src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="widget-footer">
                               <div class="caption" style="height:65px;">
+                                <span style="display:none;" id="<?php echo 'goto-info'.$x;?>"></span>
                                 <h3><?php echo $search_result[0][$i]['book_name'];?><!--<small>Pictures from another time</small>--></h3>
                               </div>
                               <div class="row-fluid">
