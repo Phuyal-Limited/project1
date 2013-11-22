@@ -89,331 +89,66 @@
                           </select>
                     <hr  />
                 </div>
+
+                <?php
+                  $sz = sizeof($home_data[0]);
+                  if($sz==0){
+          
+                  }else{
+                    $sz = $sz-1;
+                  }
+                  $row = $sz/6;
+                  $counter = 0;
+                  $i = 0;
+                  for($x=0;$x<=$row;$x++){
+            
+                  ?>
                 <div class="row-fluid ">
                     <div class="thumbnails index-thumb">
                         
+                    <?php 
+                    $size = sizeof($home_data[0]);
+                
+                    if($home_data[0] == array()){
+                      echo 'No Books Available.';
+                    }else{
+                      while($i<$size){
+                
+                      $counter++;
+                      $img = $home_data[1][$i]['path'];
+                      //echo $img;exit();
+                      $alt = $home_data[1][$i]['alt'];
+                  ?> 
                     <div class="span2">
                           <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
+                            <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
+                            <div class="caption" style="height:140px;">
+                              <h5><?php echo $home_data[0][$i]['book_name'];?></h5>
                               <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
+                              <p>By:<a href=""><?php echo $home_data[0][$i]['author'];?></a> <br /></p>
                             </div>
                             <div class="widget-footer">
                           <p>
-                            <a href="#" >Read more</a>
+                            <a href="books?book_id=<?php echo $home_data[0][$i]['book_id']?>" >Read more</a>
                           </p>
                         </div>
                       </div> <!-- end-thumbnail -->
                     </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-
-
-
-                    
-                </div> <!-- end thumbnails -->
-
-
+                    <?php
+                      $i++; 
+                      if($counter==6){
+                        $counter=0;
+                        break;
+                      }
+                  }
+                }
+          ?>
+                  </div> <!-- end thumbnails -->
                 </div> <!-- end-row-fluid -->
-                <div class="row-fluid ">
-                    <div class="thumbnails index-thumb">
-                        
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-
-
-
-                    
-                </div> <!-- end thumbnails -->
-
-
-                </div> <!-- end-row-fluid -->
-                <div class="row-fluid ">
-                    <div class="thumbnails index-thumb">
-                        
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-                    <div class="span2">
-                          <div class="thumbnail">
-                            <a href="product.php"><img src="<?php echo base_url('assets/images/placeholder-260x150.jpg');?>" alt="Wara Walker"></a>
-                            <div class="caption">
-                              <h5><a href="product.php">Kara Walker</a></h5>
-                              <p>Fourth Edition</p>
-                              <p>By:<a href="">Bidur Subedi</a> <br /></p>
-                              <p class="price">$10.23</p>
-                            </div>
-                            <div class="widget-footer">
-                          <p>
-                            <a href="#" >Read more</a>
-                          </p>
-                        </div>
-                      </div> <!-- end-thumbnail -->
-                    </div> <!-- end span -->
-
-
-
-                    
-                </div> <!-- end thumbnails -->
-
-
-                </div> <!-- end-row-fluid -->
- 
-
-
-
+               <?php 
+                      }
+                  ?>
+                
             </div>
             <!-- end:section2 -->
           </div>

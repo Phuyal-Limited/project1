@@ -8,6 +8,62 @@ class Database extends CI_Model{
 		return $output->result();
 	}
 	
+	public function random($tablename){
+			
+            $i=0;
+            $IDs = array();
+            $qry = $this->db->query("SELECT * FROM $tablename");
+            $qry = $qry->result();
+            $n = 20;
+            for($x=0;$x<sizeof($qry);$x++){
+            	array_push($IDs, $qry[$x]->book_id);
+            	$i++;
+            }
+
+            if(sizeof($qry)<=$n){
+                if(sizeof($qry)==0)
+                    return array();
+                else
+                    return $IDs;
+            }
+            mt_srand(microtime() * 1000000);
+            for($count=1;$count<=$n;$count++){
+                $arand=mt_rand(1, $i-1);
+                if(isset($randIndex)){
+                    if(array_search($arand,$randIndex)){
+                        $count--;
+                        continue;
+                    }
+                }
+                $randIndex[$count]=$arand;
+            }
+            $i=0;
+            foreach($randIndex as $index){
+                $randIDs[$i]=$IDs[$randIndex[$i+1]];
+                $i++;
+            }
+            return $randIDs;
+	}
+
+	public function home_data(){
+		$result = $this->random('books');
+		$books = array();
+		$images = array();
+		for($i=0;$i<sizeof($result);$i++){
+			$id = $result[$i];
+			$book_details = $this->db->query("SELECT * FROM `books` WHERE book_id='$id'");
+			$book_details = $book_details->result();
+			array_push($books, get_object_vars($book_details[0]));
+
+			$img_id = $book_details[0]->image_id;
+			$image_details = $this->db->query("SELECT * FROM `images` WHERE image_id='$img_id'");
+			$image_details = $image_details->result();
+			array_push($images, get_object_vars($image_details[0]));
+		}
+		$all = array($books, $images);
+		return $all;
+	}
+
 	public function getbook_id($stkid){
 		
 		$output = $this->db->query("SELECT * FROM `shopstock` WHERE `stock_id`='$stkid'");

@@ -6,6 +6,7 @@ class Main extends CI_Controller {
 	{
 		//$this->load->view('index');
 		$data['title'] = 'Home';
+		$data['home_data'] = $this->database->home_data();
 		$data['newest'] = $this->database->newest();
 		$data['category'] = $this->database->category();
 		$this->load->view('home', $data);
@@ -15,6 +16,7 @@ class Main extends CI_Controller {
 	
 	public function home(){
 		$data['title'] = 'Home';
+		$data['home_data'] = $this->database->home_data();
 		$data['newest'] = $this->database->newest();
 		$data['category'] = $this->database->category();
 		$this->load->view('home', $data);
