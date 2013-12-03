@@ -137,3 +137,78 @@ function close_info(x){
 function scrollTo(hash) {
     location.hash = "#" + hash;
 }
+
+
+//cart update ajax
+function update(stock_id, remove){
+	var qty = $("#qty"+stock_id).val();
+	
+	$.ajax({
+		url: 'update',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			qtt: qty,
+			remove: remove,
+			stock_id: stock_id
+		},
+		success: function(response){
+			
+			var tot = 0;
+			var cart = '';
+			
+			for(var i=0;i<response.length;i++){
+				cart += '<div class="row-fluid cart-row">'+
+    				'<div class="span1 "><button id="remove'+response[i]["stock"].stock_id+'" onclick="return update('+response[i]["stock"].stock_id+', 1);" >X</button></div>'+
+                    	'<div class="span2 ">'+
+                       		'<img src="'+response[i]["book"][1].path+'">'+
+                    	'</div>'+
+                    '<div class="span4 product-cart-info">'+
+                        '<p class="title">'+response[i]["book"][0].book_name+'</p>'+
+                        '<div class="desc">'+
+                            '<p>By:<span>'+response[i]["book"][0].author+'</span> </p>'+
+                            '<p>Publisher:<span>'+response[i]["book"][0].publisher+'</span> </p>'+
+                            '<p>Store:<span>'+response[i].shop+'</span> </p>'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="span1 qty">'+
+                      '<select id="qty'+response[i]["stock"].stock_id+'" onchange="return update('+response[i]["stock"].stock_id+', 0);" name="qtt['+response[i]["stock"].stock_id+']">';
+		
+
+                        for(var count=1;count<=5;count++){
+                        	if(count==response[i].qty){
+                        		cart += '<option value="'+count+'" selected="selected">'+count+'</option>';
+                        	}else{
+                        		cart += '<option value="'+count+'">'+count+'</option>';
+                        	}
+                        }
+  
+                        cart += '</select>'+
+                    '</div>'+
+                    '<div class="span2 ">'+
+                      '<div class="span2 product-cart-price">'+
+                      '</div>'+
+                        '<p><span>'+response[i].qty+'x</span>'+response[i]["stock"].price+'</p>'+
+                    '</div>'+
+                    '<div class="span2 product-cart-price">'+
+                      '<p>'+response[i].qty * response[i]["stock"].price+
+                      '</p>'+
+                    '</div>'+
+              '</div>';
+				tot += response[i].qty * response[i]["stock"].price;
+		}
+		
+		$("#show-cart").html(cart);
+		$("#total").html('Rs. '+tot);
+
+		$("#cart_count").html('<a href="view_cart">Cart ('+response.length+')</a>');
+
+		if(response.length==0){
+			$("#details-payment").hide();
+		}
+
+		}
+	});
+
+	return false;
+}

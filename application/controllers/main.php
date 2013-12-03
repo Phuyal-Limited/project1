@@ -75,24 +75,36 @@ class Main extends CI_Controller {
 	
 	}
 
-	public function _update_cart(){
-		//Updating the quantity and Removing the products
-		if(isset($_POST['remove'])){
+	//ajax update
+	public function update(){
+		if(!isset($_POST['remove']) && !isset($_POST['qtt'])){
+			redirect('home');
+		}
+		$remove = $_POST['remove'];
+		$qty = $_POST['qtt'];
+		$stock_id = $_POST['stock_id'];
+		$this->_update_cart($remove, $qty, $stock_id);
+		$cart = $this->database->get_cart_details();
+		
+		print_r(json_encode($cart));
+	}
 
-			$remove_stock=array_keys($_POST['remove']);
-		}
-		else
-		{
-			$remove_stock=array();
-		}
+	public function _update_cart($remove, $qty, $stock_id){
+		//Updating the quantity and Removing the products
 		$cart = $this->session->userdata('cart');
 		$newCart=array();
 		foreach ($cart as $cartItem) {
-			$newCartItem=$cartItem;
-			if(!(in_array($cartItem['stockID'], $remove_stock))){
-				$newCartItem['qty'] = $_POST['qtt'][$cartItem['stockID']];
-				array_push($newCart, $newCartItem);
+			if($stock_id != $cartItem['stockID']){
+				$newCartItem=$cartItem;
+			}else{
+				if($remove == 1){
+					continue;
+				}else{
+					$newCartItem['stockID'] = $cartItem['stockID'];
+					$newCartItem['qty'] = $qty;
+				}
 			}
+			array_push($newCart, $newCartItem);
 		}
 		$this->session->unset_userdata('cart');
 		$this->session->set_userdata('cart',$newCart);

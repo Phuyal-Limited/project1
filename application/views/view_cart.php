@@ -48,13 +48,15 @@
                                   <div class="span2 ">Total</div>
                               </div>
                             </div>
-                            <form name='update_cart' method='POST' action='#'>
+                            
+
+                            <div id="show-cart">
                             <?php
                             $tot=0;
                             foreach ($Cart as $CartItem) {
                             ?>
                               <div class="row-fluid cart-row">
-                                    <div class="span1 "><input type="checkbox" name='remove[<?php echo $CartItem['stock']['stock_id']; ?>]' value='1'></div>
+                                    <div class="span1 "><button id="remove<?php echo $CartItem['stock']['stock_id']; ?>" onclick="return update(<?php echo $CartItem['stock']['stock_id']; ?>, 1);" >X</button></div>
                                     <div class="span2 ">
                                        <img src="<?php echo $CartItem['book'][1]['path'];?>"> 
                                     </div>
@@ -67,7 +69,7 @@
                                         </div>
                                     </div>
                                     <div class="span1 qty">
-                                      <select name='qtt[<?php echo $CartItem['stock']['stock_id']; ?>]'>
+                                      <select id="qty<?php echo $CartItem['stock']['stock_id']; ?>" onchange="return update(<?php echo $CartItem['stock']['stock_id']; ?>, 0);" name='qtt[<?php echo $CartItem['stock']['stock_id']; ?>]'>
                                         <?php
                                         for($count=1;$count<=5;$count++){
                                           if($count == $CartItem['qty'])
@@ -91,20 +93,24 @@
                             <?php
                             }
                             ?>
+                            </div>
+
+
                             <div class="row-fluid cart-total">
-                                <p> Sub-Total: <span>Rs. <?php echo $tot;?></span></p>
-                                <p> Total: <span>Rs. <?php echo $tot;?></span></p>
+                                
+                                <p> Total: <span id="total">Rs. <?php echo $tot;?></span></p>
                               </div>
                             </div>
                       </div>
                   </div>
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
-                  <?php if(count($Cart)>0){ ?><div class="span6"><input type='submit' name='Update' value='update'></div><?php } ?>
+                  
                   <div class="span6"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
 
                 </div>
-                </form>
+                
+                <div id="details-payment">
                 <?php if(count($Cart)>0){ 
                   ?>
                 <div class="row-fluid"> <!-- buyer:details starts -->
@@ -163,6 +169,8 @@
                 </div>
                 </form>
             <?php } ?>
+            </div><!--details-payment-->
+
           </div><!-- end:section2 -->
         </div><!-- End: container -->
     </div><!-- End: MAIN CONTENT -->
