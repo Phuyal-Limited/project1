@@ -373,7 +373,7 @@ class Main extends CI_Controller {
 		}else{	
 			$srch_txt = $this->input->post('search_text');
 			$category = $this->input->post('category');
-			$price = $this->input->post('post');
+			$price = $this->input->post('price');
 			$author = $this->input->post('author');
 			$store = $this->input->post('store_name');
 			if($price=='Please Choose...'){
@@ -423,6 +423,18 @@ class Main extends CI_Controller {
 			
 		}
 
+	}
+
+	public function filter(){
+		if(!isset($_POST['category_list']) and !isset($_POST['author_list'])  and  !isset($_POST['store_list']) and !isset($_POST['price'])){
+			redirect('home');
+		}else{
+			$result = $_POST['search_array'];
+			$category_list = $_POST['category_list'];
+			$store_list = $_POST['store_list'];
+			$price = $_POST['price'];
+			print_r($result);
+		}
 	}
 
 	

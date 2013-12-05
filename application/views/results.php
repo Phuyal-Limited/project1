@@ -69,7 +69,7 @@
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" value="<?php echo $category[$i]->category_id;?>"> <?php echo $category[$i]->name;?>
+                                      		<input type="checkbox" name="category_list[]" class="category_list" value="<?php echo $category[$i]->category_id;?>"> <?php echo $category[$i]->name;?>
                                     	</label>
                                 	</div>
                                     
@@ -93,7 +93,7 @@
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" value="<?php echo $details[0][$i];?>"> <?php echo $details[0][$i];?>
+                                      		<input type="checkbox" class="author" name="author_names[]" value="<?php echo $details[0][$i];?>"> <?php echo $details[0][$i];?>
                                     	</label>
                                 	</div>
                                    
@@ -118,7 +118,7 @@
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" value="<?php echo $details[1][$i];?>"> <?php echo $details[1][$i];?>
+                                      		<input type="checkbox" class="store" name="store_names[]" value="<?php echo $details[1][$i];?>"> <?php echo $details[1][$i];?>
                                     	</label>
                                 	</div>
                                     
@@ -137,19 +137,48 @@
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
-                                 <?php
-								 	$x=0;
-                                	for($j=0;$j<10;$j++){
-										$x=$x+100;
-								?>
+                  
                                 <div class="value">
                                     <label class="radio">
-                                      <input type="radio" name="price" value="<?php echo $x;?>"> Up to NRs.<?php echo $x;?>
+                                      <input type="radio" class="price" name="price" value="100"> Up to NRs. 100
                                     </label>
                                 </div>
-                                <?php
-									}
-								?>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" class="price" name="price" value="200"> Up to NRs. 200
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="500"> Up to NRs. 500
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="750"> Up to NRs. 750
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="1000"> Up to NRs. 1000
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="1500"> Up to NRs. 1500
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="2000"> Up to NRs. 2000
+                                    </label>
+                                </div>
+                                <div class="value">
+                                    <label class="radio">
+                                      <input type="radio" name="price" class="price" value="No Preferences" checked="checked"> No Preferences
+                                    </label>
+                                </div>
+                  
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
@@ -262,12 +291,12 @@
                               <div class="row-fluid product-info-bla"> <!-- tabs-->
                   
                               <ul class="nav nav-tabs product-info-tabs" id="myTab">
-                                <li class="active"><a href="#home" data-toggle="tab">Price comparison</a></li>
-                                <li><a href="#profile" data-toggle="tab">Information</a></li>
+                                <li class="active"><a href="#home<?php echo $x;?>" data-toggle="tab">Price comparison</a></li>
+                                <li><a href="#profile<?php echo $x;?>" data-toggle="tab">Information</a></li>
                               </ul>
                                
                               <div class="tab-content product-info-detail">
-                                <div class="tab-pane active" id="home">
+                                <div class="tab-pane active" id="home<?php echo $x;?>">
                                     <div class="row-fluid price-head">
                                                   <div class="span2 "> Seller</div>
                                                   <div class="span2 "> Price(NRs.)</div>
@@ -276,9 +305,10 @@
                                                   <div class="span2 "> Quantity</div>
                                                   <div class="span2 "></div>
                                                 </div><!-- end:price-head -->
+
                                               <div id="display<?php echo $x;?>"></div><!-- end:price-detail -->
                                 </div>
-                                <div class="tab-pane" id="profile"><p id="info-tab<?php echo $x;?>">this is a information tab</p></div>
+                                <div class="tab-pane" id="profile<?php echo $x;?>"><div id="info-tab<?php echo $x;?>">this is a information tab</div></div>
                                
                               </div>
                             </div> <!-- tabs -->
@@ -294,6 +324,7 @@
 					}
 				?>
         <input type="hidden" id="info-showed">
+        <input type="hidden" id="search_array" value="<?php print_r($search_result);?>">
                 <!--
                 <div class="pagination pagination-centered">
                 <ul>

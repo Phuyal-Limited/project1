@@ -12,41 +12,35 @@ class Database extends CI_Model{
 			
             $i=0;
             $IDs = array();
+            $result = array();
+            $x=1;
             $qry = $this->db->query("SELECT * FROM $tablename");
             $qry = $qry->result();
-            $n = 20;
+            $n = 12;
             for($x=0;$x<sizeof($qry);$x++){
             	array_push($IDs, $qry[$x]->book_id);
             	$i++;
             }
-
-            if(sizeof($qry)<=$n){
-                if(sizeof($qry)==0)
+            if(sizeof($IDs)<=$n){
+                if(sizeof($IDs)==0){
                     return array();
-                else
-                    return $IDs;
-            }
-            mt_srand(microtime() * 1000000);
-            for($count=1;$count<=$n;$count++){
-                $arand=mt_rand(1, $i-1);
-                if(isset($randIndex)){
-                    if(array_search($arand,$randIndex)){
-                        $count--;
-                        continue;
-                    }
                 }
-                $randIndex[$count]=$arand;
+                else{
+                	$n=sizeof($IDs);
+                }
+                
             }
-            $i=0;
-            foreach($randIndex as $index){
-                $randIDs[$i]=$IDs[$randIndex[$i+1]];
-                $i++;
+            shuffle($IDs);
+            array_rand($IDs);
+            for($x=0;$x<$n;$x++){
+            	array_push($result, $IDs[$x]);
             }
-            return $randIDs;
+            
+            return $result;
 	}
 
 	public function home_data(){
-		$result = $this->random('books');
+		$result = $this->random('shopstock');
 		$books = array();
 		$images = array();
 		for($i=0;$i<sizeof($result);$i++){
@@ -334,7 +328,7 @@ class Database extends CI_Model{
 				$price = $price->result();
 				$price = $price[0]->price;
 				
-				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.book_id='$id' && shopstock.book_id='$id' && shopstock.price='$price'");
+				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.book_id='$id' && shopstock.book_id='$id'");
 				$book_details = $book_details->result();
 				if($book_details==array()){
 					continue;
@@ -386,14 +380,19 @@ class Database extends CI_Model{
 				$price = $price->result();
 				$price = $price[0]->price;
 				
-				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
+				$book_details = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
 				$book_details = $book_details->result();
 				if($book_details==array()){
 					continue;
 				}
-				$output[$x] = $book_details[0];
-				$x++;
-				
+				$category_id = $book_details[0]->category_id;
+				$category_IDs = explode(",", $category_id);
+				foreach ($category_IDs as $value) {
+					if($category==$value){
+						$output[$x] = $book_details[0];		
+						$x++;
+					}
+				}
 			}
 			$all = array();
 			//$categories = array();
@@ -435,8 +434,7 @@ class Database extends CI_Model{
 			$store = $this->db->query("SELECT * FROM `bookshop` WHERE name='$store_name'");
 			$store = $store->result();
 		}
-		
-		
+
 		if($price==''){
 			$max = $this->db->query("SELECT `price` FROM `shopstock` ORDER BY `price` DESC LIMIT 1");
 			$max = $max->result();
@@ -475,11 +473,11 @@ class Database extends CI_Model{
 			for($i=0;$i<sizeof($id_list);$i++){
 				$book_id = $id_list[$i];
 				//get the cheepest price of the book
-				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$book_id' ORDER BY `price` ASC LIMIT 1");
-				$price = $price->result();
-				$price = $price[0]->price;
+				$price_list = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$book_id' ORDER BY `price` ASC LIMIT 1");
+				$price_list = $price_list->result();
+				$price = $price_list[0]->price;
 				
-				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
 				$output = $output->result();
 				
 				if($output==array()){
@@ -527,17 +525,24 @@ class Database extends CI_Model{
 			for($i=0;$i<sizeof($id_list);$i++){
 				$book_id = $id_list[$i];
 				//get the cheepest price of the book
-				$price = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$id' ORDER BY `price` ASC LIMIT 1");
-				$price = $price->result();
-				$price = $price[0]->price;
+				$price_list = $this->db->query("SELECT `price` FROM `shopstock` WHERE book_id='$id' ORDER BY `price` ASC LIMIT 1");
+				$price_list = $price_list->result();
+				$price = $price_list[0]->price;
 				
-				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.category_id='$category' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id' && shopstock.price='$price'");
+				$output = $this->db->query("SELECT * FROM `books`, `shopstock` WHERE books.book_name LIKE '%$srch_txt%' && books.author LIKE '%$author%' && books.book_id='$book_id' && shopstock.book_id='$book_id'");
 				$output = $output->result();
 				
 				if($output==array()){
 					continue;
 				}
-				array_push($details, get_object_vars($output[0]));
+				$category_id = $output[0]->category_id;
+				$category_IDs = explode(",", $category_id);
+				foreach ($category_IDs as $value) {
+					if($category==$value){
+						array_push($details, get_object_vars($output[0]));
+					}
+				}
+				
 			}
 
 			

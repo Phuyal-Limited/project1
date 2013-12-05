@@ -1,13 +1,48 @@
 $(document).ready(function(){
 
-	
+	$("input[type='checkbox'], input[type='radio']").click(function(){
+		var search_array = $("#search_array").val();
+		var price = $(".price:checked").val();
+		alert(price);
+		var category_list = new Array();
+		var author_list = new Array();
+		var store_list = new Array();
+
+		$('.category_list:checked').each(function(){
+         category_list.push($(this).val());
+    	});
+
+    	$('.author:checked').each(function(){
+         author_list.push($(this).val());
+    	});
+
+    	$('.store:checked').each(function(){
+         store_list.push($(this).val());
+    	});
+
+    	$.ajax({
+    		url: 'filter',
+    		type: 'post',
+    		data: {
+    			category_list: category_list,
+    			author_list: author_list,
+    			store_list: store_list,
+    			price: price,
+    			search_array: search_array
+    		},
+    		success: function(response){
+    			alert(response);
+    		}
+    	});
+
+	});
 	
 });
 
 //get info of the books
 function info(y, x){
 	var prev_show = $("#info-showed").val();
-	
+	alert(x);
 	if(prev_show==''){
 		//nothing
 	}else{
@@ -63,6 +98,7 @@ function info(y, x){
 			$("#info-tab"+x).append('Publisher: <br />'+response[0][0].publisher+'<hr />');
 			$("#info-tab"+x).append('Published_date: <br />'+response[0][0].published_date+'<hr />');
 			$("#info-tab"+x).append('Description: <br />'+response[0][0].description);
+
 			var price_list = '';
 			
 			for(var i=0;i<response[1][0].length;i++){
