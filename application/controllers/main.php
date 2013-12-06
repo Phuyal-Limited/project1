@@ -352,6 +352,33 @@ class Main extends CI_Controller {
 			$data['category'] = $this->database->category();
 			$data['details'] = $this->database->author();
 			$data['search_result'] = $this->database->search($srch_txt, $category);
+
+			if($category=='All Category'){
+				$data['category_IDs'] = array();	
+			}else{
+				$data['category_IDs'] = array('0'=>$category);
+			}
+			
+			$data['store_IDs'] = array();
+			$data['authors'] = array();
+			$data['price_range'] = 'No Preferences';
+
+			$data['prices'] = array(
+				"0" => 100,
+				"1" => 200,
+				"2" => 500,
+				"3" => 750,
+				"4" => 1000,
+				"5" => 1500,
+				"6" => 2000,
+				"7" => 'No Preferences'
+			);
+			$data['search_details'] = array(
+				'category' => $category,
+				'price' => 'N/A',
+				'author' => 'N/A',
+				'store' => 'N/A'
+			);
 			//print_r($data['search_result']);exit();
 			$this->load->view('results', $data);
 		}
@@ -363,6 +390,7 @@ class Main extends CI_Controller {
 		$data['title'] = 'Advance Search | Nepal Reads';
 		$data['category'] = $this->database->category();
 		$data['details'] = $this->database->author();
+		
 		//print_r($data['details']);exit();
 		$this->load->view('advanced', $data);
 	}
@@ -395,8 +423,50 @@ class Main extends CI_Controller {
 			$data['srch_txt'] = $srch_txt;
 			$data['title'] = 'Search | Nepal Reads';
 			$data['category'] = $this->database->category();
-			$data['details'] = $this->database->author();
+			$data['details'] = $this->database->author(); 
 			$data['search_result'] = $this->database->adv_search($srch_txt, $category, $price, $author, $store);
+
+			if($category=='All Category'){
+				$data['category_IDs'] = array();
+			}else{
+				$data['category_IDs'] = array('0'=>$category);
+			}
+
+			if($store==''){
+				$data['store_IDs'] = array();	
+			}else{
+				$data['store_IDs'] = array('0'=>$store);
+			}
+
+			if($author==''){
+				$data['authors'] = array();
+			}else{
+				$data['authors'] = array('0'=>$author);
+			}
+
+			if($price=='Please Choose...'){
+				$data['price_range'] = 'No Preferences';
+			}else{
+				$data['price_range'] = $price;
+			}
+
+			$data['prices'] = array(
+				"0" => 100,
+				"1" => 200,
+				"2" => 500,
+				"3" => 750,
+				"4" => 1000,
+				"5" => 1500,
+				"6" => 2000,
+				"7" => 'No Preferences'
+			);
+
+			$data['search_details'] = array(
+				'category' => $category,
+				'price' => $price,
+				'author' => $author,
+				'store' => $store
+			);
 			//print_r($data['details']);exit();
 			$this->load->view('results', $data);
 		}
@@ -426,14 +496,165 @@ class Main extends CI_Controller {
 	}
 
 	public function filter(){
-		if(!isset($_POST['category_list']) and !isset($_POST['author_list'])  and  !isset($_POST['store_list']) and !isset($_POST['price'])){
+		if($this->input->post('submit')==false){
 			redirect('home');
 		}else{
-			$result = $_POST['search_array'];
-			$category_list = $_POST['category_list'];
-			$store_list = $_POST['store_list'];
-			$price = $_POST['price'];
-			print_r($result);
+
+			$srch_txt = $this->input->post('search_text');
+			$srch_category = $this->input->post('category');
+			$srch_price = $this->input->post('price');
+			$srch_author = $this->input->post('author');
+			$srch_store = $this->input->post('store');
+
+			if($srch_price=='N/A'){
+				$result = $this->database->search($srch_txt, $srch_category);
+			}else{
+				$result = $this->database->adv_search($srch_txt, $srch_category, $srch_price, $srch_author, $srch_store);
+			}
+			
+			$category_list = $this->input->post('category_list');
+			$store_list = $this->input->post('store_list');
+			$author_list = $this->input->post('author_list');
+			$price = $this->input->post('price_range');
+
+			$category = explode(',', $category_list);
+			$store = explode(',', $store_list);
+			$author = explode(',', $author_list);
+
+
+			$price_filter = array();
+			$book_details = array();
+			$image_details = array();
+
+			//price filter
+			if($price=='No Preferences'){
+				$price_filter = $result;
+			}else{
+				for($i=0;$i<sizeof($result[0]);$i++){
+					if($result[0][$i]['price']<=$price){
+						array_push($book_details, $result[0][$i]);
+						array_push($image_details, $result[1][$i]);
+					}
+
+				}
+				$price_filter = array($book_details, $image_details);
+			}
+
+			
+			$x=0;
+			$category_filter = array();
+			$book_details = array();
+			$image_details = array();
+			//category filter
+			if($category[0]==''){
+				$category_filter = $price_filter;
+			}else{
+				for($i=0;$i<sizeof($price_filter[0]);$i++){
+					$category_id = $price_filter[0][$i]['category_id'];
+					$category_IDs = explode(',', $category_id);
+					foreach ($category as $value) {
+						foreach ($category_IDs as $ids) {
+							if($ids==$value){
+								
+								array_push($book_details, $price_filter[0][$i]);
+								array_push($image_details, $price_filter[1][$i]);
+								$x=1;
+								break;
+							}
+						}
+						if($x==1){
+							$x=0;
+							break;
+						}
+					}
+				}
+				$category_filter = array($book_details, $image_details);
+			}
+
+			$x=0;
+			$author_filter = array();
+			$book_details = array();
+			$image_details = array();
+
+			//author filter
+			if($author[0]==''){
+				$author_filter = $category_filter;
+			}else{
+				for($i=0;$i<sizeof($category_filter[0]);$i++){
+					$author_names = $category_filter[0][$i]['author'];
+					$name_array = explode(', ', $author_names);
+					foreach ($author as $value) {
+						
+						foreach ($name_array as $eachname) {
+							if($eachname == $value){
+								array_push($book_details, $category_filter[0][$i]);
+								array_push($image_details, $category_filter[1][$i]);
+								$x=1;
+								break;	
+							}
+						}
+						if($x==1){
+							$x=0;
+							break;
+						}
+					}
+				}
+				$author_filter = array($book_details, $image_details);
+			}
+
+			$store_filter = array();
+			$book_details = array();
+			$image_details = array();
+
+			//store filter
+			if($store[0]==''){
+				$store_filter = $author_filter;
+			}else{
+				for($i=0;$i<sizeof($author_filter[0]);$i++){
+					foreach ($store as $value) {
+						
+						if($value == $author_filter[0][$i]['store']){
+							array_push($book_details, $author_filter[0][$i]);
+							array_push($image_details, $author_filter[1][$i]);
+							break;
+						}
+					}
+				}
+				$store_filter = array($book_details, $image_details);
+			}
+			
+			$data['prices'] = array(
+				"0" => 100,
+				"1" => 200,
+				"2" => 500,
+				"3" => 750,
+				"4" => 1000,
+				"5" => 1500,
+				"6" => 2000,
+				"7" => 'No Preferences'
+			);
+
+			$data['search_details'] = array(
+				'category' => $srch_category,
+				'price' => $srch_price,
+				'author' => $srch_author,
+				'store' => $srch_store
+			);
+
+			$data['srch_txt'] = $srch_txt;
+			$data['title'] = 'Search | Nepal Reads';
+			$data['category'] = $this->database->category();
+			$data['details'] = $this->database->author();
+			$data['search_result'] = $store_filter;
+
+			$data['category_IDs'] = $category;
+			$data['store_IDs'] = $store;
+			$data['authors'] = $author;
+			$data['price_range'] = $price;
+			//print_r($data['details']);exit();
+			$this->load->view('results', $data);
+
+			
 		}
 	}
 

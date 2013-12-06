@@ -66,10 +66,16 @@
                               <div class="values-list toggle">
                                 <?php 
                   					for($i=0;$i<sizeof($category);$i++){
+                              $checked = '';
+                              foreach ($category_IDs as $value) {
+                                if($value == $category[$i]->category_id){
+                                  $checked = 'checked';
+                                }
+                              }
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" name="category_list[]" class="category_list" value="<?php echo $category[$i]->category_id;?>"> <?php echo $category[$i]->name;?>
+                                      		<input type="checkbox" name="category_list[]" class="category_list" <?php echo $checked; ?> value="<?php echo $category[$i]->category_id;?>"> <?php echo $category[$i]->name;?>
                                     	</label>
                                 	</div>
                                     
@@ -90,10 +96,16 @@
                               <div class="values-list toggle">
                                <?php 
                   					for($i=0;$i<sizeof($details[0]);$i++){
+                              $checked = '';
+                              foreach ($authors as $value) {
+                                if($value == $details[0][$i]){
+                                  $checked = 'checked';
+                                }
+                              }
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" class="author" name="author_names[]" value="<?php echo $details[0][$i];?>"> <?php echo $details[0][$i];?>
+                                      		<input type="checkbox" class="author" name="author_names[]" <?php echo $checked; ?> value="<?php echo $details[0][$i];?>"> <?php echo $details[0][$i];?>
                                     	</label>
                                 	</div>
                                    
@@ -115,10 +127,16 @@
                               <div class="values-list toggle">
                                 <?php 
                   					for($i=0;$i<sizeof($details[1]);$i++){
+                              $checked = '';
+                              foreach ($store_IDs as $value) {
+                                if($value==$details[1][$i]['shop_id']){
+                                  $checked = 'checked';
+                                }
+                              }
                 				?>
                                 	<div class="value">
                                     	<label class="checkbox">
-                                      		<input type="checkbox" class="store" name="store_names[]" value="<?php echo $details[1][$i];?>"> <?php echo $details[1][$i];?>
+                                      		<input type="checkbox" class="store" name="store_names[]" <?php echo $checked;?> value="<?php echo $details[1][$i]['shop_id'];?>"> <?php echo $details[1][$i]['name'];?>
                                     	</label>
                                 	</div>
                                     
@@ -137,48 +155,27 @@
                           <div class="values">
                             <a href=""></a>
                               <div class="values-list toggle">
-                  
+                                <?php 
+                                    foreach ($prices as $value) {
+                                      $curr = 'Up to ';
+                                      $checked = '';
+                                      if($value==$price_range){
+                                        $checked = 'checked';
+                                      }
+                                      if($value == 'No Preferences'){
+                                        $curr = '';
+                                      }
+                                    
+                                ?>
                                 <div class="value">
                                     <label class="radio">
-                                      <input type="radio" class="price" name="price" value="100"> Up to NRs. 100
+                                      <input type="radio" class="price" <?php echo $checked; ?> name="price" value="<?php echo $value;?>"> <?php echo $curr.$value; ?>
                                     </label>
                                 </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" class="price" name="price" value="200"> Up to NRs. 200
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="500"> Up to NRs. 500
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="750"> Up to NRs. 750
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="1000"> Up to NRs. 1000
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="1500"> Up to NRs. 1500
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="2000"> Up to NRs. 2000
-                                    </label>
-                                </div>
-                                <div class="value">
-                                    <label class="radio">
-                                      <input type="radio" name="price" class="price" value="No Preferences" checked="checked"> No Preferences
-                                    </label>
-                                </div>
-                  
+                                <?php 
+                                  }
+                                ?>
+                                                  
                               </div>
                           </div>
                       </div> <!-- ends:filter option -->
@@ -323,8 +320,24 @@
                 <?php
 					}
 				?>
+
         <input type="hidden" id="info-showed">
-        <input type="hidden" id="search_array" value="<?php print_r($search_result);?>">
+        <input type="hidden" id="price_check" value="<?php echo $price_range; ?>">
+        
+        <form action="filter" method="post" style="display:none;">
+          <input type="hidden" name="category_list" id="category_list" />
+          <input type="hidden" name="author_list" id="author_list" />
+          <input type="hidden" name="store_list" id="store_list" />
+          <input type="hidden" name="price_range" id="price_range" />
+
+          <input type="hidden" name="search_txt" id="search_txt" value="<?php echo $srch_txt;?>" />
+          <input type="hidden" name="category" value="<?php echo $search_details['category']; ?>" />
+          <input type="hidden" name="author" value="<?php echo $search_details['author']; ?>" />
+          <input type="hidden" name="price" value="<?php echo $search_details['price']; ?>" />
+          <input type="hidden" name="store" value="<?php echo $search_details['store']; ?>" />
+
+          <input type="submit" id="submit" name="submit" value="Submit">
+        </form>
                 <!--
                 <div class="pagination pagination-centered">
                 <ul>

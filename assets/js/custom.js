@@ -1,9 +1,10 @@
 $(document).ready(function(){
 
+
+
 	$("input[type='checkbox'], input[type='radio']").click(function(){
 		var search_array = $("#search_array").val();
 		var price = $(".price:checked").val();
-		alert(price);
 		var category_list = new Array();
 		var author_list = new Array();
 		var store_list = new Array();
@@ -19,21 +20,13 @@ $(document).ready(function(){
     	$('.store:checked').each(function(){
          store_list.push($(this).val());
     	});
-
-    	$.ajax({
-    		url: 'filter',
-    		type: 'post',
-    		data: {
-    			category_list: category_list,
-    			author_list: author_list,
-    			store_list: store_list,
-    			price: price,
-    			search_array: search_array
-    		},
-    		success: function(response){
-    			alert(response);
-    		}
-    	});
+    	
+    	$("#category_list").val(category_list);
+    	$("#author_list").val(author_list);
+    	$("#store_list").val(store_list);
+    	$("#price_range").val(price);
+    	
+    	$("#submit").click();
 
 	});
 	
@@ -42,7 +35,7 @@ $(document).ready(function(){
 //get info of the books
 function info(y, x){
 	var prev_show = $("#info-showed").val();
-	alert(x);
+	
 	if(prev_show==''){
 		//nothing
 	}else{

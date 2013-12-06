@@ -137,25 +137,22 @@ class Database extends CI_Model{
 		}
 		//to get the bookshop name only
 		for($i=0;$i<sizeof($output1);$i++){
-			$bookshop[$i] = get_object_vars($output1[$i]);
-			array_push($name, $bookshop[$i]['name']);
+			$bookshop = get_object_vars($output1[$i]);
+			array_push($name, $bookshop);
 			
 		}
 		//remove the duplicate element
 		$arr_author = array_unique($arr_author);
-		$name = array_unique($name);
+		
 		
 		$author_list = array();
-		$names = array();
+		
 		foreach($arr_author as $key => $value){
    			array_push($author_list, $value);
 		}
 		
-		foreach($name as $key => $value){
-   			array_push($names, $value);
-		}
 		
-		$result = array($author_list, $names);
+		$result = array($author_list, $name);
 		return 	$result;
 	}
 	

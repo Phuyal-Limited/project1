@@ -56,15 +56,15 @@
                     Price
                     Up to<br /> NRs. <select name="price">
                     	<option value="Please Choose...">Please Choose...</option>
-                        <?php
-						$x=0;
-                        for($i=0;$i<10;$i++){
-							$x = $x+100;
-						?>
-                        <option value="<?php echo $x;?>"><?php echo $x;?></option>
-                        <?php
-						}
-						?>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="500">500</option>
+                        <option value="750">750</option>
+                        <option value="1000">1000</option>
+                        <option value="1500">1500</option>
+                        <option value="2000">2000</option>
+                        
+                        
                     </select>
                     <!--<label class="checkbox">
                       <input type="checkbox"> Only Items from 
