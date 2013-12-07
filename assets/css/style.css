@@ -9,10 +9,20 @@ h3{
   font-size: 13px;
 }
 
+h5{
+  font-size: 13px;
+  line-height: 15px;
+}
+
 h2{
   font-size: 20px;
   line-height: 20px;
 }
+
+.thumbnail img{
+  height: 150px;
+}
+
 
 .navbar .brand-nepalreads {
 	font-size: 30px;
