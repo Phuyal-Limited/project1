@@ -163,7 +163,7 @@
                   <input type="hidden" name="ServerResultURLFormVariables" value="" />
                   <input type="hidden" name="ServerResultURLQueryStringVariables" value="" />
                   <div class="row-fluid cart-buttons">
-                    <div class="span6"><input type='submit' name='confirm' Value='Pay Via Paymentsense'></div>
+                    <div class="span12"><input type='submit' name='confirm' Value='Pay Via Paymentsense'></div>
                   </div>
 
                 </div>

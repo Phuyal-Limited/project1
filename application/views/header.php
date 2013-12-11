@@ -36,9 +36,9 @@
                     <div class="nav-collapse collapse">        
                       <ul class="nav pull-right">
                         <li><a href="home">Home</a></li>
-                        <li><a href="">product</a></li>
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">login</a></li>
+                        <!-- <li><a href="">product</a></li> -->
+                        <!-- <li><a href="">Dashboard</a></li> -->
+                        <!-- <li><a href="">login</a></li> -->
                         
                         <?php 
                           //To show the count of items in the cart
@@ -50,8 +50,8 @@
                           }
                           echo "<li id='cart_count'><a href='$urlCart'>Cart ($count)</a></li>";
                         ?>
-                        <li><a href="">Sign up</a></li>
-                        <li><a href="">Sign in</a></li>
+                        <!-- <li><a href="">Sign up</a></li> -->
+                        <!-- <li><a href="">Sign in</a></li> -->
                       </ul>
                     </div>
                 </div>

@@ -106,7 +106,7 @@
                 </div> <!-- cart:details ends -->
                 <div class="row-fluid cart-buttons" style="padding-bottom:40px;">
                   
-                  <div class="span6"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
+                  <div class="span12"><p><a href="<?php echo base_url(); ?>">Continue shopping</a></p></div>
 
                 </div>
                 
@@ -165,7 +165,7 @@
                   </div>
                 </div> <!-- buyer:details ends -->
                 <div class="row-fluid cart-buttons">
-                  <div class="span6"><input type='submit' name='confirm' Value='Proceed To Payment'></div>
+                  <div class="span12"><input type='submit' name='confirm' Value='Proceed To Payment'></div>
                 </div>
                 </form>
             <?php } ?>

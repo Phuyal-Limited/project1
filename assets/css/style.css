@@ -88,8 +88,8 @@ h2{
 
 /* End: Override Bootstrap Accordian */
 
-.caption{
-  line-height: 10px;
+.caption p{
+  margin:0;
 }
 .caption h3{
   line-height:20px;
@@ -523,6 +523,7 @@ font-weight: bold;
   text-decoration: none;
 }
 
+.cart-buttons>.span12 input[type="submit"],
 .cart-buttons>.span6 input[type="submit"],
 .cart-buttons>.span6 input[type="button"]{
   background-color: #3c757d;
@@ -532,7 +533,10 @@ font-weight: bold;
   text-decoration: none;
   border: none;
   margin-top: -8px;
+}
 
+.cart-buttons>.span12 input[type="submit"]{
+  float: right;
 }
 
 .cart-buttons>.span6 input[type="submit"]:hover,

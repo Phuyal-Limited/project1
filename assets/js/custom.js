@@ -115,7 +115,7 @@ function info(y, x){
                                        										price_list = price_list + '<option value="'+count+'">'+count+'</option>';
                                        									}
                                                                        	price_list = price_list + '</select></div>'+
-                					'<div id="show'+i+'" class="span2 product-buy cart-buttons"><a style="padding:3px;" id="buy" onClick="buy('+response[1][0][i].stock_id+', '+i+', '+x+');" href="javascript:void(0)">Add to Cart</a></div>';
+                					'<div id="show'+i+'" class="span2 product-buy cart-buttons"><a style="padding:3px; margin-left:-15px;" id="buy" onClick="buy('+response[1][0][i].stock_id+', '+i+', '+x+');" href="javascript:void(0)">Add to Cart</a></div>';
                 						}
                 					
                 					price_list = price_list + '</div>';
