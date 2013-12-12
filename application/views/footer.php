@@ -1,6 +1,6 @@
 <!-- Start: FOOTER -->
     <footer>
-      <div class="container">
+      <!-- <div class="container">
         <div class="row">
           <div class="span2">
             <h4><i class="icon-star icon-white"></i> Products</h4>
@@ -63,12 +63,14 @@
             </form>
           </div>
         </div>
-      </div>
-      <hr class="footer-divider">
+      </div> -->
+      <!-- <hr class="footer-divider"> -->
       <div class="container">
-        <p>
-          &copy; 2013, Nepal Reads All Rights Reserved.
-        </p>
+        <div class="footer-copyright">
+            <p>
+              &copy; 2013, <a href="">Nepal Reads</a> All Rights Reserved.
+            </p>
+        </div>
       </div>
     </footer>
     <!-- End: FOOTER -->

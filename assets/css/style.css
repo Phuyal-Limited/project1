@@ -5,8 +5,15 @@
   background: url('../images/header-footer.png');
   /*background-color:white;*/
 }
+
+.footer-copyright a{
+  color: #3c757d;
+}
+
 h3{
   font-size: 13px;
+  line-height: 20px;
+  color: #3c757d;
 }
 
 h5{
@@ -23,6 +30,20 @@ h2{
   height: 150px;
 }
 
+.clear{
+  padding: 10px;
+}
+
+.clear-big{
+  padding: 20px;
+}
+
+.product-page h3{
+  font-size: 16px;
+  line-height: 20px;
+  color: #3c757d;
+  border-bottom: 2px solid;
+}
 
 .navbar .brand-nepalreads {
 	font-size: 30px;
@@ -103,6 +124,14 @@ h2{
   padding-top: 0px;
 }
 
+.details h4{
+  padding-bottom: 15px;
+}
+
+.details a{
+  color:#585858;
+}
+
 .bold{
   color:#262422;
   font-weight: bold;
@@ -118,13 +147,24 @@ h2{
 }
 
 .review{
-  /*background-color:#f8f6f3;*/
+  background-color:#f8f6f3;
   padding:10px;
-  margin: 5px;
+  margin-bottom: 10px;
   border:1px solid #e6e6e5;
   border-radius: 5px;
   -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
+}
+
+.reviewer span{
+  color: #3c757d;
+  font-weight: bold;
+  border-bottom: 1px dashed;
+  padding-bottom: 5px;
+}
+
+.review-content{
+  font-size: 14px;
 }
 
 .main-search{
@@ -618,7 +658,35 @@ font-size: 15px;
   width: 0;
 }
 
+.order-quantity{
+  width: 70px;
+}
 
+.rate-review-front{
+  font-size: 17px;
+  color: #3c757d;
+}
+
+.rate-review-front span{
+  font-size: 40px;
+  color: #3c757d;
+}
+.rate-review-front a{
+  font-size: 17px;
+  color: #3c757d;
+}
+
+.rate-review-front a:hover{
+  color: #315257;
+  text-decoration: none;
+}
+
+.rate-review-buttons>.search-btn{
+  padding: 3px 13px;
+}
+.rate-review-buttons>.rate-btn{
+  margin-right: 25px;
+}
 
 
 /*hr.carved {
