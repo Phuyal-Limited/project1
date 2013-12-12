@@ -95,7 +95,7 @@
                 			<?php 
                   				for($i=0;$i<sizeof($details[1]);$i++){
                 			?>
-                                <option value="<?php echo $details[1][$i];?>"><?php echo $details[1][$i];?></option>
+                                <option value="<?php echo $details[1][$i]['name'];?>"><?php echo $details[1][$i]['name'];?></option>
                              <?php   
                   				}
                 			?>
