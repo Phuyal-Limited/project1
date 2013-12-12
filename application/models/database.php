@@ -8,6 +8,19 @@ class Database extends CI_Model{
 		return $output->result();
 	}
 	
+	public function add_rating($data){
+		$this->db->insert('rating', $data);
+	}
+
+	public function average_rating($book_id){
+		$this->db->select_avg('rating');
+		$this->db->where('book_id', $book_id);
+		$avg_rating = $this->db->get('rating');
+		$avg_rating = $avg_rating->result();
+		return get_object_vars($avg_rating[0]);
+
+	}
+
 	public function random($tablename){
 			
             $i=0;

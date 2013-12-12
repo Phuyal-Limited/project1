@@ -76,7 +76,7 @@
     <!-- End: FOOTER -->
     <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.raty.min.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/hideshow.js');?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets/js/custom.js');?>"></script>
     <script type="text/javascript">
@@ -95,6 +95,22 @@
           $( ".close-button" ).click(function() {
             $( ".show-info" ).hide( 1000 );
           });
+
+          $(function(){
+            $("#rate_success").html('');
+            $("#rate_book").raty({
+              hintList: ['bad', 'poor', 'regular', 'good', 'brilliant'],
+              path: 'http://nepalreads.com/assets/img/',
+              click: function(score) {
+                  $("#rateIT").click();
+              }
+            });
+
+            $("#rate_book :input").attr('id', 'rate_value');
+          });
+
+
+
     </script>
   </body>
 </html>

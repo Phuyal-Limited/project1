@@ -8,7 +8,7 @@
 					for($x=0;$x<sizeof($category);$x++){
 						$y = $x+1;
 				?>
-           		<li><a href="cat_product?cat_id=<?php echo $category[$x]->category_id;?>"><?php echo $category[$x]->name;?></a></li>
+           		<li><a href="http://nepalreads.com/category/<?php echo $category[$x]->category_id;?>"><?php echo $category[$x]->name;?></a></li>
             	<?php
 					}
 				?>

@@ -280,11 +280,11 @@ class Main extends CI_Controller {
 		$this->load->view('check_out', $data);		
 	}
 	
-	public function cat_product(){
-		if(!isset($_GET['cat_id'])){
-		
+	public function category(){
+		$cat_id = intval($this->uri->segment(2));
+		if(empty($cat_id) || !is_int($cat_id)){
+			redirect('home');
 		}else{
-			$cat_id = $_GET['cat_id'];
 			$data['title'] = 'Books';
 			$data['category'] = $this->database->category();
 			$data['book_details'] = $this->database->book_details($cat_id);
@@ -323,11 +323,17 @@ class Main extends CI_Controller {
             	echo $count;exit();
             }
 		}
-		if(!isset($_GET['book_id'])){
-		
+		$book_id = intval($this->uri->segment(2));
+		if(empty($book_id) || !is_int($book_id)){
+			redirect('home');		
 		}else{
-			$book_id = $_GET['book_id'];
-			
+			$rating = $this->database->average_rating($book_id);
+			if($rating['rating']==''){
+				$data['rating'] = array('rating'=> 0);
+			}else{
+				$data['rating'] = array('rating' => round($rating['rating'],2));
+			}
+			$data['rated_booksIDs'] = $this->session->userdata('rated_books');
 			$data['category'] = $this->database->category();
 			$data['book_details'] = $this->database->book_particular($book_id);
 			$data['shop_details'] = $this->database->shop_details($book_id);
@@ -655,6 +661,36 @@ class Main extends CI_Controller {
 			$this->load->view('results', $data);
 
 			
+		}
+	}
+
+	public function rating(){
+		if(!isset($_POST['rate'])){
+			redirect('home');
+		}else{
+			$rate_data = array(
+				'book_id' => $_POST['book_id'],
+				'rating' => $_POST['rate']
+			);
+			$this->database->add_rating($rate_data);
+
+			$books = array();
+			if($this->session->userdata('rated_books')){
+				$books = $this->session->userdata('rated_books');
+			}
+			if($books == array()){
+				$ids = array($rate_data['book_id']);
+				$this->session->set_userdata('rated_books',$ids);	
+			}else{
+				array_push($books, $rate_data['book_id']);
+				$this->session->unset_userdata('rated_books');
+				$this->session->set_userdata('rated_books',$books);
+			}
+
+			$rating = $this->database->average_rating($rate_data['book_id']);
+			$rate = round($rating['rating'], 2);
+			echo 'Thank you for rating/'.$rate;exit();
+
 		}
 	}
 

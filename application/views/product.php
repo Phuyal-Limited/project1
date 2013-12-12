@@ -26,11 +26,24 @@
                       <div class="span7 details ">
                         <p><h4><a href=""><?php echo $book_details[0]['author'];?></a> <small>(Authur)</small></h4></p>
                         <div class="rate-review-front">
-                          <span>53%</span><br /> <a href="">132 Total reviews</a>
+                          <span id="rated"><?php echo $rating['rating']; ?>%</span><br /> <a href="">132 Total reviews</a>
                         </div>
                         <div class="clear"></div>
+
+                        <span id="rate_success"></span>
+                        <input type="button" style="display:none;" id="rateIT" onclick="return rate();">
+                        <div class="clear"></div>
                         <div class="rate-review-buttons">
-                          <button class="search-btn rate-btn">Rate This Book</button>
+                        <?php 
+                        $style = '';
+                          for($i=0;$i<sizeof($rated_booksIDs);$i++){
+                            if($rated_booksIDs[$i]==$book_details[0]['book_id']){
+                              $style = 'style="display:none;"';
+                            }
+                          }
+                        ?>
+                          <span <?php echo $style; ?> id="rate_book"></span>
+                          <input type="hidden" id="id_book" value="<?php echo $book_details[0]['book_id'];?>">
                           <button class="search-btn">Write A Review</button>
                         </div>
                       </div>

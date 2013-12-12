@@ -56,7 +56,7 @@
                     ?>
                       <div class="span2">
                           <div class="thumbnail">
-                            <a href="books?book_id=<?php echo $newest[0][$i]['book_id'];?>"><img style="height:145px;" src="<?php echo $newest[1][$i]['path'];?>" alt="<?php echo $newest[1][$i]['alt'];?>"></a>
+                            <a href="books/<?php echo $newest[0][$i]['book_id'];?>"><img style="height:145px;" src="<?php echo $newest[1][$i]['path'];?>" alt="<?php echo $newest[1][$i]['alt'];?>"></a>
                             
                           </div> <!-- end-thumbnail -->
                       </div> <!-- end span -->
@@ -124,12 +124,12 @@
                             <img src="<?php echo $img;?>" alt="<?php echo $alt;?>">
                             <div class="caption" style="height:140px;">
                               <h5><?php echo $home_data[0][$i]['book_name'];?></h5>
-                              <p>Fourth Edition</p>
+                              <p><?php echo $home_data[0][$i]['edition'];?> Edition</p>
                               <p>By:<a href=""><?php echo $home_data[0][$i]['author'];?></a> <br /></p>
                             </div>
                             <div class="widget-footer">
                           <p>
-                            <a href="books?book_id=<?php echo $home_data[0][$i]['book_id']?>" >Read more</a>
+                            <a href="books/<?php echo $home_data[0][$i]['book_id']?>" >Read more</a>
                           </p>
                         </div>
                       </div> <!-- end-thumbnail -->

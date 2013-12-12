@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
 
-
 	$("input[type='checkbox'], input[type='radio']").click(function(){
 		var search_array = $("#search_array").val();
 		var price = $(".price:checked").val();
@@ -47,8 +46,9 @@ function info(y, x){
 		}
 	}
 	var book_id = $("#book_id"+y).val();
+
 	$.ajax({
-		url: 'info',
+		url: 'http://nepalreads.com/info',
 		type: 'post',
 		dataType: 'json',
 		data: {
@@ -56,6 +56,7 @@ function info(y, x){
 		},
 		success: function(response){
 			//for css of arrow
+			
 			var a = Number(y%4);
 			if(a==0){
 				$("#arrow"+x).css({
@@ -240,4 +241,30 @@ function update(stock_id, remove){
 	});
 
 	return false;
+}
+
+
+//rating with ajax
+function rate(){
+	var rate = $("#rate_value").val();
+	rate = rate*20;
+	var book_id = $("#id_book").val();
+
+	$.ajax({
+		url: 'http://nepalreads.com/rating',
+		data: {
+			rate: rate,
+			book_id: book_id
+		},
+		type: 'post',
+		success: function(response){
+			var data = response.split('/');
+
+			if(data[0]=='Thank you for rating'){
+				$("#rate_book").hide();
+				$("#rated").html(data[1]+'%');
+				$("#rate_success").html('Thank you for rating this book.');
+			}
+		}
+	});
 }
