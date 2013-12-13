@@ -450,7 +450,7 @@ class Main extends CI_Controller {
 				$data['authors'] = array('0'=>$author);
 			}
 
-			if($price=='Please Choose...'){
+			if($price==''){
 				$data['price_range'] = 'No Preferences';
 			}else{
 				$data['price_range'] = $price;
