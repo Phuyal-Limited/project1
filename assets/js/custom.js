@@ -34,6 +34,8 @@ $(document).ready(function(){
 //get info of the books
 function info(y, x){
 	var prev_show = $("#info-showed").val();
+	var l = window.location;
+	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
 	
 	if(prev_show==''){
 		//nothing
@@ -48,7 +50,7 @@ function info(y, x){
 	var book_id = $("#book_id"+y).val();
 
 	$.ajax({
-		url: 'http://nepalreads.com/info',
+		url: base_url+'/info',
 		type: 'post',
 		dataType: 'json',
 		data: {
@@ -142,8 +144,10 @@ function buy(stock_id, i, x){
 	var stock_id = stock_id;
 	var qty = $("#qty").val();
 	var Cart = true;
+	var l = window.location;
+	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
 	$.ajax({
-		url: 'books',
+		url: base_url+'/books',
 		type: 'post',
 		data: {
 			Cart: Cart,
@@ -172,9 +176,10 @@ function scrollTo(hash) {
 //cart update ajax
 function update(stock_id, remove){
 	var qty = $("#qty"+stock_id).val();
-	
+	var l = window.location;
+	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
 	$.ajax({
-		url: 'update',
+		url: base_url+'/update',
 		type: 'post',
 		dataType: 'json',
 		data: {
@@ -249,9 +254,10 @@ function rate(){
 	var rate = $("#rate_value").val();
 	rate = rate*20;
 	var book_id = $("#id_book").val();
-
+	var l = window.location;
+	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
 	$.ajax({
-		url: 'http://nepalreads.com/rating',
+		url: base_url+'/rating',
 		data: {
 			rate: rate,
 			book_id: book_id

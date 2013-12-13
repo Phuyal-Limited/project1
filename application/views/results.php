@@ -231,7 +231,7 @@
                             <div class="search-result-footer">
                               <div class="caption" style="height:65px;">
                                 <span style="display:none;" id="<?php echo 'goto-info'.$x;?>"></span>
-                                <a href="http://nepalreads.com/books/<?php echo $search_result[0][$i]['book_id'];?>"><h3><?php echo $search_result[0][$i]['book_name'];?></h3></a>
+                                <a href="<?php echo base_url(); ?>books/<?php echo $search_result[0][$i]['book_id'];?>"><h3><?php echo $search_result[0][$i]['book_name'];?></h3></a>
                               </div>
                               <div class="row-fluid">
                                 <div class="span6">

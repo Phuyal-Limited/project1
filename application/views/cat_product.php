@@ -29,7 +29,7 @@
                       ?>
                       </select>
                       <input type="submit" name="search" value="Search" class="search-btn"/>
-                      <a href="advance_search">Advanced</a>
+                      <a href="<?php echo base_url(); ?>advance_search">Advanced</a>
                   </form>
                 </div>
                 <div class="page-header">
@@ -83,7 +83,7 @@
                               <div class="search-result-footer">
                               <div class="caption" style="height:65px;">
                                 <span style="display:none;" id="<?php echo 'goto-info'.$x;?>"></span>
-                                <a href="http://nepalreads.com/books/<?php echo $book_details[0][$i]['book_id'];?>"><h3><?php echo $book_details[0][$i]['book_name'];?></h3></a>
+                                <a href="<?php echo base_url(); ?>books/<?php echo $book_details[0][$i]['book_id'];?>"><h3><?php echo $book_details[0][$i]['book_name'];?></h3></a>
                               </div>
                               <div class="row-fluid">
                                 <div class="span6">

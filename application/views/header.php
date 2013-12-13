@@ -22,7 +22,7 @@
           <div class="container">
             <div class="row-fluid">
               <div class="span3">
-                <a href="home" class="brand brand-nepalreads"><img src="<?php echo base_url('assets/images/logo.png');?>"></a>
+                <a href="<?php echo base_url(); ?>home" class="brand brand-nepalreads"><img src="<?php echo base_url('assets/images/logo.png');?>"></a>
               </div>
               <div class='span9'>
                 <div class="row-fluid">
@@ -35,7 +35,7 @@
                     <!-- Start: Primary navigation -->
                     <div class="nav-collapse collapse">        
                       <ul class="nav pull-right">
-                        <li><a href="home">Home</a></li>
+                        <li><a href="<?php echo base_url(); ?>home">Home</a></li>
                         <!-- <li><a href="">product</a></li> -->
                         <!-- <li><a href="">Dashboard</a></li> -->
                         <!-- <li><a href="">login</a></li> -->
