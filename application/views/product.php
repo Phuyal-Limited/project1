@@ -162,7 +162,7 @@
                   <div class="row-fluid"> <!-- Starts:single review -->
                     <div class="span12">
                     <div class="review">
-                      <p class="reviewer"><span>Mr. Bidur Subedi</span></p>
+                      <p class="reviewer"><span>Mr. Niranjan Udas</span></p>
                       <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -176,7 +176,7 @@
                   <div class="row-fluid"> <!-- Starts:single review -->
                     <div class="span12">
                     <div class="review">
-                      <p class="reviewer"><span>Mr. Bidur Subedi</span></p>
+                      <p class="reviewer"><span>Mr. Niranjan Udas</span></p>
                       <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -190,7 +190,7 @@
                   <div class="row-fluid"> <!-- Starts:single review -->
                     <div class="span12">
                     <div class="review">
-                      <p class="reviewer"><span>Mr. Bidur Subedi</span></p>
+                      <p class="reviewer"><span>Mr. Niranjan Udas</span></p>
                       <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -204,7 +204,7 @@
                   <div class="row-fluid"> <!-- Starts:single review -->
                     <div class="span12">
                     <div class="review">
-                      <p class="reviewer"><span>Mr. Bidur Subedi</span></p>
+                      <p class="reviewer"><span>Mr. Niranjan Udas</span></p>
                       <p class="review-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
