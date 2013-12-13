@@ -15,7 +15,7 @@
             <div class="section2 sidebar span9">
               <!-- Start:  SECTION2 -->
               <div class="row-fluid">
-                  <form action="search" method="post">
+                  <form action="<?php echo base_url();?>search" method="post">
                       <input class="span7" type="text" name="search_text" placeholder="Search...">
                       <select name="category" id="category" class="span3">
                         
