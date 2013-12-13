@@ -624,7 +624,7 @@ font-size: 15px;
 }
 .widget-buttons a{
   background-color: #3c757d;
-  padding: 10px;
+  padding: 5px;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -688,7 +688,20 @@ font-size: 15px;
   margin-right: 25px;
 }
 
+/*.name-anchor{
+  border:none;
+}*/
 
+
+.search-result-footer{
+  padding: 15px;
+  background-color: #EEEEEC;
+  border-top: 1px solid #DDD;
+}
+
+.search-result-footer> .caption{
+  padding: 0px;
+}
 /*hr.carved {
   clear: both; 
   float: none; 

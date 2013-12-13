@@ -80,7 +80,7 @@
                           <div class="thumbnail">
                             <img style="height:300px;" onClick="info(<?php echo $i;?>, <?php echo $x;?>);" src="<?php echo $img;?>" alt="<?php echo $alt;?>">
 
-                              <div class="widget-footer">
+                              <div class="search-result-footer">
                               <div class="caption" style="height:65px;">
                                 <span style="display:none;" id="<?php echo 'goto-info'.$x;?>"></span>
                                 <a href="http://nepalreads.com/books/<?php echo $book_details[0][$i]['book_id'];?>"><h3><?php echo $book_details[0][$i]['book_name'];?></h3></a>
