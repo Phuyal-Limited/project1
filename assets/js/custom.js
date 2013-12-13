@@ -36,7 +36,7 @@ function info(y, x){
 	var prev_show = $("#info-showed").val();
 	var l = window.location;
 	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
-	
+	alert(base_url);
 	if(prev_show==''){
 		//nothing
 	}else{
