@@ -34,8 +34,8 @@ $(document).ready(function(){
 //get info of the books
 function info(y, x){
 	var prev_show = $("#info-showed").val();
-	var l = window.location;
-	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+	
+	var base_url = $("#base_url").val();
 	alert(base_url);
 	if(prev_show==''){
 		//nothing
@@ -144,8 +144,7 @@ function buy(stock_id, i, x){
 	var stock_id = stock_id;
 	var qty = $("#qty").val();
 	var Cart = true;
-	var l = window.location;
-	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+	var base_url = $("#base_url").val();
 	$.ajax({
 		url: base_url+'/books',
 		type: 'post',
@@ -176,8 +175,7 @@ function scrollTo(hash) {
 //cart update ajax
 function update(stock_id, remove){
 	var qty = $("#qty"+stock_id).val();
-	var l = window.location;
-	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+	var base_url = $("#base_url").val();
 	$.ajax({
 		url: base_url+'/update',
 		type: 'post',
@@ -254,8 +252,7 @@ function rate(){
 	var rate = $("#rate_value").val();
 	rate = rate*20;
 	var book_id = $("#id_book").val();
-	var l = window.location;
-	var base_url = l.protocol + "//" + l.host + "/" + l.pathname.split('/')[1];
+	var base_url = $("#base_url").val();
 	$.ajax({
 		url: base_url+'/rating',
 		data: {

@@ -79,6 +79,7 @@
     </header>
     <!-- End: HEADER -->
 
+    <input type="hidden" value="<?php echo base_url(); ?>" id="base_url" />
 
 
 
