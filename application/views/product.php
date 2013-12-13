@@ -81,6 +81,11 @@
                           <div class="span9"><?php echo $book_details[0]['isbn13'];?></div>
                         </div>
 
+                        <div class="row-fluid">
+                          <div class="span3"><span class="bold">Edition: </span></div>
+                          <div class="span9"><?php echo $book_details[0]['edition'];?></div>
+                        </div>
+
                       </div>
 
                   </div>

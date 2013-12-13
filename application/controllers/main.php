@@ -348,7 +348,7 @@ class Main extends CI_Controller {
 	
 	public function search(){
 		if($this->input->post('search')==false){
-			$this->home();
+			redirect('home');
 		}else{
 			$srch_txt = $this->input->post('search_text');
 			$category = $this->input->post('category');
@@ -403,7 +403,7 @@ class Main extends CI_Controller {
 	
 	public function search_adv(){
 		if($this->input->post('search')==false){
-			$this->home();
+			redirect('home');
 		}else{	
 			$srch_txt = $this->input->post('search_text');
 			$category = $this->input->post('category');
@@ -480,7 +480,7 @@ class Main extends CI_Controller {
 	
 	public function info(){
 		if(!isset($_POST['book_id'])){
-			$this->index();
+			redirect('home');
 		}else{
 			$book_id = $_POST['book_id'];
 			$book_details = $this->database->book_particular($book_id);

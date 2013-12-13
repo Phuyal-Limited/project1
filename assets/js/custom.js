@@ -36,7 +36,7 @@ function info(y, x){
 	var prev_show = $("#info-showed").val();
 	
 	var base_url = $("#base_url").val();
-	alert(base_url);
+	
 	if(prev_show==''){
 		//nothing
 	}else{
@@ -130,10 +130,9 @@ function info(y, x){
 			$("#display"+x).html(price_list);
 			$("#info-show"+x).show(1000);
 			
-			//goto the info div with href #id
 			$("#goto-info"+x).show();
-			var scrollpage = 'goto-info'+x;
-			scrollTo(scrollpage);
+			var element = document.getElementById("goto-info"+x);
+			element.scrollIntoView(true);
 
 			
 		}
@@ -165,10 +164,6 @@ function buy(stock_id, i, x){
 
 function close_info(x){
 	$("#info-show"+x).hide(1000);
-}
-
-function scrollTo(hash) {
-    location.hash = "#" + hash;
 }
 
 
