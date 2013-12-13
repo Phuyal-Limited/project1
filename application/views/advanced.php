@@ -115,10 +115,5 @@
       include("footer.php");
     ?>
     <!-- End: FOOTER -->
-    
-    
-
 
     
-          
-                    <hr class="footer-divider" />

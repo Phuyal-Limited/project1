@@ -44,7 +44,7 @@
                         ?>
                           <span <?php echo $style; ?> id="rate_book"></span>
                           <input type="hidden" id="id_book" value="<?php echo $book_details[0]['book_id'];?>">
-                          <button class="search-btn">Write A Review</button>
+                          <button data-toggle="modal" href="#write-a-review" class="search-btn">Write A Review</button>
                         </div>
                       </div>
                   </div>
@@ -222,6 +222,64 @@
       <!-- End: container -->
     </div>
   </div> <!-- kun div ho kun -->
+
+  <!-- <a data-toggle="modal" href="#detailss" class="btn btn-primary">Launch modal</a> -->
+  <div class="modal fade" id="write-a-review" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="success_title">Write A Review</h3>
+        </div>
+        <div class="modal-body" id="success_msg">
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="row-fluid"> <!-- Starts:form-row -->
+                <div class="span4">
+                  <label>Name: <span>*</span></label>
+                </div>
+                <div class="span8">
+                  <input class="form-control" type="text" placeholder="Name" required="required"> 
+                </div>
+              </div><!-- Ends:form-row -->
+
+              <div class="row-fluid"> <!-- Starts:form-row -->
+                <div class="span4">
+                  <label>Email: <span>*</span></label>
+                </div>
+                <div class="span8">
+                  <input class="form-control" type="email" placeholder="Name" required="required"> 
+                </div>
+              </div><!-- Ends:form-row -->
+
+              <div class="row-fluid"> <!-- Starts:form-row -->
+                <div class="span4">
+                  <label>Title: <span>*</span></label>
+                </div>
+                <div class="span8">
+                  <input class="form-control" type="text" placeholder="Name" required="required"> 
+                </div>
+              </div><!-- Ends:form-row -->
+
+              <div class="row-fluid"> <!-- Starts:form-row -->
+                <div class="span4">
+                  <label>Review: <span>*</span></label>
+                </div>
+                <div class="span8">
+                  <textarea class="form-control"></textarea> 
+                </div>
+              </div><!-- Ends:form-row -->
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <input class="search-btn" type="submit" value="Submit">
+          <button class="search-btn" onClick="success_final('mybook');" data-dismiss="modal" >Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
     <!-- End: MAIN CONTENT -->
     <!-- Start: FOOTER -->
     <?php 
