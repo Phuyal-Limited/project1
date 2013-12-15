@@ -10,6 +10,8 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet">
     <!-- Bootstrap responsive -->
     <link href="<?php echo base_url('assets/css/bootstrap-responsive.min.css');?>" rel="stylesheet">
+    <!-- Font-awesome -->
+    <link href="<?php echo base_url('assets/css/Font-awesome.min.css');?>" rel="stylesheet">
     <!-- custom css -->
     <link href="<?php echo base_url('assets/css/style.css');?>" rel="stylesheet">
   </head>

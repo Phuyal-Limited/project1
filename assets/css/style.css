@@ -736,6 +736,41 @@ font-size: 15px;
 .search-result-footer> .caption{
   padding: 0px;
 }
+
+.pagination-review{
+  text-align: right;
+}
+
+.pagination-review a{
+ color: #616161;
+}
+
+.pagination-review a:hover{
+  color: #08889B;
+  text-decoration: none;
+}
+
+.pagination ul>.active>a{
+  color: #fff;
+  cursor: default;
+}
+
+.pagination ul>li>a{
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-left-width: 0;
+  color: #3c757d;
+}
+
+.pagination ul>li>a:hover, .pagination ul>.active>a, .pagination ul>.active>span {
+  background-color: #3c757d;
+  color: #fff;
+}
+
 /*hr.carved {
   clear: both; 
   float: none; 

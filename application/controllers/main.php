@@ -30,6 +30,13 @@ class Main extends CI_Controller {
 	
 	}
 
+	public function rate_review(){
+		$data['title'] = 'Rate & Review | Nepal Reads';
+		$data['category'] = $this->database->category();
+		$this->load->view('rate_review', $data);
+	
+	}
+
 	public function thank_you(){
   		if(isset($_POST['StatusCode'])){
 			$data['title'] = 'thank_you | Nepal Reads';

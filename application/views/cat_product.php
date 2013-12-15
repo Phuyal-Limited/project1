@@ -175,13 +175,7 @@
 
                 <!-- details -->
                  <input type="hidden" id="info-showed">
-            </div>
-            <!-- END:SECTION2 -->
-          </div>
-          </div>
-           <!-- END:CONTAINER -->
-
-          <!--<div class="pagination pagination-centered">
+                 <div class="pagination pagination-centered">
                 <ul>
                   <li class="disabled">
                     <a href="#">&laquo;</a>
@@ -208,7 +202,14 @@
                     <a href="#">&raquo;</a>
                   </li>
                 </ul>
-          </div>-->
+          </div>
+            </div>
+            <!-- END:SECTION2 -->
+          </div>
+          </div>
+           <!-- END:CONTAINER -->
+
+          
         </div>
       <!-- End: PRODUCT LIST -->
     </div>

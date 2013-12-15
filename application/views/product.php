@@ -219,6 +219,11 @@
                     </div>
                     </div>
                   </div> <!-- Ends:single review -->
+                  <div class="row-fluid">
+                    <div class="pagination-review">
+                      <a href="">122 reviews <i class="fa fa-chevron-down"></i></a>
+                    </div>
+                  </div>
               </div> <!-- Ends: Product page -->
             </div>
             <!-- end:section2 -->
